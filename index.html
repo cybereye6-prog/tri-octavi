@@ -1,0 +1,1158 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Три октавы — клавиши и гриф с нуля</title>
+<meta name="description" content="Практикум игры на клавишных для гитариста: звучащий тренажёр гамм и аккордов, гитарный гриф, 12 занятий, блюзовая площадка и метроном.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#EBEEEC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1513" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Три октавы">
+<meta property="og:description" content="Клавиши и гитарный гриф в одном тренажёре: гаммы, аккорды, блюз, программа занятий.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.92em' font-size='92'>%F0%9F%8E%B9</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{color-scheme:light dark}
+html{-webkit-text-size-adjust:100%}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<style>
+:root{
+  --bg:#EBEEEC;
+  --surface:#F8FAF9;
+  --surface2:#E2E7E4;
+  --ink:#141E1B;
+  --muted:#5B6B67;
+  --line:#CBD4D0;
+  --line-strong:#A9B6B1;
+  --root:#C97A16;
+  --root-soft:#F5E2C4;
+  --tone:#12776D;
+  --tone-soft:#CFE6E2;
+  --blue:#A8477A;
+  --blue-soft:#F0D8E4;
+  --white-key:#FCFDFC;
+  --black-key:#1B2624;
+  --on-accent:#FFFFFF;
+  --on-root:#17110A;
+  --shadow:0 1px 2px rgba(20,30,27,.10), 0 6px 18px rgba(20,30,27,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1513;
+    --surface:#17211E;
+    --surface2:#212C29;
+    --ink:#E6EDEA;
+    --muted:#94A5A0;
+    --line:#2B3936;
+    --line-strong:#3E504B;
+    --root:#EBA544;
+    --root-soft:#EBC894;
+    --tone:#48C2B2;
+    --tone-soft:#A7CFC8;
+    --blue:#E086B4;
+    --blue-soft:#E3AECA;
+    --white-key:#DDE4E1;
+    --black-key:#0A100F;
+    --on-accent:#08201D;
+    --on-root:#17110A;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 22px rgba(0,0,0,.30);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1513;
+  --surface:#17211E;
+  --surface2:#212C29;
+  --ink:#E6EDEA;
+  --muted:#94A5A0;
+  --line:#2B3936;
+  --line-strong:#3E504B;
+  --root:#EBA544;
+  --root-soft:#EBC894;
+  --tone:#48C2B2;
+  --tone-soft:#A7CFC8;
+  --blue:#E086B4;
+  --blue-soft:#E3AECA;
+  --white-key:#DDE4E1;
+  --black-key:#0A100F;
+  --on-accent:#08201D;
+  --on-root:#17110A;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 22px rgba(0,0,0,.30);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:"Unbounded","Golos Text",system-ui,sans-serif;text-wrap:balance;margin:0}
+h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:-.02em;line-height:1.05}
+h2{font-size:clamp(19px,2.6vw,25px);font-weight:600;letter-spacing:-.01em}
+h3{font-size:16px;font-weight:600;letter-spacing:-.005em}
+p{margin:0}
+a{color:var(--tone);text-underline-offset:3px}
+code,.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px 96px}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- header ---------- */
+header.top{padding:44px 0 26px;border-bottom:1px solid var(--line)}
+.top-grid{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:end}
+.lede{max-width:62ch;color:var(--muted);margin-top:14px;font-size:17px}
+.instr-chip{
+  display:flex;flex-direction:column;gap:2px;padding:12px 16px;border:1px solid var(--line);
+  border-radius:3px;background:var(--surface);font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);
+}
+.instr-chip b{font-size:13px;color:var(--ink);letter-spacing:.02em}
+
+/* ---------- nav ---------- */
+nav.jump{display:flex;flex-wrap:wrap;gap:6px;padding:16px 0 0}
+nav.jump a{
+  font-size:13px;text-decoration:none;color:var(--muted);border:1px solid var(--line);
+  padding:5px 11px;border-radius:100px;background:var(--surface);transition:.15s
+}
+nav.jump a:hover{color:var(--ink);border-color:var(--line-strong)}
+
+/* ---------- sections ---------- */
+section{padding-top:52px}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.sec-head .num{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--root);letter-spacing:.1em}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:4px;box-shadow:var(--shadow)}
+
+/* ---------- keyboard ---------- */
+.kb-shell{position:sticky;top:0;z-index:40;background:var(--bg);padding:10px 0 12px;margin-top:-1px}
+.kb-scroll{overflow-x:auto;overflow-y:hidden;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+.kb{position:relative;height:172px;margin:0 auto;user-select:none;touch-action:manipulation}
+.key{position:absolute;top:0;cursor:pointer;border:1px solid var(--line-strong);transition:background .08s,transform .04s}
+.key.w{background:var(--white-key);height:172px;border-radius:0 0 4px 4px;z-index:1}
+.key.b{background:var(--black-key);height:106px;border-radius:0 0 3px 3px;z-index:2;border-color:#000}
+.key .lbl{position:absolute;bottom:7px;left:0;right:0;text-align:center;font-family:"IBM Plex Mono",monospace;font-size:10px;pointer-events:none;line-height:1.15}
+.key.w .lbl{color:#4C5A56}
+.key.b .lbl{color:#9AA8A4;bottom:5px;font-size:9px}
+.key .deg{position:absolute;top:8px;left:0;right:0;text-align:center;font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;pointer-events:none;opacity:0}
+.key.on-tone{background:var(--tone-soft)}
+.key.on-tone.b{background:#0F5C55}
+.key.on-root{background:var(--root-soft)}
+.key.on-root.b{background:#7A4A0C}
+.key.on-blue{background:var(--blue-soft)}
+.key.on-blue.b{background:#6E2A4C}
+.key.on-tone .deg,.key.on-root .deg,.key.on-blue .deg{opacity:1}
+.key.w.on-tone .deg{color:#0C3B35}
+.key.w.on-root .deg{color:#5A3707}
+.key.w.on-blue .deg{color:#5E2140}
+.key.b .deg{color:#F2F6F5}
+.key.press{transform:translateY(2px);filter:brightness(.88)}
+.key.mc::after{content:"";position:absolute;bottom:46px;left:50%;transform:translateX(-50%);width:6px;height:6px;border-radius:50%;background:var(--root)}
+.kb-meta{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--muted);padding:2px 2px 0}
+.swatch{display:inline-flex;align-items:center;gap:6px}
+.swatch i{width:11px;height:11px;border-radius:2px;display:block}
+
+/* ---------- гитарный гриф ---------- */
+.fb-shell{margin:4px 0 0;padding:14px 16px 8px;background:var(--surface);border:1px solid var(--line);border-radius:4px;display:grid;gap:10px}
+.fb-head{display:flex;gap:12px 18px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.fb-ctrls{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.fb-ctrls select{min-width:0;font-size:13px;padding:5px 9px}
+.fb-chk{display:inline-flex;gap:6px;align-items:center;font-size:12px;color:var(--muted);cursor:pointer;white-space:nowrap}
+.fb-chk input{accent-color:var(--tone);width:15px;height:15px;cursor:pointer}
+.fb-scroll{overflow-x:auto;overflow-y:hidden;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+.fb{display:block}
+.fb .board{fill:var(--surface2)}
+.fb .fret{stroke:var(--line-strong);stroke-width:1}
+.fb .nut{stroke:var(--ink);stroke-width:4;stroke-linecap:round}
+.fb .str{stroke:var(--line-strong)}
+.fb .inlay{fill:var(--line-strong);opacity:.45}
+.fb .fnum,.fb .sname{font-family:"IBM Plex Mono",monospace;font-size:10px;fill:var(--muted)}
+.fb .cell{cursor:pointer}
+.fb .cell.dim{opacity:.13}
+.fb .dot.root{fill:var(--root)}
+.fb .dot.tone{fill:var(--tone)}
+.fb .dot.blue{fill:var(--blue)}
+.fb .dot.off{fill:var(--surface);stroke:var(--line-strong);stroke-width:1}
+.fb .lb{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:600;text-anchor:middle;pointer-events:none}
+.fb .lb.root{fill:var(--on-root)}
+.fb .lb.tone,.fb .lb.blue{fill:var(--on-accent)}
+.fb .lb.off{fill:var(--muted);font-weight:400}
+.fb .cell.flash .dot{filter:brightness(1.4)}
+.fb-legend{font-size:12px;color:var(--muted);max-width:76ch}
+
+/* ---------- controls ---------- */
+.tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:14px}
+.tab{
+  font:inherit;font-size:13px;font-weight:500;padding:7px 15px;border-radius:100px;cursor:pointer;
+  border:1px solid var(--line);background:var(--surface);color:var(--muted);transition:.15s
+}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.ctrl-row{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;padding:16px;border-bottom:1px solid var(--line)}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field label{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+select,input[type=number]{
+  font:inherit;font-size:14px;padding:7px 10px;border-radius:3px;border:1px solid var(--line-strong);
+  background:var(--surface2);color:var(--ink);min-width:110px
+}
+button.act{
+  font:inherit;font-size:13px;font-weight:600;padding:8px 16px;border-radius:3px;cursor:pointer;
+  border:1px solid var(--ink);background:var(--ink);color:var(--bg);transition:.15s
+}
+button.act.ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+button.act:hover{opacity:.85}
+button:focus-visible,select:focus-visible,a:focus-visible,.key:focus-visible,input:focus-visible{outline:2px solid var(--root);outline-offset:2px}
+.readout{padding:16px;display:grid;gap:12px}
+.formula{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.pill{
+  font-family:"IBM Plex Mono",monospace;font-size:12px;padding:4px 9px;border-radius:2px;
+  background:var(--surface2);border:1px solid var(--line);white-space:nowrap
+}
+.pill.hi{background:var(--root);border-color:var(--root);color:var(--on-root)}
+.hint{font-size:14px;color:var(--muted);max-width:70ch}
+.fingering{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:center;font-family:"IBM Plex Mono",monospace;font-size:13px}
+.fingering .who{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.fingering .nums{letter-spacing:.28em;font-weight:600;color:var(--ink)}
+
+/* ---------- generic grids ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:14px}
+.card{padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:4px;display:flex;flex-direction:column;gap:8px}
+.card h3{margin-bottom:2px}
+.card p{font-size:14px;color:var(--muted)}
+.card .tagline{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--root);letter-spacing:.08em;text-transform:uppercase}
+
+table{border-collapse:collapse;width:100%;font-size:14px}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td.mono{font-family:"IBM Plex Mono",monospace;font-size:13px;white-space:nowrap}
+
+/* ---------- lessons ---------- */
+.lessons{display:grid;gap:8px}
+details.lesson{border:1px solid var(--line);border-radius:4px;background:var(--surface);overflow:hidden}
+details.lesson[open]{border-color:var(--line-strong)}
+details.lesson summary{
+  list-style:none;cursor:pointer;padding:14px 16px;display:grid;
+  grid-template-columns:auto 1fr auto;gap:14px;align-items:center
+}
+details.lesson summary::-webkit-details-marker{display:none}
+.l-num{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--root);font-weight:600;width:22px}
+.l-title{font-weight:600;font-size:15.5px}
+.l-goal{display:block;font-weight:400;font-size:13px;color:var(--muted);margin-top:1px}
+.l-body{padding:0 16px 18px 52px;display:grid;gap:14px}
+.l-body ol{margin:0;padding-left:20px;display:grid;gap:7px;font-size:14.5px}
+.l-body ol li::marker{color:var(--muted);font-family:"IBM Plex Mono",monospace;font-size:12px}
+.checkline{display:flex;gap:9px;align-items:flex-start;font-size:14px;background:var(--surface2);padding:11px 14px;border-radius:3px}
+.checkline b{color:var(--root);font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding-top:2px;white-space:nowrap}
+.vids{display:flex;flex-wrap:wrap;gap:7px}
+.vid{
+  font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line-strong);
+  padding:5px 11px;border-radius:100px;background:var(--bg);display:inline-flex;gap:6px;align-items:center
+}
+.vid:hover{border-color:var(--root)}
+.vid::before{content:"▶";font-size:8px;color:var(--root)}
+.done-box{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);cursor:pointer}
+.done-box input{width:17px;height:17px;accent-color:var(--tone);cursor:pointer}
+.prog-bar{height:5px;background:var(--surface2);border-radius:100px;overflow:hidden;margin:10px 0 18px}
+.prog-bar i{display:block;height:100%;background:var(--tone);width:0;transition:width .35s ease}
+.prog-label{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.06em}
+
+/* ---------- blues + metronome ---------- */
+.rig{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.beat-dots{display:flex;gap:7px;margin-top:4px}
+.beat-dots i{width:10px;height:10px;border-radius:50%;background:var(--surface2);border:1px solid var(--line-strong);display:block;transition:.08s}
+.beat-dots i.hit{background:var(--root);border-color:var(--root);transform:scale(1.25)}
+.bars{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:10px}
+.bar{
+  font-family:"IBM Plex Mono",monospace;font-size:12px;text-align:center;padding:8px 2px;border-radius:2px;
+  background:var(--surface2);border:1px solid var(--line);color:var(--muted)
+}
+.bar.now{background:var(--root);border-color:var(--root);color:var(--on-root);font-weight:600}
+.score{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted)}
+.ear-opts{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.ear-opts button{font:inherit;font-size:13px;padding:7px 12px;border-radius:3px;border:1px solid var(--line-strong);background:var(--surface2);color:var(--ink);cursor:pointer}
+.ear-opts button.ok{background:var(--tone);border-color:var(--tone);color:var(--on-accent)}
+.ear-opts button.no{background:var(--blue);border-color:var(--blue);color:var(--on-accent)}
+
+/* ---------- circle of fifths ---------- */
+.cof-wrap{display:grid;grid-template-columns:minmax(0,340px) 1fr;gap:22px;align-items:start}
+.cof circle,.cof line{vector-effect:non-scaling-stroke}
+.cof .seg{cursor:pointer}
+.cof .seg:hover .segbg{fill:var(--surface2)}
+.cof .maj{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;fill:var(--ink)}
+.cof .min{font-family:"IBM Plex Mono",monospace;font-size:10px;fill:var(--muted)}
+.cof .sig{font-family:"IBM Plex Mono",monospace;font-size:9px;fill:var(--root)}
+
+footer{margin-top:70px;padding-top:22px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);display:grid;gap:6px}
+
+@media (max-width:760px){
+  .top-grid{grid-template-columns:1fr}
+  .cof-wrap{grid-template-columns:1fr}
+  .l-body{padding-left:16px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="top-grid">
+    <div>
+      <div class="eyebrow">Практикум для гитариста, севшего за клавиши</div>
+      <h1>Три октавы</h1>
+      <p class="lede">Всё, что помещается в 37 мини-клавиш: теория, гаммы, аккорды, блюз. Тренажёр звучит прямо на странице — можно проверять себя без инструмента, в командировке и в очереди.</p>
+    </div>
+    <div class="instr-chip">
+      <b>YAMAHA PSS-F30</b>
+      <span>37 клавиш · C2–C5 в маркировке Yamaha</span>
+      <span>32 голоса · транспонирование ±12</span>
+      <span>без динамики · без педали · без MIDI</span>
+    </div>
+  </div>
+  <nav class="jump">
+    <a href="#trainer">Тренажёр</a>
+    <a href="#program">Программа</a>
+    <a href="#rig">Блюз и метроном</a>
+    <a href="#cof">Квинтовый круг</a>
+    <a href="#ref">Справочник</a>
+    <button class="act ghost" id="themeBtn" style="margin-left:auto;padding:5px 13px;font-size:13px;font-weight:500">Тема</button>
+  </nav>
+</header>
+
+<!-- ============ KEYBOARD (sticky) ============ -->
+<div class="kb-shell" id="trainer">
+  <div class="kb-scroll"><div class="kb" id="kb"></div></div>
+  <div class="kb-meta">
+    <span class="swatch"><i style="background:var(--root)"></i> тоника</span>
+    <span class="swatch"><i style="background:var(--tone)"></i> ступени</span>
+    <span class="swatch"><i style="background:var(--blue)"></i> блюзовая нота</span>
+    <span>Играть можно и с компьютерной клавиатуры: <code>z s x d c v g b h n j m</code> — нижняя октава, <code>q 2 w 3 e r 5 t 6 y 7 u</code> — верхняя.</span>
+  </div>
+</div>
+
+<!-- ============ FRETBOARD ============ -->
+<div class="fb-shell" id="fbShell">
+  <div class="fb-head">
+    <span class="eyebrow">Гитарный гриф — та же гамма</span>
+    <div class="fb-ctrls">
+      <select id="fbTun" aria-label="Строй"></select>
+      <select id="fbPos" aria-label="Позиция"></select>
+      <label class="fb-chk"><input type="checkbox" id="fbNames"> названия нот</label>
+      <button class="act ghost" id="fbHide" style="padding:5px 12px">Скрыть</button>
+    </div>
+  </div>
+  <div class="fb-scroll" id="fbScroll"><svg class="fb" id="fb" role="img" aria-label="Гриф гитары с подсветкой нот гаммы"></svg></div>
+  <p class="fb-legend" id="fbLegend"></p>
+</div>
+
+<section style="padding-top:22px">
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-mode="notes">Ноты</button>
+    <button class="tab" role="tab" aria-selected="false" data-mode="scale">Гаммы</button>
+    <button class="tab" role="tab" aria-selected="false" data-mode="chord">Аккорды</button>
+    <button class="tab" role="tab" aria-selected="false" data-mode="interval">Интервалы</button>
+  </div>
+
+  <div class="panel">
+    <div class="ctrl-row" id="ctrls"></div>
+    <div class="readout" id="readout"></div>
+  </div>
+</section>
+
+<!-- ============ PROGRAM ============ -->
+<section id="program">
+  <div class="sec-head"><span class="num">01</span><h2>Программа: 12 занятий по выходным</h2></div>
+  <p class="hint">Одно занятие — один выходной, 45–60 минут. Не переходи дальше, пока не выполнен «контроль». В будни хватит 10 минут разминки — это важнее, чем длинная сессия раз в две недели.</p>
+  <div class="prog-bar"><i id="progFill"></i></div>
+  <div class="prog-label" id="progText">0 из 12 закрыто</div>
+  <div class="lessons" id="lessons"></div>
+
+  <div class="cards" style="margin-top:22px">
+    <div class="card">
+      <span class="tagline">Ежедневно · 10 минут</span>
+      <h3>Разминка</h3>
+      <p>1) Хроматика 1-2-3-4-5 вверх-вниз, метроном 60. 2) Гамма текущей тональности, одна октава, каждой рукой. 3) Трезвучия по ступеням тональности. 4) Назвать вслух 5 случайных клавиш быстрее секунды.</p>
+    </div>
+    <div class="card">
+      <span class="tagline">Раз в две недели</span>
+      <h3>Запись</h3>
+      <p>Пиши себя на телефон через выход на наушники. Слушай на следующий день. Ищешь ровность доли и чистоту переходов, не «красиво/некрасиво».</p>
+    </div>
+    <div class="card">
+      <span class="tagline">Честно про репертуар</span>
+      <h3>Что влезет, а что нет</h3>
+      <p>В три октавы без педали влезают: Ода к радости, Менуэт Баха BWV Anh.114, блюз в C, большинство поп-прогрессий. <b>Не влезут:</b> Gymnopédie, Comptine d'un autre été, «К Элизе» целиком — им нужны педаль и 5+ октав. Держи их как цель на нормальный инструмент.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RIG ============ -->
+<section id="rig">
+  <div class="sec-head"><span class="num">02</span><h2>Блюзовая площадка и метроном</h2></div>
+  <div class="rig">
+    <div class="panel" style="padding:18px;display:grid;gap:10px">
+      <h3>Метроном</h3>
+      <div style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap">
+        <div class="field"><label>Темп</label><input type="number" id="mBpm" value="72" min="30" max="220" step="1"></div>
+        <div class="field"><label>Размер</label><select id="mSig"><option value="4">4/4</option><option value="3">3/4</option><option value="2">2/4</option></select></div>
+        <button class="act" id="mBtn">Пуск</button>
+      </div>
+      <div class="beat-dots" id="mDots"></div>
+      <p class="hint" style="font-size:13px">Ставь темп такой, при котором ты <i>ни разу</i> не запнулся. Прибавляй по 4 удара.</p>
+    </div>
+
+    <div class="panel" style="padding:18px;display:grid;gap:10px">
+      <h3>12 тактов блюза</h3>
+      <div style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap">
+        <div class="field"><label>Тональность</label><select id="bKey"></select></div>
+        <div class="field"><label>Темп</label><input type="number" id="bBpm" value="88" min="50" max="180" step="1"></div>
+        <button class="act" id="bBtn">Играть</button>
+      </div>
+      <div class="bars" id="bBars"></div>
+      <p class="hint" style="font-size:13px">Аккомпанемент играет сам, ты импровизируешь правой по блюзовой гамме — нажми «Гаммы → блюзовая», клавиатура подсветит ноты. Начни с трёх нот и меняй только ритм.</p>
+    </div>
+
+    <div class="panel" style="padding:18px;display:grid;gap:10px">
+      <h3>Слух: интервалы</h3>
+      <p class="hint" style="font-size:13px">Звучат две ноты. Назови расстояние. Это единственное упражнение, которое отличает «выучил» от «слышу».</p>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <button class="act" id="eNew">Новый интервал</button>
+        <button class="act ghost" id="eRep">Повторить</button>
+        <span class="score" id="eScore">0 / 0</span>
+      </div>
+      <div class="ear-opts" id="eOpts"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CIRCLE OF FIFTHS ============ -->
+<section id="cof">
+  <div class="sec-head"><span class="num">03</span><h2>Квинтовый круг</h2></div>
+  <div class="cof-wrap">
+    <div class="panel" style="padding:14px"><svg class="cof" id="cofSvg" viewBox="0 0 320 320" width="100%" role="img" aria-label="Квинтовый круг: 12 мажорных тональностей и их параллельные миноры"></svg></div>
+    <div style="display:grid;gap:12px">
+      <p class="hint">Каждый шаг по часовой стрелке — вверх на чистую квинту и <b>+1 диез</b>. Против часовой — вниз на квинту и <b>+1 бемоль</b>. Соседние тональности отличаются одной нотой, поэтому переход между ними звучит естественно — на этом держится половина всей популярной музыки.</p>
+      <p class="hint">Внутри — параллельный минор: те же знаки, та же гамма, другая тоника (на малую терцию ниже). До мажор и ля минор — одни и те же белые клавиши.</p>
+      <p class="hint">Нажми любой сектор — тренажёр переключится на эту тональность.</p>
+      <div class="formula">
+        <span class="pill">Диезы по порядку: F# C# G# D# A# E# B#</span>
+        <span class="pill">Бемоли: B♭ E♭ A♭ D♭ G♭ C♭ F♭</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REFERENCE ============ -->
+<section id="ref">
+  <div class="sec-head"><span class="num">04</span><h2>Справочник</h2></div>
+
+  <h3 style="margin:8px 0 10px">Интервалы в полутонах</h3>
+  <div class="tbl-wrap" style="margin-bottom:26px">
+    <table>
+      <tr><th>Полутонов</th><th>Интервал</th><th>Пример от До</th><th>Где слышал</th></tr>
+      <tr><td class="mono">1</td><td>малая секунда</td><td class="mono">C–C♯</td><td>тема «Челюстей»</td></tr>
+      <tr><td class="mono">2</td><td>большая секунда</td><td class="mono">C–D</td><td>«Happy Birthday», первые две ноты</td></tr>
+      <tr><td class="mono">3</td><td>малая терция</td><td class="mono">C–E♭</td><td>минорная окраска</td></tr>
+      <tr><td class="mono">4</td><td>большая терция</td><td class="mono">C–E</td><td>мажорная окраска</td></tr>
+      <tr><td class="mono">5</td><td>чистая кварта</td><td class="mono">C–F</td><td>строй гитары между струнами</td></tr>
+      <tr><td class="mono">6</td><td>тритон</td><td class="mono">C–F♯</td><td>«блюзовая нота», напряжение</td></tr>
+      <tr><td class="mono">7</td><td>чистая квинта</td><td class="mono">C–G</td><td>пауэр-аккорд</td></tr>
+      <tr><td class="mono">8</td><td>малая секста</td><td class="mono">C–A♭</td><td>—</td></tr>
+      <tr><td class="mono">9</td><td>большая секста</td><td class="mono">C–A</td><td>«My Way», начало</td></tr>
+      <tr><td class="mono">10</td><td>малая септима</td><td class="mono">C–B♭</td><td>доминантсептаккорд, блюз</td></tr>
+      <tr><td class="mono">11</td><td>большая септима</td><td class="mono">C–B</td><td>maj7, «мягкий джаз»</td></tr>
+      <tr><td class="mono">12</td><td>октава</td><td class="mono">C–C</td><td>—</td></tr>
+    </table>
+  </div>
+
+  <h3 style="margin:8px 0 10px">Формулы аккордов</h3>
+  <div class="tbl-wrap" style="margin-bottom:26px">
+    <table id="chordRef"><tr><th>Обозначение</th><th>Название</th><th>Ступени</th><th>Полутоны от тоники</th><th>От До</th></tr></table>
+  </div>
+
+  <h3 style="margin:8px 0 10px">Аппликатуры гамм</h3>
+  <div class="tbl-wrap" style="margin-bottom:14px">
+    <table id="fingRef"><tr><th>Тональность</th><th>Правая рука</th><th>Левая рука</th></tr></table>
+  </div>
+  <p class="hint">Для остальных тональностей действует правило, а не таблица: <b>большой палец никогда не встаёт на чёрную клавишу</b>, а третий и четвёртый пальцы «выстраиваются» по группам чёрных. Разбирайся с каждой новой тональностью через это правило — так аппликатура запоминается навсегда, а не зазубривается.</p>
+</section>
+
+<footer>
+  <div>Тренажёр звучит через Web Audio — наушники дадут более честный тон, чем динамик ноутбука.</div>
+  <div>Отметки «готово» и настройки грифа хранятся в этом браузере (localStorage) — на другом устройстве прогресс начнётся с нуля.</div>
+  <div>Видео подобраны по открытому поиску; названия каналов и роликов могут меняться. Если ссылка умерла — ищи по названию из подписи.</div>
+</footer>
+
+</div>
+
+<script>
+/* ================= данные ================= */
+const LAT=["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+const RU=["До","До♯","Ре","Ре♯","Ми","Фа","Фа♯","Соль","Соль♯","Ля","Ля♯","Си"];
+const LOW=48,HIGH=84;              // C3..C6 (SPN); вторая «до» = C4 = 60 = middle C
+const BLACK=[1,3,6,8,10];
+const isBlack=m=>BLACK.includes(((m%12)+12)%12);
+
+const SCALES={
+  major:{n:"Мажорная (натуральная)",s:[0,2,4,5,7,9,11],d:["1","2","3","4","5","6","7"],note:"Тон · тон · полутон · тон · тон · тон · полутон"},
+  natminor:{n:"Минорная натуральная",s:[0,2,3,5,7,8,10],d:["1","2","♭3","4","5","♭6","♭7"],note:"Тон · полутон · тон · тон · полутон · тон · тон"},
+  harmminor:{n:"Минорная гармоническая",s:[0,2,3,5,7,8,11],d:["1","2","♭3","4","5","♭6","7"],note:"Натуральный минор с повышенной VII — отсюда «восточный» шаг в полтора тона"},
+  melminor:{n:"Минорная мелодическая (вверх)",s:[0,2,3,5,7,9,11],d:["1","2","♭3","4","5","6","7"],note:"Вверх — так, вниз обычно возвращают натуральный минор"},
+  majpent:{n:"Пентатоника мажорная",s:[0,2,4,7,9],d:["1","2","3","5","6"],note:"Мажорная гамма без IV и VII — нечему фальшивить"},
+  minpent:{n:"Пентатоника минорная",s:[0,3,5,7,10],d:["1","♭3","4","5","♭7"],note:"Твоя гитарная «коробочка», нота в ноту"},
+  blues:{n:"Блюзовая",s:[0,3,5,6,7,10],d:["1","♭3","4","♭5","5","♭7"],blue:[6],note:"Минорная пентатоника + ♭5 — та самая «блюзовая нота»"},
+  dorian:{n:"Дорийский лад",s:[0,2,3,5,7,9,10],d:["1","2","♭3","4","5","6","♭7"],note:"Минор со светлой VI — Santana, фанк, соул"},
+  mixo:{n:"Миксолидийский лад",s:[0,2,4,5,7,9,10],d:["1","2","3","4","5","6","♭7"],note:"Мажор с ♭VII — рок и доминантовые аккорды"},
+  chromatic:{n:"Хроматическая",s:[0,1,2,3,4,5,6,7,8,9,10,11],d:["","","","","","","","","","","",""],note:"Все 12 полутонов подряд"}
+};
+
+const CHORDS={
+  maj  :{sym:"",     n:"Мажорное трезвучие",     iv:[0,4,7],       deg:"1 · 3 · 5"},
+  min  :{sym:"m",    n:"Минорное трезвучие",     iv:[0,3,7],       deg:"1 · ♭3 · 5"},
+  dim  :{sym:"dim",  n:"Уменьшённое трезвучие",  iv:[0,3,6],       deg:"1 · ♭3 · ♭5"},
+  aug  :{sym:"aug",  n:"Увеличенное трезвучие",  iv:[0,4,8],       deg:"1 · 3 · ♯5"},
+  sus2 :{sym:"sus2", n:"Сус-два",                iv:[0,2,7],       deg:"1 · 2 · 5"},
+  sus4 :{sym:"sus4", n:"Сус-четыре",             iv:[0,5,7],       deg:"1 · 4 · 5"},
+  six  :{sym:"6",    n:"Мажорный секстаккорд",   iv:[0,4,7,9],     deg:"1 · 3 · 5 · 6"},
+  min6 :{sym:"m6",   n:"Минорный с секстой",     iv:[0,3,7,9],     deg:"1 · ♭3 · 5 · 6"},
+  maj7 :{sym:"maj7", n:"Большой мажорный септ",  iv:[0,4,7,11],    deg:"1 · 3 · 5 · 7"},
+  dom7 :{sym:"7",    n:"Доминантсептаккорд",     iv:[0,4,7,10],    deg:"1 · 3 · 5 · ♭7"},
+  min7 :{sym:"m7",   n:"Малый минорный септ",    iv:[0,3,7,10],    deg:"1 · ♭3 · 5 · ♭7"},
+  m7b5 :{sym:"m7♭5", n:"Полууменьшённый",        iv:[0,3,6,10],    deg:"1 · ♭3 · ♭5 · ♭7"},
+  dim7 :{sym:"dim7", n:"Уменьшённый септаккорд", iv:[0,3,6,9],     deg:"1 · ♭3 · ♭5 · ♭♭7"},
+  add9 :{sym:"add9", n:"Мажор с ноной",          iv:[0,4,7,14],    deg:"1 · 3 · 5 · 9"},
+  nine :{sym:"9",    n:"Нонаккорд",              iv:[0,4,7,10,14], deg:"1 · 3 · 5 · ♭7 · 9"}
+};
+
+/* аппликатуры, в которых я уверен; для остальных — правило, не выдуманная таблица */
+const FING={
+  "0_major":{rh:"1 2 3 1 2 3 4 5",lh:"5 4 3 2 1 3 2 1",label:"До мажор"},
+  "7_major":{rh:"1 2 3 1 2 3 4 5",lh:"5 4 3 2 1 3 2 1",label:"Соль мажор"},
+  "2_major":{rh:"1 2 3 1 2 3 4 5",lh:"5 4 3 2 1 3 2 1",label:"Ре мажор"},
+  "9_major":{rh:"1 2 3 1 2 3 4 5",lh:"5 4 3 2 1 3 2 1",label:"Ля мажор"},
+  "4_major":{rh:"1 2 3 1 2 3 4 5",lh:"5 4 3 2 1 3 2 1",label:"Ми мажор"},
+  "11_major":{rh:"1 2 3 1 2 3 4 5",lh:"4 3 2 1 4 3 2 1",label:"Си мажор"},
+  "5_major":{rh:"1 2 3 4 1 2 3 4",lh:"5 4 3 2 1 3 2 1",label:"Фа мажор"},
+  "9_natminor":{rh:"1 2 3 1 2 3 4 5",lh:"5 4 3 2 1 3 2 1",label:"Ля минор"},
+  "4_natminor":{rh:"1 2 3 1 2 3 4 5",lh:"5 4 3 2 1 3 2 1",label:"Ми минор"},
+  "2_natminor":{rh:"1 2 3 1 2 3 4 5",lh:"5 4 3 2 1 3 2 1",label:"Ре минор"}
+};
+
+const COF=[
+  {pc:0,maj:"C",min:"Am",sig:"—"},{pc:7,maj:"G",min:"Em",sig:"1♯"},{pc:2,maj:"D",min:"Bm",sig:"2♯"},
+  {pc:9,maj:"A",min:"F♯m",sig:"3♯"},{pc:4,maj:"E",min:"C♯m",sig:"4♯"},{pc:11,maj:"B",min:"G♯m",sig:"5♯"},
+  {pc:6,maj:"G♭",min:"E♭m",sig:"6♭"},{pc:1,maj:"D♭",min:"B♭m",sig:"5♭"},{pc:8,maj:"A♭",min:"Fm",sig:"4♭"},
+  {pc:3,maj:"E♭",min:"Cm",sig:"3♭"},{pc:10,maj:"B♭",min:"Gm",sig:"2♭"},{pc:5,maj:"F",min:"Dm",sig:"1♭"}
+];
+
+const LESSONS=[
+ {t:"География клавиатуры",g:"Перестать искать ноты глазами",
+  steps:["Найди среднюю до: вторая «до» слева на твоём инструменте. Всё остальное отсчитывается от неё.",
+   "Ориентиры: «до» — слева от группы из двух чёрных, «фа» — слева от группы из трёх. Больше запоминать нечего.",
+   "Три минуты: закрой глаза, ткни в клавишу, назови её. Ошибка — начинай отсчёт заново.",
+   "Нумерация пальцев 1–5 от большого. На гитаре 1 — указательный, здесь нет. Проговаривай номера вслух неделю.",
+   "Посадка: предплечье горизонтально, запястье не проваливается, пальцы округлены, играешь подушечкой. Не «прижимай» струну — привычка левой руки будет мешать.",
+   "Мелодия «Ода к радости», правая рука: <span class=mono>ми ми фа соль | соль фа ми ре | до до ре ми | ми ре ре</span>, пальцы <span class=mono>3 3 4 5 5 4 3 2 1 1 2 3 3 2 2</span>."],
+  chk:"Называешь любую клавишу быстрее секунды и играешь «Оду» без остановок.",
+  v:[["1 урок. С чего начать / Фортепиано с нуля для взрослых","https://www.youtube.com/watch?v=QB8R_NjKamI"],["Плейлист: 12 уроков фортепиано с нуля для взрослых","https://www.youtube.com/playlist?list=PLUizn0Ib2PeVCTAuhOWj7gLr6UNQH52KM"]]},
+
+ {t:"Ритм и метроном",g:"Ровная доля важнее правильных нот",
+  steps:["Длительности: целая = 4 доли, половинная = 2, четверть = 1, восьмая = ½. Это вся арифметика на первые полгода.",
+   "Метроном 60. Играй «Оду» четвертями, считая вслух «раз-и-два-и-три-и-четыре-и».",
+   "То же восьмыми на 60, потом четвертями на 80. Темп поднимай, пока не появилась первая запинка, затем откатись на два шага.",
+   "Ты уже чувствуешь долю по гитарному бою — задача перенести это чувство в левую руку, которая на клавишах отвечает за ритм."],
+  chk:"Две минуты подряд под метроном 72 без единого разъезда.",
+  v:[["Метроном и счёт — блок в курсе «Ноты Пилоты»","https://www.youtube.com/playlist?list=PLUizn0Ib2PeVCTAuhOWj7gLr6UNQH52KM"]]},
+
+ {t:"Гамма До мажор",g:"Подкладывание первого пальца",
+  steps:["Правая: <span class=mono>1 2 3 1 2 3 4 5</span>. Первый палец подкладывается под третий на «фа».",
+   "Левая: <span class=mono>5 4 3 2 1 3 2 1</span>. Третий палец перекладывается через первый.",
+   "Темп 50, одна октава каждой рукой отдельно. Смотри не на пальцы, а на ровность звука.",
+   "Через неделю — две октавы, потом двумя руками вместе.",
+   "Не гонись за скоростью. Гамма — это упражнение на равномерность, а не на быстроту."],
+  chk:"Две октавы вверх-вниз каждой рукой, метроном 60, ни одного «провала» на подкладывании.",
+  v:[["Гамма До мажор + как играть, подробно","https://www.youtube.com/watch?v=R9HK3ras0lI"],["Аппликатура в гаммах от белых клавиш","https://www.youtube.com/watch?v=h1x4ub_yVHE"],["Как не путать пальцы в гаммах","https://www.youtube.com/watch?v=T0aYbT9SRG0"]]},
+
+ {t:"Строение гаммы и интервалы",g:"Считать полутоны, а не вспоминать картинки",
+  steps:["Формула мажора в полутонах: <span class=mono>2 2 1 2 2 2 1</span>. Проверь её от «ре», «соль», «си♭» — тренажёр подсветит результат.",
+   "Выучи таблицу интервалов из справочника. Не наизусть — через звук: играй и слушай.",
+   "Гитарная привязка: 1 лад = 1 полутон = соседняя клавиша, чёрные считаются. Пятый лад = кварта = 5 полутонов.",
+   "Тренируй слух на интервалы по 5 минут — это единственное, что нельзя нагнать потом."],
+  chk:"Строишь мажорную гамму от любой из 12 нот по формуле, без подсказки, за минуту.",
+  v:[["Вся теория музыки за 90 минут","https://www.youtube.com/watch?v=p0X_NkLhzRQ"],["Построение интервалов. Формулы аккордов","https://www.youtube.com/watch?v=btIA1uIbp6M"]]},
+
+ {t:"Трезвучия",g:"Мажор и минор через формулу, а не через форму",
+  steps:["Мажор = 4 полутона + 3. Минор = 3 + 4. Всё различие в одной ноте — средней.",
+   "Ступени До мажора: <span class=mono>C · Dm · Em · F · G · Am · Bdim</span>. Три мажорных, три минорных, одно уменьшённое — этот порядок одинаков в любой тональности.",
+   "Играй по кругу <span class=mono>C – Am – F – G</span>: левая берёт басовую ноту, правая — трезвучие.",
+   "Эта прогрессия у тебя уже в руках с гитары. Здесь ты просто видишь её изнутри."],
+  chk:"За 10 секунд строишь любое мажорное и минорное трезвучие от любой ноты.",
+  v:[["Как строить мажорное и минорное трезвучие","https://www.youtube.com/watch?v=-urjG5kqI44"],["Теория: трезвучие, мажор и минор, обращения","https://www.youtube.com/watch?v=w2RM10XuwD0"]]},
+
+ {t:"Мелодия и аккомпанемент",g:"Первая песня целиком",
+  steps:["Левая рука: басовая нота аккорда на первую долю такта, потом трезвучие на третью.",
+   "Правая: мелодия. Начни с восьми тактов, а не с целой песни.",
+   "Прогрессия <span class=mono>C – G – Am – F</span> — та же, что ты играешь боем.",
+   "Собирай по два такта: правая отдельно → левая отдельно → вместе очень медленно → метроном."],
+  chk:"Восемь тактов двумя руками, наизусть, под метроном, без остановок.",
+  v:[["Учись играть любую песню без нот","https://www.youtube.com/watch?v=HNCu3j4lbXM"]]},
+
+ {t:"Обращения и голосоведение",g:"Перестать прыгать рукой по клавиатуре",
+  steps:["Обращения C: <span class=mono>C-E-G</span> → <span class=mono>E-G-C</span> → <span class=mono>G-C-E</span>. Ноты те же, порядок разный.",
+   "Правило: при смене аккорда двигай ближайший голос. Рука почти не переезжает.",
+   "Связка в тесном расположении: <span class=mono>C(C-E-G) → Am(C-E-A) → F(C-F-A) → G(B-D-G)</span>. Заметь, как мало движется рука.",
+   "На гитаре это делали за тебя формы аккордов. Здесь придётся выбирать самому — зато звучит чище."],
+  chk:"Играешь связку из четырёх аккордов, не сдвигая руку больше чем на терцию.",
+  v:[["Трезвучия и обращения аккордов","https://www.youtube.com/watch?v=w2RM10XuwD0"],["Построение трезвучий, обращения, анализ аккорда","https://www.youtube.com/watch?v=XAigNSrBxDE"]]},
+
+ {t:"Тональности и квинтовый круг",g:"Выйти за пределы белых клавиш",
+  steps:["Соль мажор: один диез, F♯. Фа мажор: один бемоль, B♭. Разбери обе гаммы по правилу «большой палец не на чёрной».",
+   "Круг квинт: каждый шаг вправо — +1 диез, влево — +1 бемоль. Открой раздел 03 и покликай.",
+   "Кнопка Transpose на PSS-F30 = каподастр. Пользуйся, но знай, что реально звучит.",
+   "Играй одну и ту же прогрессию I–V–vi–IV в C, G и F. Одна логика, три разные картинки под пальцами."],
+  chk:"Называешь знаки при ключе для C, G, D, A, F, B♭ без пауз.",
+  v:[["Фортепиано для всех. Урок 4 — гамма до мажор","https://www.youtube.com/watch?v=kjG7esYnuR4"],["Формула для гамм","https://www.youtube.com/watch?v=vRkcxkCzTNw"]]},
+
+ {t:"Минор",g:"Три минора и параллельные тональности",
+  steps:["Натуральный <span class=mono>2 1 2 2 1 2 2</span>, гармонический — с повышенной VII, мелодический — с VI и VII вверх.",
+   "Ля минор параллелен До мажору: те же ноты, другая тоника. Ля-минорная гамма — это белые клавиши от «ля».",
+   "В гармоническом ля миноре появляется G♯ — и вместо Em получается E, а с ним каденция <span class=mono>Am – Dm – E7 – Am</span>.",
+   "Сыграй ту же мелодию в мажоре и миноре, послушай разницу вживую, а не по описанию."],
+  chk:"Играешь ля минор гармонический двумя руками и каденцию Am–Dm–E7–Am.",
+  v:[["Гаммы для начинающих, хроматическая гамма","https://www.youtube.com/watch?v=Mjg7vdHaLWg"]]},
+
+ {t:"Септаккорды и II–V–I",g:"Четырёхзвучия и главный оборот в музыке",
+  steps:["maj7 = 1-3-5-7, доминантовый 7 = 1-3-5-♭7, m7 = 1-♭3-5-♭7. Разница — одна-две ноты, а окраска другая.",
+   "Оборот <span class=mono>Dm7 – G7 – Cmaj7</span>. Это скелет джаза и половины эстрады.",
+   "Шелл-войсинги: играй только 1-3-7 или 1-7-3. Пятая ступень почти всегда лишняя — особенно на трёх октавах.",
+   "Прогони II–V–I в C, F и G. Замечай, как ведут себя терция и септима — они всегда рядом."],
+  chk:"II–V–I шелл-войсингами в трёх тональностях под метроном 70.",
+  v:[["Построение интервалов и формулы аккордов","https://www.youtube.com/watch?v=btIA1uIbp6M"]]},
+
+ {t:"Блюз",g:"Импровизация с первого раза",
+  steps:["Форма: <span class=mono>C7 C7 C7 C7 | F7 F7 C7 C7 | G7 F7 C7 G7</span>. Двенадцать тактов, повторяются вечно.",
+   "Блюзовая гамма от До: <span class=mono>C E♭ F G♭ G B♭</span>. Ты знаешь её с гитары — это пентатоника плюс ♭5.",
+   "Левая: шелл 1-♭7-3 либо шафл-бас <span class=mono>1 5 6 5</span>. Начни с шелла, он проще и звучит взрослее.",
+   "Запусти площадку в разделе 02 и импровизируй правой. Ограничение на первый раз: <b>три ноты</b>. Меняй только ритм.",
+   "Главное правило блюза: ♭5 — проходящая нота. Задержался на ней — звучит как ошибка."],
+  chk:"Три полных круга импровизации без остановки и без взгляда на клавиши.",
+  v:[["12 Bar Blues Piano Tutorial — базовая прогрессия и левая рука","https://www.youtube.com/watch?v=8lrqbt9WBKs"],["How To REALLY Improvise Using The Blues Scale","https://www.youtube.com/watch?v=CjJwxtahGtw"],["How to play blues piano: простой способ начать импровизировать","https://www.youtube.com/watch?v=L0v3mJVrgZc"]]},
+
+ {t:"Ноты с листа",g:"Читать текст, а не заучивать движения",
+  steps:["Два ключа: скрипичный — правая, басовый — левая. Средняя до лежит ровно между ними, на добавочной линейке.",
+   "Не учи ноты «по буквам». Учи интервалы: увидел скачок через линейку — это терция, куда бы она ни попала.",
+   "Метод разбора: сначала прохлопай ритм без нот, потом сыграй ноты без ритма, потом соедини.",
+   "Первая пьеса: <b>Бах, Менуэт соль мажор BWV Anh. 114</b>. Помещается в три октавы, педаль не нужна, динамика не критична — то есть подходит твоему инструменту целиком.",
+   "Читай с листа по 5 минут каждый раз что-то новое и лёгкое. Это отдельный навык, он не появляется от разучивания пьес."],
+  chk:"Разбираешь восемь тактов незнакомого лёгкого текста за 15 минут.",
+  v:[["Фортепиано для всех. Урок 10 — арпеджио, аппликатура","https://www.youtube.com/watch?v=1vVAccGOPB0"],["Постановка пальцев при игре на пианино","https://www.youtube.com/watch?v=bTB3RicZaeE"]]}
+];
+
+/* ================= звук ================= */
+let ac=null;
+function ctx(){
+  if(!ac){try{ac=new (window.AudioContext||window.webkitAudioContext)()}catch(e){return null}}
+  if(ac.state==="suspended")ac.resume();
+  return ac;
+}
+const hz=m=>440*Math.pow(2,(m-69)/12);
+function tone(m,at,dur,vol,timbre){
+  const a=ctx(); if(!a)return;
+  const t=at||a.currentTime, g=a.createGain(), f=a.createBiquadFilter();
+  f.type="lowpass"; f.frequency.setValueAtTime(timbre==="bass"?900:3200,t); f.Q.value=.6;
+  const v=vol==null?.20:vol, d=dur==null?1.3:dur;
+  g.gain.setValueAtTime(0,t);
+  g.gain.linearRampToValueAtTime(v,t+.012);
+  g.gain.exponentialRampToValueAtTime(v*.30,t+.28);
+  g.gain.exponentialRampToValueAtTime(.0001,t+d);
+  const o1=a.createOscillator(),o2=a.createOscillator();
+  o1.type="triangle"; o1.frequency.value=hz(m);
+  o2.type="sine";     o2.frequency.value=hz(m-12);
+  const g2=a.createGain(); g2.gain.value=.4; o2.connect(g2); g2.connect(f);
+  o1.connect(f); f.connect(g); g.connect(a.destination);
+  o1.start(t); o2.start(t); o1.stop(t+d+.05); o2.stop(t+d+.05);
+}
+function click(at,accent){
+  const a=ctx(); if(!a)return;
+  const t=at||a.currentTime,o=a.createOscillator(),g=a.createGain();
+  o.type="square"; o.frequency.value=accent?1600:1050;
+  g.gain.setValueAtTime(.0001,t); g.gain.linearRampToValueAtTime(accent?.20:.11,t+.002);
+  g.gain.exponentialRampToValueAtTime(.0001,t+.055);
+  o.connect(g); g.connect(a.destination); o.start(t); o.stop(t+.07);
+}
+
+/* ================= клавиатура ================= */
+const KW=42,KH=172,BW=26,BH=106;
+const kbEl=document.getElementById("kb");
+const keyEls={};
+(function buildKb(){
+  let wi=0, frag=document.createDocumentFragment();
+  const blacks=[];
+  for(let m=LOW;m<=HIGH;m++){
+    const pc=m%12, el=document.createElement("div");
+    el.className="key "+(isBlack(m)?"b":"w");
+    el.dataset.midi=m; el.tabIndex=-1;
+    el.innerHTML='<span class="deg"></span><span class="lbl"></span>';
+    if(isBlack(m)){ el.style.left=(wi*KW-BW/2)+"px"; el.style.width=BW+"px"; blacks.push(el); }
+    else{ el.style.left=(wi*KW)+"px"; el.style.width=KW+"px"; if(m===60)el.classList.add("mc"); wi++; frag.appendChild(el); }
+    keyEls[m]=el;
+  }
+  blacks.forEach(b=>frag.appendChild(b));
+  kbEl.style.width=(wi*KW)+"px";
+  kbEl.appendChild(frag);
+})();
+
+function press(m){
+  const el=keyEls[m]; if(!el)return;
+  tone(m); el.classList.add("press");
+  setTimeout(()=>el.classList.remove("press"),140);
+}
+kbEl.addEventListener("pointerdown",e=>{
+  const k=e.target.closest(".key"); if(!k)return; e.preventDefault(); press(+k.dataset.midi);
+});
+const KMAP={z:60,s:61,x:62,d:63,c:64,v:65,g:66,b:67,h:68,n:69,j:70,m:71,
+            q:72,"2":73,w:74,"3":75,e:76,r:77,"5":78,t:79,"6":80,y:81,"7":82,u:83};
+const held={};
+window.addEventListener("keydown",e=>{
+  if(e.metaKey||e.ctrlKey||e.altKey)return;
+  const tag=(e.target.tagName||"").toLowerCase();
+  if(tag==="input"||tag==="select"||tag==="textarea")return;
+  const m=KMAP[e.key.toLowerCase()];
+  if(m&&!held[m]){held[m]=1;press(m);}
+});
+window.addEventListener("keyup",e=>{const m=KMAP[e.key.toLowerCase()];if(m)delete held[m];});
+
+function clearHl(){
+  for(const m in keyEls){
+    const el=keyEls[m];
+    el.classList.remove("on-tone","on-root","on-blue");
+    el.querySelector(".deg").textContent="";
+  }
+}
+function labelKeys(show){
+  for(const m in keyEls){
+    const el=keyEls[m], pc=m%12;
+    el.querySelector(".lbl").innerHTML = show ? (isBlack(m)?LAT[pc]:LAT[pc]+"<br>"+RU[pc]) : "";
+  }
+}
+/* подсветить набор классов ступеней: map pc -> {deg, kind} */
+function highlight(map){
+  clearHl(); curMap=map; if(typeof drawFB==="function"){fbFillPos();drawFB();}
+  for(const m in keyEls){
+    const pc=m%12, hit=map[pc]; if(!hit)continue;
+    const el=keyEls[m];
+    el.classList.add(hit.kind==="root"?"on-root":hit.kind==="blue"?"on-blue":"on-tone");
+    el.querySelector(".deg").textContent=hit.deg||"";
+  }
+}
+function playSeq(notes,gap,dur){
+  const a=ctx(); if(!a)return;
+  const g=gap==null?.26:gap, t0=a.currentTime+.05;
+  notes.forEach((m,i)=>{
+    tone(m,t0+i*g,dur==null?g*2.2:dur,.20);
+    setTimeout(()=>{const el=keyEls[m];if(el){el.classList.add("press");setTimeout(()=>el.classList.remove("press"),g*700)}},(t0-a.currentTime+i*g)*1000);
+  });
+}
+
+/* ================= панель управления ================= */
+let mode="notes", root=0, scaleKey="major", chordKey="maj", inv=0, oct=60;
+
+/* ================= гитарный гриф ================= */
+const TUNINGS={
+  std   :{n:"Стандартный · E A D G B E", s:[64,59,55,50,45,40]},
+  dropd :{n:"Drop D · D A D G B E",      s:[64,59,55,50,45,38]},
+  eb    :{n:"Полтона вниз · E♭",         s:[63,58,54,49,44,39]},
+  dadgad:{n:"DADGAD",                    s:[62,57,55,50,45,38]}
+};
+const FRETS=15, FB_PADL=62, FB_FW=50, FB_GAP=26, FB_PADT=24, FB_PADB=26, FB_WIN=4;
+let fbTun="std", fbPos=-1, fbNames=false, curMap={};
+const fbEl=document.getElementById("fb");
+
+function fbAnchors(){
+  const t=TUNINGS[fbTun].s, out=new Set();
+  [t[5],t[4]].forEach(open=>{for(let f=0;f<=12;f++) if(((open+f)%12)===root) out.add(f);});
+  return [...out].sort((a,b)=>a-b);
+}
+function fbFillPos(){
+  const sel=document.getElementById("fbPos"), anchors=fbAnchors();
+  if(!anchors.includes(fbPos)) fbPos=-1;
+  sel.innerHTML='<option value="-1">весь гриф</option>'+
+    anchors.map(f=>`<option value="${f}"${f===fbPos?" selected":""}>лады ${f}–${Math.min(f+FB_WIN,FRETS)}</option>`).join("");
+}
+function fbX(fret){ return fret===0 ? FB_PADL-24 : FB_PADL+(fret-.5)*FB_FW; }
+function fbY(i){ return FB_PADT+i*FB_GAP; }
+
+function drawFB(){
+  const T=TUNINGS[fbTun].s;
+  const W=FB_PADL+FRETS*FB_FW+18, H=FB_PADT+5*FB_GAP+FB_PADB;
+  const empty=!Object.keys(curMap).length;
+  let o=`<rect class="board" x="${FB_PADL}" y="${FB_PADT-11}" width="${FRETS*FB_FW}" height="${5*FB_GAP+22}" rx="2"/>`;
+  [3,5,7,9,15].forEach(f=>{o+=`<circle class="inlay" cx="${FB_PADL+(f-.5)*FB_FW}" cy="${fbY(2.5)}" r="5"/>`});
+  o+=`<circle class="inlay" cx="${FB_PADL+11.5*FB_FW}" cy="${fbY(1.5)}" r="5"/><circle class="inlay" cx="${FB_PADL+11.5*FB_FW}" cy="${fbY(3.5)}" r="5"/>`;
+  for(let f=1;f<=FRETS;f++) o+=`<line class="fret" x1="${FB_PADL+f*FB_FW}" y1="${FB_PADT-11}" x2="${FB_PADL+f*FB_FW}" y2="${FB_PADT+5*FB_GAP+11}"/>`;
+  o+=`<line class="nut" x1="${FB_PADL}" y1="${FB_PADT-11}" x2="${FB_PADL}" y2="${FB_PADT+5*FB_GAP+11}"/>`;
+  T.forEach((open,i)=>{
+    o+=`<line class="str" x1="${FB_PADL}" y1="${fbY(i)}" x2="${FB_PADL+FRETS*FB_FW}" y2="${fbY(i)}" stroke-width="${(0.8+i*0.28).toFixed(2)}"/>`;
+    o+=`<text class="sname" x="4" y="${fbY(i)+3.5}">${LAT[open%12]}</text>`;
+  });
+  [0,3,5,7,9,12,15].forEach(f=>{
+    o+=`<text class="fnum" x="${f===0?FB_PADL-24:FB_PADL+(f-.5)*FB_FW}" y="${H-8}" text-anchor="middle">${f}</text>`;
+  });
+  T.forEach((open,i)=>{
+    for(let f=0;f<=FRETS;f++){
+      const midi=open+f, pc=midi%12, hit=curMap[pc];
+      if(!empty && !hit) continue;
+      const kind = hit ? (hit.kind==="root"?"root":hit.kind==="blue"?"blue":"tone") : "off";
+      const dim = fbPos>=0 && (f<fbPos || f>fbPos+FB_WIN);
+      const txt = (fbNames||!hit) ? LAT[pc] : (hit.deg||LAT[pc]);
+      o+=`<g class="cell${dim?" dim":""}" data-midi="${midi}"><circle class="dot ${kind}" cx="${fbX(f)}" cy="${fbY(i)}" r="${hit?10.5:8}"/>`+
+         `<text class="lb ${kind}" x="${fbX(f)}" y="${fbY(i)+3.2}">${txt}</text></g>`;
+    }
+  });
+  fbEl.setAttribute("viewBox",`0 0 ${W} ${H}`);
+  fbEl.setAttribute("width",W); fbEl.setAttribute("height",H);
+  fbEl.innerHTML=o;
+
+  const lg=document.getElementById("fbLegend");
+  if(empty){
+    lg.innerHTML="Выбери вкладку <b>Гаммы</b> или <b>Аккорды</b> — гриф и клавиатура подсветятся одновременно. Нажми на точку: нота прозвучит и подсветится на клавишах.";
+  }else{
+    const anchors=fbAnchors();
+    lg.innerHTML = fbPos>=0
+      ? `Окно <b>лады ${fbPos}–${Math.min(fbPos+FB_WIN,FRETS)}</b> — пять ладов вокруг тоники на 6-й или 5-й струне. Это не канонический CAGED-бокс, а честное окно: в нём лежат все ноты гаммы, доступные без смены позиции.`
+      : `Тоника встречается на 6-й и 5-й струнах на ладах ${anchors.join(", ")} — отсюда и позиции в списке. Цифра на точке — ступень (расстояние от тоники в полутонах), ровно как на клавишах.`;
+  }
+}
+function flashPiano(midi){
+  let m=midi; while(m<LOW)m+=12; while(m>HIGH)m-=12;
+  const el=keyEls[m]; if(el){el.classList.add("press");setTimeout(()=>el.classList.remove("press"),200);}
+}
+fbEl.addEventListener("pointerdown",e=>{
+  const g=e.target.closest(".cell"); if(!g)return;
+  e.preventDefault();
+  const midi=+g.dataset.midi;
+  tone(midi,null,1.1,.17);
+  g.classList.add("flash"); setTimeout(()=>g.classList.remove("flash"),180);
+  flashPiano(midi);
+});
+(function fbInit(){
+  const ts=document.getElementById("fbTun");
+  ts.innerHTML=Object.entries(TUNINGS).map(([k,v])=>`<option value="${k}">${v.n}</option>`).join("");
+  ts.onchange=e=>{fbTun=e.target.value;fbFillPos();drawFB()};
+  document.getElementById("fbPos").onchange=e=>{fbPos=+e.target.value;drawFB()};
+  document.getElementById("fbNames").onchange=e=>{fbNames=e.target.checked;drawFB()};
+  const hide=document.getElementById("fbHide"), scroll=document.getElementById("fbScroll"), lg=document.getElementById("fbLegend");
+  let shown=true;
+  try{ if(localStorage.getItem("triOktavy.fb")==="0") shown=false; }catch(e){}
+  const apply=()=>{scroll.hidden=!shown;lg.hidden=!shown;hide.textContent=shown?"Скрыть":"Показать"};
+  hide.onclick=()=>{shown=!shown;apply();try{localStorage.setItem("triOktavy.fb",shown?"1":"0")}catch(e){}};
+  apply(); fbFillPos(); drawFB();
+})();
+
+const ctrls=document.getElementById("ctrls"), readout=document.getElementById("readout");
+const noteOpts=()=>LAT.map((n,i)=>`<option value="${i}"${i===root?" selected":""}>${n} · ${RU[i]}</option>`).join("");
+
+function render(){
+  if(mode==="notes"){
+    ctrls.innerHTML=`<div class="field"><label>Подписи</label><select id="lblSel"><option value="1">показывать</option><option value="0">скрыть</option></select></div>
+      <button class="act ghost" id="playChrom">Хроматика от средней до</button>`;
+    labelKeys(true); clearHl(); curMap={}; drawFB();
+    document.getElementById("lblSel").onchange=e=>labelKeys(e.target.value==="1");
+    document.getElementById("playChrom").onclick=()=>playSeq(Array.from({length:13},(_,i)=>60+i),.17);
+    readout.innerHTML=`<p class="hint"><b>Ориентиры.</b> «До» — белая клавиша слева от группы из <b>двух</b> чёрных. «Фа» — слева от группы из <b>трёх</b>. Больше на клавиатуре запоминать нечего: остальное отсчитывается от них.</p>
+      <p class="hint">Оранжевая точка — средняя до (C4). На твоём PSS-F30 это вторая «до» слева; в мануале Yamaha она подписана как C3.</p>`;
+    return;
+  }
+  if(mode==="scale"){
+    ctrls.innerHTML=`<div class="field"><label>Тоника</label><select id="rootSel">${noteOpts()}</select></div>
+      <div class="field"><label>Гамма</label><select id="scaleSel">${Object.entries(SCALES).map(([k,v])=>`<option value="${k}"${k===scaleKey?" selected":""}>${v.n}</option>`).join("")}</select></div>
+      <button class="act" id="playScale">Сыграть вверх-вниз</button>`;
+    labelKeys(false);
+    const sc=SCALES[scaleKey], map={};
+    sc.s.forEach((iv,i)=>{
+      const pc=(root+iv)%12;
+      map[pc]={deg:sc.d[i]||"",kind: iv===0?"root":(sc.blue&&sc.blue.includes(iv)?"blue":"tone")};
+    });
+    highlight(map);
+    const f=FING[root+"_"+scaleKey];
+    readout.innerHTML=`
+      <div class="formula">
+        <span class="pill hi">${LAT[root]} · ${RU[root]}</span>
+        ${sc.s.map((iv,i)=>`<span class="pill">${sc.d[i]||"·"} ${LAT[(root+iv)%12]}</span>`).join("")}
+      </div>
+      <p class="hint">${sc.note}. Шаги в полутонах: <span class="mono">${sc.s.map((v,i)=>(i? v-sc.s[i-1]:null)).filter(x=>x!==null).concat([12-sc.s[sc.s.length-1]]).join(" ")}</span></p>
+      ${f?`<div class="fingering"><span class="who">Правая</span><span class="nums">${f.rh}</span><span class="who">Левая</span><span class="nums">${f.lh}</span></div>`
+         :`<p class="hint"><b>Аппликатуры для этой гаммы здесь нет — и это намеренно.</b> Выводи её правилом: большой палец никогда не встаёт на чёрную клавишу, а 3-й и 4-й пальцы попадают на группы чёрных. Так аппликатура запомнится, а не зазубрится.</p>`}`;
+    document.getElementById("rootSel").onchange=e=>{root=+e.target.value;render()};
+    document.getElementById("scaleSel").onchange=e=>{scaleKey=e.target.value;render()};
+    document.getElementById("playScale").onclick=()=>{
+      const base=60+root>71?48+root:60+root;
+      const up=sc.s.map(iv=>base+iv).concat([base+12]);
+      playSeq(up.concat(up.slice(0,-1).reverse()),.24);
+    };
+    return;
+  }
+  if(mode==="chord"){
+    ctrls.innerHTML=`<div class="field"><label>Тоника</label><select id="rootSel">${noteOpts()}</select></div>
+      <div class="field"><label>Аккорд</label><select id="chSel">${Object.entries(CHORDS).map(([k,v])=>`<option value="${k}"${k===chordKey?" selected":""}>${v.n}${v.sym?" — "+v.sym:""}</option>`).join("")}</select></div>
+      <div class="field"><label>Обращение</label><select id="invSel"></select></div>
+      <button class="act" id="playCh">Сыграть</button>
+      <button class="act ghost" id="playArp">Арпеджио</button>`;
+    labelKeys(false);
+    const ch=CHORDS[chordKey];
+    if(inv>=ch.iv.length)inv=0;
+    const invSel=document.getElementById("invSel");
+    invSel.innerHTML=ch.iv.map((_,i)=>`<option value="${i}"${i===inv?" selected":""}>${["основной вид","1-е обращение","2-е обращение","3-е обращение","4-е обращение"][i]}</option>`).join("");
+    const voiced=ch.iv.map((iv,i)=> (60+root+iv) + (i<inv?12:0)).sort((a,b)=>a-b);
+    const map={};
+    ch.iv.forEach(iv=>{const pc=(root+iv)%12; map[pc]={deg:iv===0?"1":String(iv),kind:iv===0?"root":"tone"};});
+    highlight(map);
+    readout.innerHTML=`
+      <div class="formula">
+        <span class="pill hi">${LAT[root]}${ch.sym}</span>
+        <span class="pill">${ch.deg}</span>
+        <span class="pill">полутоны: ${ch.iv.join(" · ")}</span>
+        <span class="pill">ноты: ${ch.iv.map(iv=>LAT[(root+iv)%12]).join(" – ")}</span>
+      </div>
+      <p class="hint">Цифра на клавише — расстояние от тоники в полутонах. Именно это число, а не форма руки, определяет аккорд. Мажор всегда 4+3, минор всегда 3+4 — в любой тональности.</p>
+      <p class="hint">На трёх октавах и без педали <b>шелл-войсинг</b> (только 1, 3 и 7 для септаккордов) звучит чище полного аккорда: меньше грязи в нижнем регистре.</p>`;
+    document.getElementById("rootSel").onchange=e=>{root=+e.target.value;render()};
+    document.getElementById("chSel").onchange=e=>{chordKey=e.target.value;inv=0;render()};
+    invSel.onchange=e=>{inv=+e.target.value;render()};
+    document.getElementById("playCh").onclick=()=>{voiced.forEach(m=>tone(m,null,1.8,.15));voiced.forEach(m=>{const el=keyEls[m];if(el){el.classList.add("press");setTimeout(()=>el.classList.remove("press"),300)}});};
+    document.getElementById("playArp").onclick=()=>playSeq(voiced.concat([voiced[0]+12]),.20);
+    return;
+  }
+  if(mode==="interval"){
+    ctrls.innerHTML=`<div class="field"><label>От ноты</label><select id="rootSel">${noteOpts()}</select></div>
+      <div class="field"><label>Интервал</label><select id="ivSel">${IVN.map((n,i)=>`<option value="${i}"${i===ivPick?" selected":""}>${i} — ${n}</option>`).join("")}</select></div>
+      <button class="act" id="playIv">Сыграть по очереди</button>
+      <button class="act ghost" id="playIvT">Сыграть вместе</button>`;
+    labelKeys(false);
+    const base=60+root, top=base+ivPick;
+    const map={}; map[base%12]={deg:"1",kind:"root"}; map[top%12]={deg:String(ivPick),kind:ivPick===6?"blue":"tone"};
+    highlight(map);
+    readout.innerHTML=`<div class="formula">
+        <span class="pill hi">${LAT[root]} → ${LAT[top%12]}</span>
+        <span class="pill">${ivPick} полутон${ivPick%10===1&&ivPick!==11?"":"ов"}</span>
+        <span class="pill">${IVN[ivPick]}</span>
+        <span class="pill">на гитаре: ${ivPick} лад${ivPick%10===1&&ivPick!==11?"":"ов"} по струне</span>
+      </div>
+      <p class="hint">Считай <b>все</b> клавиши, включая чёрные. Это единственная арифметика, которая нужна, чтобы строить любую гамму и любой аккорд без справочника.</p>`;
+    document.getElementById("rootSel").onchange=e=>{root=+e.target.value;render()};
+    document.getElementById("ivSel").onchange=e=>{ivPick=+e.target.value;render()};
+    document.getElementById("playIv").onclick=()=>playSeq([base,top],.42);
+    document.getElementById("playIvT").onclick=()=>{tone(base,null,1.8,.16);tone(top,null,1.8,.16);};
+  }
+}
+const IVN=["прима","малая секунда","большая секунда","малая терция","большая терция","чистая кварта","тритон","чистая квинта","малая секста","большая секста","малая септима","большая септима","октава"];
+let ivPick=7;
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll(".tab").forEach(x=>x.setAttribute("aria-selected","false"));
+  b.setAttribute("aria-selected","true"); mode=b.dataset.mode; render();
+});
+render();
+
+/* ================= уроки + прогресс ================= */
+const lessonsEl=document.getElementById("lessons");
+lessonsEl.innerHTML=LESSONS.map((l,i)=>`
+<details class="lesson" data-id="${i}">
+  <summary>
+    <span class="l-num">${String(i+1).padStart(2,"0")}</span>
+    <span><span class="l-title">${l.t}</span><span class="l-goal">${l.g}</span></span>
+    <label class="done-box" title="Отметить закрытым"><input type="checkbox" data-done="${i}"><span>готово</span></label>
+  </summary>
+  <div class="l-body">
+    <ol>${l.steps.map(s=>`<li>${s}</li>`).join("")}</ol>
+    <div class="checkline"><b>Контроль</b><span>${l.chk}</span></div>
+    <div class="vids">${l.v.map(v=>`<a class="vid" href="${v[1]}" target="_blank" rel="noopener">${v[0]}</a>`).join("")}</div>
+  </div>
+</details>`).join("");
+lessonsEl.querySelectorAll(".done-box").forEach(b=>b.addEventListener("click",e=>e.stopPropagation()));
+
+let done={};
+const fill=document.getElementById("progFill"), ptext=document.getElementById("progText");
+function paintProgress(){
+  const n=Object.values(done).filter(Boolean).length;
+  fill.style.width=(n/LESSONS.length*100)+"%";
+  ptext.textContent=n+" из "+LESSONS.length+" закрыто";
+  lessonsEl.querySelectorAll("[data-done]").forEach(c=>{c.checked=!!done[c.dataset.done]});
+}
+let dbNS=null;
+async function saveProgress(){
+  try{localStorage.setItem("triOktavy.progress",JSON.stringify(done))}catch(e){}
+  if(dbNS){try{await dbNS.doc("progress/main").set({done:done,updated:Date.now()})}catch(e){}}
+}
+lessonsEl.addEventListener("change",e=>{
+  const c=e.target.closest("[data-done]"); if(!c)return;
+  done[c.dataset.done]=c.checked; paintProgress(); saveProgress();
+});
+try{const raw=localStorage.getItem("triOktavy.progress"); if(raw)done=JSON.parse(raw)||{}}catch(e){}
+paintProgress();
+if(window.claude&&typeof window.claude.use==="function"){
+  window.claude.use("db").then(async ns=>{
+    if(!ns)return; dbNS=ns;
+    try{
+      const d=await ns.doc("progress/main").get();
+      if(d&&d.done){done=Object.assign({},done,d.done);paintProgress();}
+      else{await saveProgress();}
+      ns.doc("progress/main").onSnapshot(doc=>{if(doc&&doc.done){done=doc.done;paintProgress();}});
+    }catch(e){}
+  }).catch(()=>{});
+}
+
+/* ================= планировщик (метроном + блюз) ================= */
+function makeScheduler(onBeat){
+  let timer=null,next=0,beat=0,spb=.5;
+  return {
+    start(bpm){
+      const a=ctx(); if(!a)return;
+      spb=60/bpm; beat=0; next=a.currentTime+.08;
+      timer=setInterval(()=>{
+        const a2=ctx(); if(!a2)return;
+        while(next < a2.currentTime+.15){ onBeat(beat,next); beat++; next+=spb; }
+      },25);
+    },
+    stop(){clearInterval(timer);timer=null},
+    running(){return !!timer}
+  };
+}
+
+/* метроном */
+const mDots=document.getElementById("mDots"), mBtn=document.getElementById("mBtn");
+let mSigN=4;
+function drawDots(){mDots.innerHTML=Array.from({length:mSigN},()=>"<i></i>").join("")}
+drawDots();
+const metro=makeScheduler((b,t)=>{
+  const pos=b%mSigN; click(t,pos===0);
+  const delay=Math.max(0,(t-(ac?ac.currentTime:0))*1000);
+  setTimeout(()=>{const dots=mDots.children;for(let i=0;i<dots.length;i++)dots[i].classList.toggle("hit",i===pos)},delay);
+});
+document.getElementById("mSig").onchange=e=>{mSigN=+e.target.value;drawDots()};
+mBtn.onclick=()=>{
+  if(metro.running()){metro.stop();mBtn.textContent="Пуск";[...mDots.children].forEach(d=>d.classList.remove("hit"));}
+  else{metro.start(+document.getElementById("mBpm").value||72);mBtn.textContent="Стоп";}
+};
+
+/* блюз */
+const BLUES=[0,0,0,0,5,5,0,0,7,5,0,7]; // полутоны от тоники: I I I I IV IV I I V IV I V
+const bKeySel=document.getElementById("bKey"), bBars=document.getElementById("bBars"), bBtn=document.getElementById("bBtn");
+bKeySel.innerHTML=LAT.map((n,i)=>`<option value="${i}"${i===0?" selected":""}>${n}7 · ${RU[i]}</option>`).join("");
+function drawBars(cur){
+  bBars.innerHTML=BLUES.map((iv,i)=>{
+    const pc=(+bKeySel.value+iv)%12;
+    return `<span class="bar${i===cur?" now":""}">${LAT[pc]}7</span>`;
+  }).join("");
+}
+drawBars(-1);
+bKeySel.onchange=()=>drawBars(-1);
+const blues=makeScheduler((b,t)=>{
+  const bar=Math.floor(b/4)%12, beat=b%4;
+  const rootPc=(+bKeySel.value+BLUES[bar])%12;
+  let bassRoot=36+rootPc; if(bassRoot<36)bassRoot+=12;
+  // шафл-бас 1 3 5 6
+  const walk=[0,4,7,9][beat];
+  tone(bassRoot+walk,t,.42,.18,"bass");
+  if(beat===0||beat===2){
+    const sh=[0,4,10].map(iv=>60+rootPc+iv);
+    sh.forEach(m=>tone(m,t+(beat===2?.16:0),.55,.075));
+  }
+  const delay=Math.max(0,(t-(ac?ac.currentTime:0))*1000);
+  if(beat===0)setTimeout(()=>drawBars(bar),delay);
+});
+bBtn.onclick=()=>{
+  if(blues.running()){blues.stop();bBtn.textContent="Играть";drawBars(-1);}
+  else{blues.start(+document.getElementById("bBpm").value||88);bBtn.textContent="Стоп";}
+};
+
+/* слух */
+const EAR=[1,2,3,4,5,6,7,8,9,10,12];
+let earIv=null, earBase=60, earOk=0, earAll=0;
+const eOpts=document.getElementById("eOpts"), eScore=document.getElementById("eScore");
+function newEar(){
+  earIv=EAR[Math.floor(Math.random()*EAR.length)];
+  earBase=57+Math.floor(Math.random()*8);
+  eOpts.innerHTML=EAR.map(i=>`<button data-iv="${i}">${IVN[i]}</button>`).join("");
+  playSeq([earBase,earBase+earIv],.5);
+}
+eOpts.addEventListener("click",e=>{
+  const b=e.target.closest("button[data-iv]"); if(!b||earIv===null)return;
+  const guess=+b.dataset.iv;
+  if(eOpts.dataset.answered==="1")return;
+  eOpts.dataset.answered="1"; earAll++;
+  if(guess===earIv){b.classList.add("ok");earOk++;}
+  else{b.classList.add("no");[...eOpts.children].find(x=>+x.dataset.iv===earIv).classList.add("ok");}
+  eScore.textContent=earOk+" / "+earAll;
+});
+document.getElementById("eNew").onclick=()=>{eOpts.dataset.answered="0";newEar()};
+document.getElementById("eRep").onclick=()=>{if(earIv!==null)playSeq([earBase,earBase+earIv],.5)};
+eOpts.innerHTML=EAR.map(i=>`<button data-iv="${i}" disabled style="opacity:.45">${IVN[i]}</button>`).join("");
+
+/* ================= квинтовый круг ================= */
+(function cof(){
+  const svg=document.getElementById("cofSvg"), cx=160, cy=160, R=140, r1=98, r2=58;
+  let out="";
+  const pt=(a,r)=>[cx+r*Math.sin(a),cy-r*Math.cos(a)];
+  COF.forEach((t,i)=>{
+    const a0=(i-0.5)*Math.PI/6, a1=(i+0.5)*Math.PI/6, am=i*Math.PI/6;
+    const [x0,y0]=pt(a0,R),[x1,y1]=pt(a1,R),[x2,y2]=pt(a1,r2),[x3,y3]=pt(a0,r2);
+    const [mx,my]=pt(am,(R+r1)/2), [nx,ny]=pt(am,(r1+r2)/2), [sx,sy]=pt(am,R-12);
+    out+=`<g class="seg" data-pc="${t.pc}">
+      <path class="segbg" d="M${x0.toFixed(1)},${y0.toFixed(1)} A${R},${R} 0 0,1 ${x1.toFixed(1)},${y1.toFixed(1)} L${x2.toFixed(1)},${y2.toFixed(1)} A${r2},${r2} 0 0,0 ${x3.toFixed(1)},${y3.toFixed(1)} Z" fill="var(--surface)" stroke="var(--line)" stroke-width="1"/>
+      <text class="maj" x="${mx.toFixed(1)}" y="${(my+3).toFixed(1)}" text-anchor="middle">${t.maj}</text>
+      <text class="min" x="${nx.toFixed(1)}" y="${(ny+3).toFixed(1)}" text-anchor="middle">${t.min}</text>
+      <text class="sig" x="${sx.toFixed(1)}" y="${(sy+3).toFixed(1)}" text-anchor="middle">${t.sig}</text>
+    </g>`;
+  });
+  out+=`<circle cx="${cx}" cy="${cy}" r="${r1}" fill="none" stroke="var(--line)" stroke-width="1"/>`;
+  out+=`<text x="${cx}" y="${cy-4}" text-anchor="middle" class="min" style="font-size:9px">мажор снаружи</text>`;
+  out+=`<text x="${cx}" y="${cy+9}" text-anchor="middle" class="min" style="font-size:9px">минор внутри</text>`;
+  svg.innerHTML=out;
+  svg.addEventListener("click",e=>{
+    const g=e.target.closest(".seg"); if(!g)return;
+    root=+g.dataset.pc;
+    if(mode!=="scale"){mode="scale";document.querySelectorAll(".tab").forEach(x=>x.setAttribute("aria-selected",x.dataset.mode==="scale"?"true":"false"));}
+    render();
+    document.getElementById("trainer").scrollIntoView({behavior:"smooth",block:"start"});
+  });
+})();
+
+/* ================= справочные таблицы ================= */
+(function refTables(){
+  const ct=document.getElementById("chordRef");
+  Object.values(CHORDS).forEach(c=>{
+    const tr=document.createElement("tr");
+    tr.innerHTML=`<td class="mono">C${c.sym}</td><td>${c.n}</td><td class="mono">${c.deg}</td><td class="mono">${c.iv.join(" · ")}</td><td class="mono">${c.iv.map(iv=>LAT[iv%12]).join(" – ")}</td>`;
+    ct.appendChild(tr);
+  });
+  const ft=document.getElementById("fingRef");
+  Object.values(FING).forEach(f=>{
+    const tr=document.createElement("tr");
+    tr.innerHTML=`<td>${f.label}</td><td class="mono">${f.rh}</td><td class="mono">${f.lh}</td>`;
+    ft.appendChild(tr);
+  });
+})();
+/* ================= тема ================= */
+(function themeToggle(){
+  const b=document.getElementById("themeBtn"); if(!b)return;
+  const LS="triOktavy.theme";
+  let cur=null; try{cur=localStorage.getItem(LS)}catch(e){}
+  const apply=v=>{
+    if(v) document.documentElement.setAttribute("data-theme",v);
+    else  document.documentElement.removeAttribute("data-theme");
+    b.textContent = v==="dark" ? "Тёмная" : v==="light" ? "Светлая" : "Как в системе";
+  };
+  apply(cur);
+  b.onclick=()=>{
+    cur = cur==="light" ? "dark" : cur==="dark" ? null : "light";
+    try{ cur ? localStorage.setItem(LS,cur) : localStorage.removeItem(LS) }catch(e){}
+    apply(cur);
+  };
+})();
+</script>
+</body>
+</html>
