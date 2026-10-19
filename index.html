@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Три октавы — клавиши и гриф с нуля</title>
-<meta name="description" content="Практикум игры на клавишных для гитариста: звучащий тренажёр гамм и аккордов, гитарный гриф, 12 занятий, блюзовая площадка и метроном.">
+<meta name="description" content="Тренажёр для гитариста за клавишами: клавиатура и гитарный гриф, гаммы и аккорды с подсветкой ступеней, блюзовая площадка, метроном, квинтовый круг.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#EBEEEC" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0E1513" media="(prefers-color-scheme: dark)">
 <meta property="og:title" content="Три октавы">
-<meta property="og:description" content="Клавиши и гитарный гриф в одном тренажёре: гаммы, аккорды, блюз, программа занятий.">
+<meta property="og:description" content="Клавиши и гитарный гриф в одном тренажёре: гаммы, аккорды, блюз, метроном.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.92em' font-size='92'>%F0%9F%8E%B9</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -230,36 +230,6 @@ th{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text
 tr:last-child td{border-bottom:none}
 td.mono{font-family:"IBM Plex Mono",monospace;font-size:13px;white-space:nowrap}
 
-/* ---------- lessons ---------- */
-.lessons{display:grid;gap:8px}
-details.lesson{border:1px solid var(--line);border-radius:4px;background:var(--surface);overflow:hidden}
-details.lesson[open]{border-color:var(--line-strong)}
-details.lesson summary{
-  list-style:none;cursor:pointer;padding:14px 16px;display:grid;
-  grid-template-columns:auto 1fr auto;gap:14px;align-items:center
-}
-details.lesson summary::-webkit-details-marker{display:none}
-.l-num{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--root);font-weight:600;width:22px}
-.l-title{font-weight:600;font-size:15.5px}
-.l-goal{display:block;font-weight:400;font-size:13px;color:var(--muted);margin-top:1px}
-.l-body{padding:0 16px 18px 52px;display:grid;gap:14px}
-.l-body ol{margin:0;padding-left:20px;display:grid;gap:7px;font-size:14.5px}
-.l-body ol li::marker{color:var(--muted);font-family:"IBM Plex Mono",monospace;font-size:12px}
-.checkline{display:flex;gap:9px;align-items:flex-start;font-size:14px;background:var(--surface2);padding:11px 14px;border-radius:3px}
-.checkline b{color:var(--root);font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding-top:2px;white-space:nowrap}
-.vids{display:flex;flex-wrap:wrap;gap:7px}
-.vid{
-  font-size:12.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line-strong);
-  padding:5px 11px;border-radius:100px;background:var(--bg);display:inline-flex;gap:6px;align-items:center
-}
-.vid:hover{border-color:var(--root)}
-.vid::before{content:"▶";font-size:8px;color:var(--root)}
-.done-box{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);cursor:pointer}
-.done-box input{width:17px;height:17px;accent-color:var(--tone);cursor:pointer}
-.prog-bar{height:5px;background:var(--surface2);border-radius:100px;overflow:hidden;margin:10px 0 18px}
-.prog-bar i{display:block;height:100%;background:var(--tone);width:0;transition:width .35s ease}
-.prog-label{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.06em}
-
 /* ---------- blues + metronome ---------- */
 .rig{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
 .beat-dots{display:flex;gap:7px;margin-top:4px}
@@ -291,7 +261,6 @@ footer{margin-top:70px;padding-top:22px;border-top:1px solid var(--line);font-si
 @media (max-width:760px){
   .top-grid{grid-template-columns:1fr}
   .cof-wrap{grid-template-columns:1fr}
-  .l-body{padding-left:16px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
@@ -315,7 +284,6 @@ footer{margin-top:70px;padding-top:22px;border-top:1px solid var(--line);font-si
   </div>
   <nav class="jump">
     <a href="#trainer">Тренажёр</a>
-    <a href="#program">Программа</a>
     <a href="#rig">Блюз и метроном</a>
     <a href="#cof">Квинтовый круг</a>
     <a href="#ref">Справочник</a>
@@ -363,36 +331,9 @@ footer{margin-top:70px;padding-top:22px;border-top:1px solid var(--line);font-si
   </div>
 </section>
 
-<!-- ============ PROGRAM ============ -->
-<section id="program">
-  <div class="sec-head"><span class="num">01</span><h2>Программа: 12 занятий по выходным</h2></div>
-  <p class="hint">Одно занятие — один выходной, 45–60 минут. Не переходи дальше, пока не выполнен «контроль». В будни хватит 10 минут разминки — это важнее, чем длинная сессия раз в две недели.</p>
-  <div class="prog-bar"><i id="progFill"></i></div>
-  <div class="prog-label" id="progText">0 из 12 закрыто</div>
-  <div class="lessons" id="lessons"></div>
-
-  <div class="cards" style="margin-top:22px">
-    <div class="card">
-      <span class="tagline">Ежедневно · 10 минут</span>
-      <h3>Разминка</h3>
-      <p>1) Хроматика 1-2-3-4-5 вверх-вниз, метроном 60. 2) Гамма текущей тональности, одна октава, каждой рукой. 3) Трезвучия по ступеням тональности. 4) Назвать вслух 5 случайных клавиш быстрее секунды.</p>
-    </div>
-    <div class="card">
-      <span class="tagline">Раз в две недели</span>
-      <h3>Запись</h3>
-      <p>Пиши себя на телефон через выход на наушники. Слушай на следующий день. Ищешь ровность доли и чистоту переходов, не «красиво/некрасиво».</p>
-    </div>
-    <div class="card">
-      <span class="tagline">Честно про репертуар</span>
-      <h3>Что влезет, а что нет</h3>
-      <p>В три октавы без педали влезают: Ода к радости, Менуэт Баха BWV Anh.114, блюз в C, большинство поп-прогрессий. <b>Не влезут:</b> Gymnopédie, Comptine d'un autre été, «К Элизе» целиком — им нужны педаль и 5+ октав. Держи их как цель на нормальный инструмент.</p>
-    </div>
-  </div>
-</section>
-
 <!-- ============ RIG ============ -->
 <section id="rig">
-  <div class="sec-head"><span class="num">02</span><h2>Блюзовая площадка и метроном</h2></div>
+  <div class="sec-head"><span class="num">01</span><h2>Блюзовая площадка и метроном</h2></div>
   <div class="rig">
     <div class="panel" style="padding:18px;display:grid;gap:10px">
       <h3>Метроном</h3>
@@ -431,7 +372,7 @@ footer{margin-top:70px;padding-top:22px;border-top:1px solid var(--line);font-si
 
 <!-- ============ CIRCLE OF FIFTHS ============ -->
 <section id="cof">
-  <div class="sec-head"><span class="num">03</span><h2>Квинтовый круг</h2></div>
+  <div class="sec-head"><span class="num">02</span><h2>Квинтовый круг</h2></div>
   <div class="cof-wrap">
     <div class="panel" style="padding:14px"><svg class="cof" id="cofSvg" viewBox="0 0 320 320" width="100%" role="img" aria-label="Квинтовый круг: 12 мажорных тональностей и их параллельные миноры"></svg></div>
     <div style="display:grid;gap:12px">
@@ -448,7 +389,7 @@ footer{margin-top:70px;padding-top:22px;border-top:1px solid var(--line);font-si
 
 <!-- ============ REFERENCE ============ -->
 <section id="ref">
-  <div class="sec-head"><span class="num">04</span><h2>Справочник</h2></div>
+  <div class="sec-head"><span class="num">03</span><h2>Справочник</h2></div>
 
   <h3 style="margin:8px 0 10px">Интервалы в полутонах</h3>
   <div class="tbl-wrap" style="margin-bottom:26px">
@@ -482,9 +423,8 @@ footer{margin-top:70px;padding-top:22px;border-top:1px solid var(--line);font-si
 </section>
 
 <footer>
+  <div>Настройки грифа и темы хранятся в этом браузере (localStorage) — на другом устройстве всё начнётся с умолчаний.</div>
   <div>Тренажёр звучит через Web Audio — наушники дадут более честный тон, чем динамик ноутбука.</div>
-  <div>Отметки «готово» и настройки грифа хранятся в этом браузере (localStorage) — на другом устройстве прогресс начнётся с нуля.</div>
-  <div>Видео подобраны по открытому поиску; названия каналов и роликов могут меняться. Если ссылка умерла — ищи по названию из подписи.</div>
 </footer>
 
 </div>
@@ -547,109 +487,6 @@ const COF=[
   {pc:9,maj:"A",min:"F♯m",sig:"3♯"},{pc:4,maj:"E",min:"C♯m",sig:"4♯"},{pc:11,maj:"B",min:"G♯m",sig:"5♯"},
   {pc:6,maj:"G♭",min:"E♭m",sig:"6♭"},{pc:1,maj:"D♭",min:"B♭m",sig:"5♭"},{pc:8,maj:"A♭",min:"Fm",sig:"4♭"},
   {pc:3,maj:"E♭",min:"Cm",sig:"3♭"},{pc:10,maj:"B♭",min:"Gm",sig:"2♭"},{pc:5,maj:"F",min:"Dm",sig:"1♭"}
-];
-
-const LESSONS=[
- {t:"География клавиатуры",g:"Перестать искать ноты глазами",
-  steps:["Найди среднюю до: вторая «до» слева на твоём инструменте. Всё остальное отсчитывается от неё.",
-   "Ориентиры: «до» — слева от группы из двух чёрных, «фа» — слева от группы из трёх. Больше запоминать нечего.",
-   "Три минуты: закрой глаза, ткни в клавишу, назови её. Ошибка — начинай отсчёт заново.",
-   "Нумерация пальцев 1–5 от большого. На гитаре 1 — указательный, здесь нет. Проговаривай номера вслух неделю.",
-   "Посадка: предплечье горизонтально, запястье не проваливается, пальцы округлены, играешь подушечкой. Не «прижимай» струну — привычка левой руки будет мешать.",
-   "Мелодия «Ода к радости», правая рука: <span class=mono>ми ми фа соль | соль фа ми ре | до до ре ми | ми ре ре</span>, пальцы <span class=mono>3 3 4 5 5 4 3 2 1 1 2 3 3 2 2</span>."],
-  chk:"Называешь любую клавишу быстрее секунды и играешь «Оду» без остановок.",
-  v:[["1 урок. С чего начать / Фортепиано с нуля для взрослых","https://www.youtube.com/watch?v=QB8R_NjKamI"],["Плейлист: 12 уроков фортепиано с нуля для взрослых","https://www.youtube.com/playlist?list=PLUizn0Ib2PeVCTAuhOWj7gLr6UNQH52KM"]]},
-
- {t:"Ритм и метроном",g:"Ровная доля важнее правильных нот",
-  steps:["Длительности: целая = 4 доли, половинная = 2, четверть = 1, восьмая = ½. Это вся арифметика на первые полгода.",
-   "Метроном 60. Играй «Оду» четвертями, считая вслух «раз-и-два-и-три-и-четыре-и».",
-   "То же восьмыми на 60, потом четвертями на 80. Темп поднимай, пока не появилась первая запинка, затем откатись на два шага.",
-   "Ты уже чувствуешь долю по гитарному бою — задача перенести это чувство в левую руку, которая на клавишах отвечает за ритм."],
-  chk:"Две минуты подряд под метроном 72 без единого разъезда.",
-  v:[["Метроном и счёт — блок в курсе «Ноты Пилоты»","https://www.youtube.com/playlist?list=PLUizn0Ib2PeVCTAuhOWj7gLr6UNQH52KM"]]},
-
- {t:"Гамма До мажор",g:"Подкладывание первого пальца",
-  steps:["Правая: <span class=mono>1 2 3 1 2 3 4 5</span>. Первый палец подкладывается под третий на «фа».",
-   "Левая: <span class=mono>5 4 3 2 1 3 2 1</span>. Третий палец перекладывается через первый.",
-   "Темп 50, одна октава каждой рукой отдельно. Смотри не на пальцы, а на ровность звука.",
-   "Через неделю — две октавы, потом двумя руками вместе.",
-   "Не гонись за скоростью. Гамма — это упражнение на равномерность, а не на быстроту."],
-  chk:"Две октавы вверх-вниз каждой рукой, метроном 60, ни одного «провала» на подкладывании.",
-  v:[["Гамма До мажор + как играть, подробно","https://www.youtube.com/watch?v=R9HK3ras0lI"],["Аппликатура в гаммах от белых клавиш","https://www.youtube.com/watch?v=h1x4ub_yVHE"],["Как не путать пальцы в гаммах","https://www.youtube.com/watch?v=T0aYbT9SRG0"]]},
-
- {t:"Строение гаммы и интервалы",g:"Считать полутоны, а не вспоминать картинки",
-  steps:["Формула мажора в полутонах: <span class=mono>2 2 1 2 2 2 1</span>. Проверь её от «ре», «соль», «си♭» — тренажёр подсветит результат.",
-   "Выучи таблицу интервалов из справочника. Не наизусть — через звук: играй и слушай.",
-   "Гитарная привязка: 1 лад = 1 полутон = соседняя клавиша, чёрные считаются. Пятый лад = кварта = 5 полутонов.",
-   "Тренируй слух на интервалы по 5 минут — это единственное, что нельзя нагнать потом."],
-  chk:"Строишь мажорную гамму от любой из 12 нот по формуле, без подсказки, за минуту.",
-  v:[["Вся теория музыки за 90 минут","https://www.youtube.com/watch?v=p0X_NkLhzRQ"],["Построение интервалов. Формулы аккордов","https://www.youtube.com/watch?v=btIA1uIbp6M"]]},
-
- {t:"Трезвучия",g:"Мажор и минор через формулу, а не через форму",
-  steps:["Мажор = 4 полутона + 3. Минор = 3 + 4. Всё различие в одной ноте — средней.",
-   "Ступени До мажора: <span class=mono>C · Dm · Em · F · G · Am · Bdim</span>. Три мажорных, три минорных, одно уменьшённое — этот порядок одинаков в любой тональности.",
-   "Играй по кругу <span class=mono>C – Am – F – G</span>: левая берёт басовую ноту, правая — трезвучие.",
-   "Эта прогрессия у тебя уже в руках с гитары. Здесь ты просто видишь её изнутри."],
-  chk:"За 10 секунд строишь любое мажорное и минорное трезвучие от любой ноты.",
-  v:[["Как строить мажорное и минорное трезвучие","https://www.youtube.com/watch?v=-urjG5kqI44"],["Теория: трезвучие, мажор и минор, обращения","https://www.youtube.com/watch?v=w2RM10XuwD0"]]},
-
- {t:"Мелодия и аккомпанемент",g:"Первая песня целиком",
-  steps:["Левая рука: басовая нота аккорда на первую долю такта, потом трезвучие на третью.",
-   "Правая: мелодия. Начни с восьми тактов, а не с целой песни.",
-   "Прогрессия <span class=mono>C – G – Am – F</span> — та же, что ты играешь боем.",
-   "Собирай по два такта: правая отдельно → левая отдельно → вместе очень медленно → метроном."],
-  chk:"Восемь тактов двумя руками, наизусть, под метроном, без остановок.",
-  v:[["Учись играть любую песню без нот","https://www.youtube.com/watch?v=HNCu3j4lbXM"]]},
-
- {t:"Обращения и голосоведение",g:"Перестать прыгать рукой по клавиатуре",
-  steps:["Обращения C: <span class=mono>C-E-G</span> → <span class=mono>E-G-C</span> → <span class=mono>G-C-E</span>. Ноты те же, порядок разный.",
-   "Правило: при смене аккорда двигай ближайший голос. Рука почти не переезжает.",
-   "Связка в тесном расположении: <span class=mono>C(C-E-G) → Am(C-E-A) → F(C-F-A) → G(B-D-G)</span>. Заметь, как мало движется рука.",
-   "На гитаре это делали за тебя формы аккордов. Здесь придётся выбирать самому — зато звучит чище."],
-  chk:"Играешь связку из четырёх аккордов, не сдвигая руку больше чем на терцию.",
-  v:[["Трезвучия и обращения аккордов","https://www.youtube.com/watch?v=w2RM10XuwD0"],["Построение трезвучий, обращения, анализ аккорда","https://www.youtube.com/watch?v=XAigNSrBxDE"]]},
-
- {t:"Тональности и квинтовый круг",g:"Выйти за пределы белых клавиш",
-  steps:["Соль мажор: один диез, F♯. Фа мажор: один бемоль, B♭. Разбери обе гаммы по правилу «большой палец не на чёрной».",
-   "Круг квинт: каждый шаг вправо — +1 диез, влево — +1 бемоль. Открой раздел 03 и покликай.",
-   "Кнопка Transpose на PSS-F30 = каподастр. Пользуйся, но знай, что реально звучит.",
-   "Играй одну и ту же прогрессию I–V–vi–IV в C, G и F. Одна логика, три разные картинки под пальцами."],
-  chk:"Называешь знаки при ключе для C, G, D, A, F, B♭ без пауз.",
-  v:[["Фортепиано для всех. Урок 4 — гамма до мажор","https://www.youtube.com/watch?v=kjG7esYnuR4"],["Формула для гамм","https://www.youtube.com/watch?v=vRkcxkCzTNw"]]},
-
- {t:"Минор",g:"Три минора и параллельные тональности",
-  steps:["Натуральный <span class=mono>2 1 2 2 1 2 2</span>, гармонический — с повышенной VII, мелодический — с VI и VII вверх.",
-   "Ля минор параллелен До мажору: те же ноты, другая тоника. Ля-минорная гамма — это белые клавиши от «ля».",
-   "В гармоническом ля миноре появляется G♯ — и вместо Em получается E, а с ним каденция <span class=mono>Am – Dm – E7 – Am</span>.",
-   "Сыграй ту же мелодию в мажоре и миноре, послушай разницу вживую, а не по описанию."],
-  chk:"Играешь ля минор гармонический двумя руками и каденцию Am–Dm–E7–Am.",
-  v:[["Гаммы для начинающих, хроматическая гамма","https://www.youtube.com/watch?v=Mjg7vdHaLWg"]]},
-
- {t:"Септаккорды и II–V–I",g:"Четырёхзвучия и главный оборот в музыке",
-  steps:["maj7 = 1-3-5-7, доминантовый 7 = 1-3-5-♭7, m7 = 1-♭3-5-♭7. Разница — одна-две ноты, а окраска другая.",
-   "Оборот <span class=mono>Dm7 – G7 – Cmaj7</span>. Это скелет джаза и половины эстрады.",
-   "Шелл-войсинги: играй только 1-3-7 или 1-7-3. Пятая ступень почти всегда лишняя — особенно на трёх октавах.",
-   "Прогони II–V–I в C, F и G. Замечай, как ведут себя терция и септима — они всегда рядом."],
-  chk:"II–V–I шелл-войсингами в трёх тональностях под метроном 70.",
-  v:[["Построение интервалов и формулы аккордов","https://www.youtube.com/watch?v=btIA1uIbp6M"]]},
-
- {t:"Блюз",g:"Импровизация с первого раза",
-  steps:["Форма: <span class=mono>C7 C7 C7 C7 | F7 F7 C7 C7 | G7 F7 C7 G7</span>. Двенадцать тактов, повторяются вечно.",
-   "Блюзовая гамма от До: <span class=mono>C E♭ F G♭ G B♭</span>. Ты знаешь её с гитары — это пентатоника плюс ♭5.",
-   "Левая: шелл 1-♭7-3 либо шафл-бас <span class=mono>1 5 6 5</span>. Начни с шелла, он проще и звучит взрослее.",
-   "Запусти площадку в разделе 02 и импровизируй правой. Ограничение на первый раз: <b>три ноты</b>. Меняй только ритм.",
-   "Главное правило блюза: ♭5 — проходящая нота. Задержался на ней — звучит как ошибка."],
-  chk:"Три полных круга импровизации без остановки и без взгляда на клавиши.",
-  v:[["12 Bar Blues Piano Tutorial — базовая прогрессия и левая рука","https://www.youtube.com/watch?v=8lrqbt9WBKs"],["How To REALLY Improvise Using The Blues Scale","https://www.youtube.com/watch?v=CjJwxtahGtw"],["How to play blues piano: простой способ начать импровизировать","https://www.youtube.com/watch?v=L0v3mJVrgZc"]]},
-
- {t:"Ноты с листа",g:"Читать текст, а не заучивать движения",
-  steps:["Два ключа: скрипичный — правая, басовый — левая. Средняя до лежит ровно между ними, на добавочной линейке.",
-   "Не учи ноты «по буквам». Учи интервалы: увидел скачок через линейку — это терция, куда бы она ни попала.",
-   "Метод разбора: сначала прохлопай ритм без нот, потом сыграй ноты без ритма, потом соедини.",
-   "Первая пьеса: <b>Бах, Менуэт соль мажор BWV Anh. 114</b>. Помещается в три октавы, педаль не нужна, динамика не критична — то есть подходит твоему инструменту целиком.",
-   "Читай с листа по 5 минут каждый раз что-то новое и лёгкое. Это отдельный навык, он не появляется от разучивания пьес."],
-  chk:"Разбираешь восемь тактов незнакомого лёгкого текста за 15 минут.",
-  v:[["Фортепиано для всех. Урок 10 — арпеджио, аппликатура","https://www.youtube.com/watch?v=1vVAccGOPB0"],["Постановка пальцев при игре на пианино","https://www.youtube.com/watch?v=bTB3RicZaeE"]]}
 ];
 
 /* ================= звук ================= */
@@ -956,54 +793,6 @@ document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{
   b.setAttribute("aria-selected","true"); mode=b.dataset.mode; render();
 });
 render();
-
-/* ================= уроки + прогресс ================= */
-const lessonsEl=document.getElementById("lessons");
-lessonsEl.innerHTML=LESSONS.map((l,i)=>`
-<details class="lesson" data-id="${i}">
-  <summary>
-    <span class="l-num">${String(i+1).padStart(2,"0")}</span>
-    <span><span class="l-title">${l.t}</span><span class="l-goal">${l.g}</span></span>
-    <label class="done-box" title="Отметить закрытым"><input type="checkbox" data-done="${i}"><span>готово</span></label>
-  </summary>
-  <div class="l-body">
-    <ol>${l.steps.map(s=>`<li>${s}</li>`).join("")}</ol>
-    <div class="checkline"><b>Контроль</b><span>${l.chk}</span></div>
-    <div class="vids">${l.v.map(v=>`<a class="vid" href="${v[1]}" target="_blank" rel="noopener">${v[0]}</a>`).join("")}</div>
-  </div>
-</details>`).join("");
-lessonsEl.querySelectorAll(".done-box").forEach(b=>b.addEventListener("click",e=>e.stopPropagation()));
-
-let done={};
-const fill=document.getElementById("progFill"), ptext=document.getElementById("progText");
-function paintProgress(){
-  const n=Object.values(done).filter(Boolean).length;
-  fill.style.width=(n/LESSONS.length*100)+"%";
-  ptext.textContent=n+" из "+LESSONS.length+" закрыто";
-  lessonsEl.querySelectorAll("[data-done]").forEach(c=>{c.checked=!!done[c.dataset.done]});
-}
-let dbNS=null;
-async function saveProgress(){
-  try{localStorage.setItem("triOktavy.progress",JSON.stringify(done))}catch(e){}
-  if(dbNS){try{await dbNS.doc("progress/main").set({done:done,updated:Date.now()})}catch(e){}}
-}
-lessonsEl.addEventListener("change",e=>{
-  const c=e.target.closest("[data-done]"); if(!c)return;
-  done[c.dataset.done]=c.checked; paintProgress(); saveProgress();
-});
-try{const raw=localStorage.getItem("triOktavy.progress"); if(raw)done=JSON.parse(raw)||{}}catch(e){}
-paintProgress();
-if(window.claude&&typeof window.claude.use==="function"){
-  window.claude.use("db").then(async ns=>{
-    if(!ns)return; dbNS=ns;
-    try{
-      const d=await ns.doc("progress/main").get();
-      if(d&&d.done){done=Object.assign({},done,d.done);paintProgress();}
-      else{await saveProgress();}
-      ns.doc("progress/main").onSnapshot(doc=>{if(doc&&doc.done){done=doc.done;paintProgress();}});
-    }catch(e){}
-  }).catch(()=>{});
-}
 
 /* ================= планировщик (метроном + блюз) ================= */
 function makeScheduler(onBeat){
