@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Три октавы — клавиши и гриф с нуля</title>
-<meta name="description" content="Тренажёр для гитариста за клавишами: клавиатура и гитарный гриф, гаммы и аккорды с подсветкой ступеней, блюзовая площадка, метроном, квинтовый круг.">
+<title>Три октавы — база гамм и аккордов</title>
+<meta name="description" content="Интерактивная база гамм, аккордов и арпеджио: клавиатура и гитарный гриф рядом, формы CAGED, войсинги, боксы, квинтовый круг.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#EBEEEC" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0E1513" media="(prefers-color-scheme: dark)">
 <meta property="og:title" content="Три октавы">
-<meta property="og:description" content="Клавиши и гитарный гриф в одном тренажёре: гаммы, аккорды, блюз, метроном.">
+<meta property="og:description" content="Гаммы, аккорды и арпеджио на клавишах и на грифе — одновременно.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.92em' font-size='92'>%F0%9F%8E%B9</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,143 +23,144 @@ img{max-width:100%}
 </style>
 <style>
 :root{
-  --bg:#EBEEEC;
-  --surface:#F8FAF9;
-  --surface2:#E2E7E4;
-  --ink:#141E1B;
-  --muted:#5B6B67;
-  --line:#CBD4D0;
-  --line-strong:#A9B6B1;
-  --root:#C97A16;
-  --root-soft:#F5E2C4;
-  --tone:#12776D;
-  --tone-soft:#CFE6E2;
-  --blue:#A8477A;
-  --blue-soft:#F0D8E4;
-  --white-key:#FCFDFC;
-  --black-key:#1B2624;
-  --on-accent:#FFFFFF;
-  --on-root:#17110A;
+  --bg:#EBEEEC; --surface:#F8FAF9; --surface2:#E2E7E4; --ink:#141E1B; --muted:#5B6B67;
+  --line:#CBD4D0; --line-strong:#A9B6B1;
+  --root:#C97A16; --root-soft:#F5E2C4; --tone:#12776D; --tone-soft:#CFE6E2; --blue:#A8477A; --blue-soft:#F0D8E4;
+  --white-key:#FCFDFC; --black-key:#1B2624; --on-accent:#FFFFFF; --on-root:#17110A;
   --shadow:0 1px 2px rgba(20,30,27,.10), 0 6px 18px rgba(20,30,27,.06);
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#0E1513;
-    --surface:#17211E;
-    --surface2:#212C29;
-    --ink:#E6EDEA;
-    --muted:#94A5A0;
-    --line:#2B3936;
-    --line-strong:#3E504B;
-    --root:#EBA544;
-    --root-soft:#EBC894;
-    --tone:#48C2B2;
-    --tone-soft:#A7CFC8;
-    --blue:#E086B4;
-    --blue-soft:#E3AECA;
-    --white-key:#DDE4E1;
-    --black-key:#0A100F;
-    --on-accent:#08201D;
-    --on-root:#17110A;
+    --bg:#0E1513; --surface:#17211E; --surface2:#212C29; --ink:#E6EDEA; --muted:#94A5A0;
+    --line:#2B3936; --line-strong:#3E504B;
+    --root:#EBA544; --root-soft:#EBC894; --tone:#48C2B2; --tone-soft:#A7CFC8; --blue:#E086B4; --blue-soft:#E3AECA;
+    --white-key:#DDE4E1; --black-key:#0A100F; --on-accent:#08201D; --on-root:#17110A;
     --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 22px rgba(0,0,0,.30);
   }
 }
 :root[data-theme="dark"]{
-  --bg:#0E1513;
-  --surface:#17211E;
-  --surface2:#212C29;
-  --ink:#E6EDEA;
-  --muted:#94A5A0;
-  --line:#2B3936;
-  --line-strong:#3E504B;
-  --root:#EBA544;
-  --root-soft:#EBC894;
-  --tone:#48C2B2;
-  --tone-soft:#A7CFC8;
-  --blue:#E086B4;
-  --blue-soft:#E3AECA;
-  --white-key:#DDE4E1;
-  --black-key:#0A100F;
-  --on-accent:#08201D;
-  --on-root:#17110A;
+  --bg:#0E1513; --surface:#17211E; --surface2:#212C29; --ink:#E6EDEA; --muted:#94A5A0;
+  --line:#2B3936; --line-strong:#3E504B;
+  --root:#EBA544; --root-soft:#EBC894; --tone:#48C2B2; --tone-soft:#A7CFC8; --blue:#E086B4; --blue-soft:#E3AECA;
+  --white-key:#DDE4E1; --black-key:#0A100F; --on-accent:#08201D; --on-root:#17110A;
   --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 22px rgba(0,0,0,.30);
 }
-
 *{box-sizing:border-box}
-body{
-  margin:0;background:var(--bg);color:var(--ink);
-  font-family:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
-  font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;
-}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.55;
+  -webkit-font-smoothing:antialiased}
 h1,h2,h3{font-family:"Unbounded","Golos Text",system-ui,sans-serif;text-wrap:balance;margin:0}
-h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:-.02em;line-height:1.05}
-h2{font-size:clamp(19px,2.6vw,25px);font-weight:600;letter-spacing:-.01em}
-h3{font-size:16px;font-weight:600;letter-spacing:-.005em}
+h1{font-size:clamp(24px,4vw,34px);font-weight:700;letter-spacing:-.02em;line-height:1.05}
+h2{font-size:17px;font-weight:600;letter-spacing:-.01em}
+h3{font-size:15px;font-weight:600}
 p{margin:0}
 a{color:var(--tone);text-underline-offset:3px}
 code,.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
-
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px 96px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 18px 80px}
 .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 
-/* ---------- header ---------- */
-header.top{padding:44px 0 26px;border-bottom:1px solid var(--line)}
-.top-grid{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:end}
-.lede{max-width:62ch;color:var(--muted);margin-top:14px;font-size:17px}
-.instr-chip{
-  display:flex;flex-direction:column;gap:2px;padding:12px 16px;border:1px solid var(--line);
-  border-radius:3px;background:var(--surface);font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);
+/* ---------- шапка ---------- */
+header.top{display:flex;gap:18px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;
+  padding:30px 0 16px;border-bottom:1px solid var(--line)}
+.head-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+#q{font:inherit;font-size:14px;padding:8px 13px;border-radius:100px;border:1px solid var(--line-strong);
+  background:var(--surface);color:var(--ink);width:min(300px,62vw)}
+#q::placeholder{color:var(--muted)}
+.qhit{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted);min-height:14px}
+
+/* ---------- кнопки ---------- */
+button.act{font:inherit;font-size:13px;font-weight:600;padding:8px 15px;border-radius:3px;cursor:pointer;
+  border:1px solid var(--ink);background:var(--ink);color:var(--bg);transition:.15s}
+button.act.ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+button.act:hover{opacity:.85}
+button:focus-visible,select:focus-visible,a:focus-visible,input:focus-visible,.key:focus-visible{outline:2px solid var(--root);outline-offset:2px}
+select,input[type=number]{font:inherit;font-size:13px;padding:6px 9px;border-radius:3px;
+  border:1px solid var(--line-strong);background:var(--surface2);color:var(--ink)}
+
+/* ---------- выбор тоники и режима ---------- */
+.picker{display:grid;gap:10px;padding:16px 0 12px}
+.tonics{display:flex;gap:4px;flex-wrap:wrap}
+.tonic{font-family:"IBM Plex Mono",monospace;font-size:14px;font-weight:600;min-width:44px;padding:8px 6px;
+  border-radius:3px;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--muted);transition:.12s}
+.tonic:hover{border-color:var(--line-strong);color:var(--ink)}
+.tonic[aria-pressed="true"]{background:var(--root);border-color:var(--root);color:var(--on-root)}
+.tonic.blk{background:var(--surface2)}
+.tonic.blk[aria-pressed="true"]{background:var(--root)}
+.modes{display:flex;gap:4px;flex-wrap:wrap}
+.mode{font:inherit;font-size:13px;font-weight:500;padding:7px 16px;border-radius:100px;cursor:pointer;
+  border:1px solid var(--line);background:var(--surface);color:var(--muted);transition:.15s}
+.mode[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+/* ---------- каталог ---------- */
+.catalog{display:grid;gap:5px;padding-bottom:2px}
+.cat-row{display:flex;gap:10px;align-items:baseline}
+.cat-label{flex:0 0 112px;text-align:right;font-family:"IBM Plex Mono",monospace;font-size:10px;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+.tiles{display:flex;flex-wrap:wrap;gap:4px;flex:1 1 auto;min-width:0}
+.tile{font:inherit;font-size:13px;line-height:1.3;padding:5px 11px;border-radius:100px;cursor:pointer;white-space:nowrap;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);transition:.12s}
+.tile:hover{border-color:var(--line-strong)}
+.tile[aria-pressed="true"]{background:var(--tone);border-color:var(--tone);color:var(--on-accent);font-weight:600}
+.tile.dimmed{opacity:.22}
+.cat-now{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);padding:6px 0 0 122px}
+.cat-now b{color:var(--ink);font-weight:600}
+@media (max-width:700px){
+  .cat-row{display:grid;gap:4px}
+  .cat-label{text-align:left;flex:none}
+  .cat-now{padding-left:0}
 }
-.instr-chip b{font-size:13px;color:var(--ink);letter-spacing:.02em}
 
-/* ---------- nav ---------- */
-nav.jump{display:flex;flex-wrap:wrap;gap:6px;padding:16px 0 0}
-nav.jump a{
-  font-size:13px;text-decoration:none;color:var(--muted);border:1px solid var(--line);
-  padding:5px 11px;border-radius:100px;background:var(--surface);transition:.15s
-}
-nav.jump a:hover{color:var(--ink);border-color:var(--line-strong)}
+/* ---------- экран тональности ---------- */
+.keyface{display:grid;gap:12px;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:4px}
+.keyrow{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.deg{font:inherit;font-size:13px;padding:7px 12px;border-radius:3px;cursor:pointer;border:1px solid var(--line);
+  background:var(--surface2);color:var(--ink);display:grid;gap:1px;text-align:center;min-width:76px}
+.deg[aria-pressed="true"]{background:var(--tone);border-color:var(--tone);color:var(--on-accent)}
+.deg b{font-family:"IBM Plex Mono",monospace;font-size:14px;font-weight:600}
+.deg small{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--muted)}
+.deg[aria-pressed="true"] small{color:var(--on-accent);opacity:.85}
+.keymeta{display:flex;gap:8px;flex-wrap:wrap}
 
-/* ---------- sections ---------- */
-section{padding-top:52px}
-.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:18px;flex-wrap:wrap}
-.sec-head .num{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--root);letter-spacing:.1em}
+/* ---------- закладки ---------- */
+.pins{display:flex;gap:5px;flex-wrap:wrap;align-items:center;padding:4px 0 2px;min-height:30px}
+.pin{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;padding:4px 6px 4px 11px;border-radius:100px;
+  border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);cursor:pointer}
+.pin x{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted);padding:0 4px;border-radius:50%}
+.pin x:hover{color:var(--blue)}
+.pins .lbl{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:3px}
 
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:4px;box-shadow:var(--shadow)}
-
-/* ---------- keyboard ---------- */
-.kb-shell{position:sticky;top:0;z-index:40;background:var(--bg);padding:10px 0 12px;margin-top:-1px}
+/* ---------- клавиатура ---------- */
+.stage{display:grid;gap:10px;padding:14px 0 0}
 .kb-scroll{overflow-x:auto;overflow-y:hidden;padding-bottom:6px;-webkit-overflow-scrolling:touch}
-.kb{position:relative;height:172px;margin:0 auto;user-select:none;touch-action:manipulation}
+.kb{position:relative;height:160px;margin:0 auto;user-select:none;touch-action:manipulation}
 .key{position:absolute;top:0;cursor:pointer;border:1px solid var(--line-strong);transition:background .08s,transform .04s}
-.key.w{background:var(--white-key);height:172px;border-radius:0 0 4px 4px;z-index:1}
-.key.b{background:var(--black-key);height:106px;border-radius:0 0 3px 3px;z-index:2;border-color:#000}
-.key .lbl{position:absolute;bottom:7px;left:0;right:0;text-align:center;font-family:"IBM Plex Mono",monospace;font-size:10px;pointer-events:none;line-height:1.15}
+.key.w{background:var(--white-key);height:160px;border-radius:0 0 4px 4px;z-index:1}
+.key.b{background:var(--black-key);height:99px;border-radius:0 0 3px 3px;z-index:2;border-color:#000}
+.key .lbl{position:absolute;bottom:6px;left:0;right:0;text-align:center;font-family:"IBM Plex Mono",monospace;font-size:10px;pointer-events:none;line-height:1.15}
 .key.w .lbl{color:#4C5A56}
 .key.b .lbl{color:#9AA8A4;bottom:5px;font-size:9px}
-.key .deg{position:absolute;top:8px;left:0;right:0;text-align:center;font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;pointer-events:none;opacity:0}
-.key.on-tone{background:var(--tone-soft)}
-.key.on-tone.b{background:#0F5C55}
-.key.on-root{background:var(--root-soft)}
-.key.on-root.b{background:#7A4A0C}
-.key.on-blue{background:var(--blue-soft)}
-.key.on-blue.b{background:#6E2A4C}
-.key.on-tone .deg,.key.on-root .deg,.key.on-blue .deg{opacity:1}
-.key.w.on-tone .deg{color:#0C3B35}
-.key.w.on-root .deg{color:#5A3707}
-.key.w.on-blue .deg{color:#5E2140}
-.key.b .deg{color:#F2F6F5}
+.key .deg2{position:absolute;top:8px;left:0;right:0;text-align:center;font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;pointer-events:none;opacity:0}
+.key.on-tone{background:var(--tone-soft)} .key.on-tone.b{background:#0F5C55}
+.key.on-root{background:var(--root-soft)} .key.on-root.b{background:#7A4A0C}
+.key.on-blue{background:var(--blue-soft)} .key.on-blue.b{background:#6E2A4C}
+.key.on-tone .deg2,.key.on-root .deg2,.key.on-blue .deg2{opacity:1}
+.key.w.on-tone .deg2{color:#0C3B35} .key.w.on-root .deg2{color:#5A3707} .key.w.on-blue .deg2{color:#5E2140}
+.key.b .deg2{color:#F2F6F5}
 .key.press{transform:translateY(2px);filter:brightness(.88)}
-.key.mc::after{content:"";position:absolute;bottom:46px;left:50%;transform:translateX(-50%);width:6px;height:6px;border-radius:50%;background:var(--root)}
-.kb-meta{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--muted);padding:2px 2px 0}
+.key.mc::after{content:"";position:absolute;bottom:44px;left:50%;transform:translateX(-50%);width:6px;height:6px;border-radius:50%;background:var(--root)}
+.stage-bar{display:flex;gap:14px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--muted)}
 .swatch{display:inline-flex;align-items:center;gap:6px}
 .swatch i{width:11px;height:11px;border-radius:2px;display:block}
+.metro{display:inline-flex;gap:7px;align-items:center;margin-left:auto}
+.metro input{width:62px}
+.beat-dots{display:flex;gap:5px}
+.beat-dots i{width:8px;height:8px;border-radius:50%;background:var(--surface2);border:1px solid var(--line-strong);display:block;transition:.08s}
+.beat-dots i.hit{background:var(--root);border-color:var(--root);transform:scale(1.3)}
 
-/* ---------- гитарный гриф ---------- */
-.fb-shell{margin:4px 0 0;padding:14px 16px 8px;background:var(--surface);border:1px solid var(--line);border-radius:4px;display:grid;gap:10px}
-.fb-head{display:flex;gap:12px 18px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-.fb-ctrls{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.fb-ctrls select{min-width:0;font-size:13px;padding:5px 9px}
+/* ---------- гриф ---------- */
+.fb-shell{padding:12px 14px 6px;background:var(--surface);border:1px solid var(--line);border-radius:4px;display:grid;gap:9px}
+.fb-head{display:flex;gap:10px 16px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.fb-ctrls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .fb-chk{display:inline-flex;gap:6px;align-items:center;font-size:12px;color:var(--muted);cursor:pointer;white-space:nowrap}
 .fb-chk input{accent-color:var(--tone);width:15px;height:15px;cursor:pointer}
 .fb-scroll{overflow-x:auto;overflow-y:hidden;padding-bottom:4px;-webkit-overflow-scrolling:touch}
@@ -172,95 +173,53 @@ section{padding-top:52px}
 .fb .fnum,.fb .sname{font-family:"IBM Plex Mono",monospace;font-size:10px;fill:var(--muted)}
 .fb .cell{cursor:pointer}
 .fb .cell.dim{opacity:.13}
-.fb .dot.root{fill:var(--root)}
-.fb .dot.tone{fill:var(--tone)}
-.fb .dot.blue{fill:var(--blue)}
+.fb .dot.root{fill:var(--root)} .fb .dot.tone{fill:var(--tone)} .fb .dot.blue{fill:var(--blue)}
 .fb .dot.off{fill:var(--surface);stroke:var(--line-strong);stroke-width:1}
 .fb .lb{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:600;text-anchor:middle;pointer-events:none}
-.fb .lb.root{fill:var(--on-root)}
-.fb .lb.tone,.fb .lb.blue{fill:var(--on-accent)}
-.fb .lb.off{fill:var(--muted);font-weight:400}
+.fb .lb.root{fill:var(--on-root)} .fb .lb.tone,.fb .lb.blue{fill:var(--on-accent)} .fb .lb.off{fill:var(--muted);font-weight:400}
+.fb .barre{fill:var(--line-strong);opacity:.42}
+.fb .muted{font-family:"IBM Plex Mono",monospace;font-size:13px;fill:var(--muted)}
 .fb .cell.flash .dot{filter:brightness(1.4)}
-.fb-legend{font-size:12px;color:var(--muted);max-width:76ch}
+.fb-legend{font-size:12.5px;color:var(--muted);max-width:80ch}
 
-/* ---------- controls ---------- */
-.tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:14px}
-.tab{
-  font:inherit;font-size:13px;font-weight:500;padding:7px 15px;border-radius:100px;cursor:pointer;
-  border:1px solid var(--line);background:var(--surface);color:var(--muted);transition:.15s
-}
-.tab[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.ctrl-row{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;padding:16px;border-bottom:1px solid var(--line)}
-.field{display:flex;flex-direction:column;gap:5px;min-width:0}
-.field label{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-select,input[type=number]{
-  font:inherit;font-size:14px;padding:7px 10px;border-radius:3px;border:1px solid var(--line-strong);
-  background:var(--surface2);color:var(--ink);min-width:110px
-}
-button.act{
-  font:inherit;font-size:13px;font-weight:600;padding:8px 16px;border-radius:3px;cursor:pointer;
-  border:1px solid var(--ink);background:var(--ink);color:var(--bg);transition:.15s
-}
-button.act.ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
-button.act:hover{opacity:.85}
-button:focus-visible,select:focus-visible,a:focus-visible,.key:focus-visible,input:focus-visible{outline:2px solid var(--root);outline-offset:2px}
-.readout{padding:16px;display:grid;gap:12px}
-.formula{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.pill{
-  font-family:"IBM Plex Mono",monospace;font-size:12px;padding:4px 9px;border-radius:2px;
-  background:var(--surface2);border:1px solid var(--line);white-space:nowrap
-}
-.pill.hi{background:var(--root);border-color:var(--root);color:var(--on-root)}
-.hint{font-size:14px;color:var(--muted);max-width:70ch}
-.fingering{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:center;font-family:"IBM Plex Mono",monospace;font-size:13px}
+/* ---------- вывод ---------- */
+.readout{padding:14px 16px;display:grid;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:4px;margin-top:10px}
+.formula{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.pill{font-family:"IBM Plex Mono",monospace;font-size:12px;padding:4px 9px;border-radius:2px;
+  background:var(--surface2);border:1px solid var(--line);white-space:nowrap}
+.pill.hi{background:var(--root);border-color:var(--root);color:var(--on-root);font-weight:600}
+.pill.deg{background:var(--surface);border-color:var(--line-strong)}
+.pill.deg b{color:var(--root)}
+.hint{font-size:13.5px;color:var(--muted);max-width:78ch}
+.fingering{display:flex;gap:6px 18px;flex-wrap:wrap;align-items:center;font-family:"IBM Plex Mono",monospace;font-size:13px}
 .fingering .who{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.fingering .nums{letter-spacing:.28em;font-weight:600;color:var(--ink)}
+.fingering .nums{letter-spacing:.26em;font-weight:600;color:var(--ink)}
 
-/* ---------- generic grids ---------- */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:14px}
-.card{padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:4px;display:flex;flex-direction:column;gap:8px}
-.card h3{margin-bottom:2px}
-.card p{font-size:14px;color:var(--muted)}
-.card .tagline{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--root);letter-spacing:.08em;text-transform:uppercase}
-
-table{border-collapse:collapse;width:100%;font-size:14px}
-.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
-th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+/* ---------- справочник ---------- */
+.ref{margin-top:34px;display:grid;gap:6px}
+details.ref-item{border:1px solid var(--line);border-radius:4px;background:var(--surface);overflow:hidden}
+details.ref-item>summary{list-style:none;cursor:pointer;padding:12px 15px;font-weight:600;font-size:14.5px;display:flex;gap:10px;align-items:center}
+details.ref-item>summary::-webkit-details-marker{display:none}
+details.ref-item>summary::before{content:"+";font-family:"IBM Plex Mono",monospace;color:var(--root);font-weight:700}
+details.ref-item[open]>summary::before{content:"−"}
+.ref-body{padding:0 15px 16px;display:grid;gap:12px}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:4px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
 th{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;white-space:nowrap}
 tr:last-child td{border-bottom:none}
-td.mono{font-family:"IBM Plex Mono",monospace;font-size:13px;white-space:nowrap}
-
-/* ---------- blues + metronome ---------- */
-.rig{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
-.beat-dots{display:flex;gap:7px;margin-top:4px}
-.beat-dots i{width:10px;height:10px;border-radius:50%;background:var(--surface2);border:1px solid var(--line-strong);display:block;transition:.08s}
-.beat-dots i.hit{background:var(--root);border-color:var(--root);transform:scale(1.25)}
-.bars{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:10px}
-.bar{
-  font-family:"IBM Plex Mono",monospace;font-size:12px;text-align:center;padding:8px 2px;border-radius:2px;
-  background:var(--surface2);border:1px solid var(--line);color:var(--muted)
-}
-.bar.now{background:var(--root);border-color:var(--root);color:var(--on-root);font-weight:600}
-.score{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted)}
-.ear-opts{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.ear-opts button{font:inherit;font-size:13px;padding:7px 12px;border-radius:3px;border:1px solid var(--line-strong);background:var(--surface2);color:var(--ink);cursor:pointer}
-.ear-opts button.ok{background:var(--tone);border-color:var(--tone);color:var(--on-accent)}
-.ear-opts button.no{background:var(--blue);border-color:var(--blue);color:var(--on-accent)}
-
-/* ---------- circle of fifths ---------- */
-.cof-wrap{display:grid;grid-template-columns:minmax(0,340px) 1fr;gap:22px;align-items:start}
-.cof circle,.cof line{vector-effect:non-scaling-stroke}
+td.mono{font-family:"IBM Plex Mono",monospace;font-size:12.5px;white-space:nowrap}
+.cof-wrap{display:grid;grid-template-columns:minmax(0,320px) 1fr;gap:20px;align-items:start}
 .cof .seg{cursor:pointer}
 .cof .seg:hover .segbg{fill:var(--surface2)}
 .cof .maj{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;fill:var(--ink)}
 .cof .min{font-family:"IBM Plex Mono",monospace;font-size:10px;fill:var(--muted)}
 .cof .sig{font-family:"IBM Plex Mono",monospace;font-size:9px;fill:var(--root)}
-
-footer{margin-top:70px;padding-top:22px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);display:grid;gap:6px}
-
+footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);display:grid;gap:5px}
 @media (max-width:760px){
-  .top-grid{grid-template-columns:1fr}
   .cof-wrap{grid-template-columns:1fr}
+  header.top{align-items:flex-start}
+  .metro{margin-left:0}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
@@ -269,247 +228,305 @@ footer{margin-top:70px;padding-top:22px;border-top:1px solid var(--line);font-si
 <div class="wrap">
 
 <header class="top">
-  <div class="top-grid">
-    <div>
-      <div class="eyebrow">Практикум для гитариста, севшего за клавиши</div>
-      <h1>Три октавы</h1>
-      <p class="lede">Всё, что помещается в 37 мини-клавиш: теория, гаммы, аккорды, блюз. Тренажёр звучит прямо на странице — можно проверять себя без инструмента, в командировке и в очереди.</p>
-    </div>
-    <div class="instr-chip">
-      <b>YAMAHA PSS-F30</b>
-      <span>37 клавиш · C2–C5 в маркировке Yamaha</span>
-      <span>32 голоса · транспонирование ±12</span>
-      <span>без динамики · без педали · без MIDI</span>
-    </div>
+  <div>
+    <div class="eyebrow">Интерактивная база гамм и аккордов</div>
+    <h1>Три октавы</h1>
   </div>
-  <nav class="jump">
-    <a href="#trainer">Тренажёр</a>
-    <a href="#rig">Блюз и метроном</a>
-    <a href="#cof">Квинтовый круг</a>
-    <a href="#ref">Справочник</a>
-    <button class="act ghost" id="themeBtn" style="margin-left:auto;padding:5px 13px;font-size:13px;font-weight:500">Тема</button>
-  </nav>
+  <div class="head-tools">
+    <div>
+      <input id="q" type="search" placeholder="Поиск: Am7, Dm, дорийский, блюз…" autocomplete="off" spellcheck="false">
+      <div class="qhit" id="qhit"></div>
+    </div>
+    <button class="act ghost" id="pinBtn">Закрепить</button>
+    <button class="act ghost" id="themeBtn">Тема</button>
+  </div>
 </header>
 
-<!-- ============ KEYBOARD (sticky) ============ -->
-<div class="kb-shell" id="trainer">
+<div class="picker">
+  <div class="tonics" id="tonics" role="group" aria-label="Тоника"></div>
+  <div class="modes" role="tablist">
+    <button class="mode" role="tab" data-m="key"   aria-selected="false">Тональность</button>
+    <button class="mode" role="tab" data-m="scale" aria-selected="true">Гаммы</button>
+    <button class="mode" role="tab" data-m="chord" aria-selected="false">Аккорды</button>
+    <button class="mode" role="tab" data-m="arp"   aria-selected="false">Арпеджио</button>
+  </div>
+</div>
+
+<div class="catalog" id="catalog"></div>
+<div class="pins" id="pins"></div>
+
+<div class="stage">
   <div class="kb-scroll"><div class="kb" id="kb"></div></div>
-  <div class="kb-meta">
+  <div class="stage-bar">
     <span class="swatch"><i style="background:var(--root)"></i> тоника</span>
     <span class="swatch"><i style="background:var(--tone)"></i> ступени</span>
     <span class="swatch"><i style="background:var(--blue)"></i> блюзовая нота</span>
-    <span>Играть можно и с компьютерной клавиатуры: <code>z s x d c v g b h n j m</code> — нижняя октава, <code>q 2 w 3 e r 5 t 6 y 7 u</code> — верхняя.</span>
+    <span class="metro">
+      <label class="fb-chk" for="mBpm">метроном</label>
+      <input type="number" id="mBpm" value="72" min="30" max="220" step="1" aria-label="Темп">
+      <button class="act ghost" id="mBtn" style="padding:6px 12px">Пуск</button>
+      <span class="beat-dots" id="mDots"></span>
+    </span>
+  </div>
+
+  <div class="fb-shell">
+    <div class="fb-head">
+      <span class="eyebrow" id="fbEyebrow">Гитарный гриф</span>
+      <div class="fb-ctrls">
+        <select id="fbTun" aria-label="Строй"></select>
+        <select id="fbPos" aria-label="Позиция"></select>
+        <button class="act ghost" id="fbPlay" style="padding:6px 12px" hidden>Сыграть</button>
+        <label class="fb-chk"><input type="checkbox" id="fbNames"> названия нот</label>
+        <label class="fb-chk"><input type="checkbox" id="fbLefty"> для левши</label>
+      </div>
+    </div>
+    <div class="fb-scroll" id="fbScroll"><svg class="fb" id="fb" role="img" aria-label="Гриф гитары"></svg></div>
+    <p class="fb-legend" id="fbLegend"></p>
   </div>
 </div>
 
-<!-- ============ FRETBOARD ============ -->
-<div class="fb-shell" id="fbShell">
-  <div class="fb-head">
-    <span class="eyebrow">Гитарный гриф — та же гамма</span>
-    <div class="fb-ctrls">
-      <select id="fbTun" aria-label="Строй"></select>
-      <select id="fbPos" aria-label="Позиция"></select>
-      <label class="fb-chk"><input type="checkbox" id="fbNames"> названия нот</label>
-      <button class="act ghost" id="fbHide" style="padding:5px 12px">Скрыть</button>
-    </div>
-  </div>
-  <div class="fb-scroll" id="fbScroll"><svg class="fb" id="fb" role="img" aria-label="Гриф гитары с подсветкой нот гаммы"></svg></div>
-  <p class="fb-legend" id="fbLegend"></p>
-</div>
+<div class="readout" id="readout"></div>
 
-<section style="padding-top:22px">
-  <div class="tabs" role="tablist">
-    <button class="tab" role="tab" aria-selected="true" data-mode="notes">Ноты</button>
-    <button class="tab" role="tab" aria-selected="false" data-mode="scale">Гаммы</button>
-    <button class="tab" role="tab" aria-selected="false" data-mode="chord">Аккорды</button>
-    <button class="tab" role="tab" aria-selected="false" data-mode="interval">Интервалы</button>
-  </div>
-
-  <div class="panel">
-    <div class="ctrl-row" id="ctrls"></div>
-    <div class="readout" id="readout"></div>
-  </div>
-</section>
-
-<!-- ============ RIG ============ -->
-<section id="rig">
-  <div class="sec-head"><span class="num">01</span><h2>Блюзовая площадка и метроном</h2></div>
-  <div class="rig">
-    <div class="panel" style="padding:18px;display:grid;gap:10px">
-      <h3>Метроном</h3>
-      <div style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap">
-        <div class="field"><label>Темп</label><input type="number" id="mBpm" value="72" min="30" max="220" step="1"></div>
-        <div class="field"><label>Размер</label><select id="mSig"><option value="4">4/4</option><option value="3">3/4</option><option value="2">2/4</option></select></div>
-        <button class="act" id="mBtn">Пуск</button>
-      </div>
-      <div class="beat-dots" id="mDots"></div>
-      <p class="hint" style="font-size:13px">Ставь темп такой, при котором ты <i>ни разу</i> не запнулся. Прибавляй по 4 удара.</p>
-    </div>
-
-    <div class="panel" style="padding:18px;display:grid;gap:10px">
-      <h3>12 тактов блюза</h3>
-      <div style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap">
-        <div class="field"><label>Тональность</label><select id="bKey"></select></div>
-        <div class="field"><label>Темп</label><input type="number" id="bBpm" value="88" min="50" max="180" step="1"></div>
-        <button class="act" id="bBtn">Играть</button>
-      </div>
-      <div class="bars" id="bBars"></div>
-      <p class="hint" style="font-size:13px">Аккомпанемент играет сам, ты импровизируешь правой по блюзовой гамме — нажми «Гаммы → блюзовая», клавиатура подсветит ноты. Начни с трёх нот и меняй только ритм.</p>
-    </div>
-
-    <div class="panel" style="padding:18px;display:grid;gap:10px">
-      <h3>Слух: интервалы</h3>
-      <p class="hint" style="font-size:13px">Звучат две ноты. Назови расстояние. Это единственное упражнение, которое отличает «выучил» от «слышу».</p>
-      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-        <button class="act" id="eNew">Новый интервал</button>
-        <button class="act ghost" id="eRep">Повторить</button>
-        <span class="score" id="eScore">0 / 0</span>
-      </div>
-      <div class="ear-opts" id="eOpts"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CIRCLE OF FIFTHS ============ -->
-<section id="cof">
-  <div class="sec-head"><span class="num">02</span><h2>Квинтовый круг</h2></div>
-  <div class="cof-wrap">
-    <div class="panel" style="padding:14px"><svg class="cof" id="cofSvg" viewBox="0 0 320 320" width="100%" role="img" aria-label="Квинтовый круг: 12 мажорных тональностей и их параллельные миноры"></svg></div>
-    <div style="display:grid;gap:12px">
-      <p class="hint">Каждый шаг по часовой стрелке — вверх на чистую квинту и <b>+1 диез</b>. Против часовой — вниз на квинту и <b>+1 бемоль</b>. Соседние тональности отличаются одной нотой, поэтому переход между ними звучит естественно — на этом держится половина всей популярной музыки.</p>
-      <p class="hint">Внутри — параллельный минор: те же знаки, та же гамма, другая тоника (на малую терцию ниже). До мажор и ля минор — одни и те же белые клавиши.</p>
-      <p class="hint">Нажми любой сектор — тренажёр переключится на эту тональность.</p>
-      <div class="formula">
-        <span class="pill">Диезы по порядку: F# C# G# D# A# E# B#</span>
-        <span class="pill">Бемоли: B♭ E♭ A♭ D♭ G♭ C♭ F♭</span>
+<section class="ref">
+  <details class="ref-item">
+    <summary>Квинтовый круг</summary>
+    <div class="ref-body">
+      <div class="cof-wrap">
+        <svg class="cof" id="cofSvg" viewBox="0 0 320 320" width="100%" role="img" aria-label="Квинтовый круг"></svg>
+        <div style="display:grid;gap:10px">
+          <p class="hint">Шаг по часовой стрелке — вверх на чистую квинту и плюс один диез. Против часовой — вниз на квинту и плюс один бемоль. Соседние тональности отличаются одной нотой.</p>
+          <p class="hint">Внутри кольца — параллельный минор: те же знаки, та же гамма, другая тоника на малую терцию ниже.</p>
+          <p class="hint">Нажми сектор — база переключится на эту тональность.</p>
+          <div class="formula">
+            <span class="pill">Диезы: F♯ C♯ G♯ D♯ A♯ E♯ B♯</span>
+            <span class="pill">Бемоли: B♭ E♭ A♭ D♭ G♭ C♭ F♭</span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </details>
 
-<!-- ============ REFERENCE ============ -->
-<section id="ref">
-  <div class="sec-head"><span class="num">03</span><h2>Справочник</h2></div>
+  <details class="ref-item">
+    <summary>Интервалы в полутонах</summary>
+    <div class="ref-body">
+      <div class="tbl-wrap"><table>
+        <tr><th>Полутонов</th><th>Интервал</th><th>От До</th><th>На гитаре</th><th>Где слышал</th></tr>
+        <tr><td class="mono">1</td><td>малая секунда</td><td class="mono">C–C♯</td><td class="mono">1 лад</td><td>тема «Челюстей»</td></tr>
+        <tr><td class="mono">2</td><td>большая секунда</td><td class="mono">C–D</td><td class="mono">2 лада</td><td>«Happy Birthday», первые две ноты</td></tr>
+        <tr><td class="mono">3</td><td>малая терция</td><td class="mono">C–E♭</td><td class="mono">3 лада</td><td>минорная окраска</td></tr>
+        <tr><td class="mono">4</td><td>большая терция</td><td class="mono">C–E</td><td class="mono">4 лада</td><td>мажорная окраска</td></tr>
+        <tr><td class="mono">5</td><td>чистая кварта</td><td class="mono">C–F</td><td class="mono">соседняя струна</td><td>строй гитары</td></tr>
+        <tr><td class="mono">6</td><td>тритон</td><td class="mono">C–F♯</td><td class="mono">6 ладов</td><td>блюзовая нота, напряжение</td></tr>
+        <tr><td class="mono">7</td><td>чистая квинта</td><td class="mono">C–G</td><td class="mono">7 ладов</td><td>пауэр-аккорд</td></tr>
+        <tr><td class="mono">8</td><td>малая секста</td><td class="mono">C–A♭</td><td class="mono">8 ладов</td><td>—</td></tr>
+        <tr><td class="mono">9</td><td>большая секста</td><td class="mono">C–A</td><td class="mono">9 ладов</td><td>«My Way», начало</td></tr>
+        <tr><td class="mono">10</td><td>малая септима</td><td class="mono">C–B♭</td><td class="mono">10 ладов</td><td>доминантсептаккорд</td></tr>
+        <tr><td class="mono">11</td><td>большая септима</td><td class="mono">C–B</td><td class="mono">11 ладов</td><td>maj7</td></tr>
+        <tr><td class="mono">12</td><td>октава</td><td class="mono">C–C</td><td class="mono">12 ладов</td><td>—</td></tr>
+      </table></div>
+    </div>
+  </details>
 
-  <h3 style="margin:8px 0 10px">Интервалы в полутонах</h3>
-  <div class="tbl-wrap" style="margin-bottom:26px">
-    <table>
-      <tr><th>Полутонов</th><th>Интервал</th><th>Пример от До</th><th>Где слышал</th></tr>
-      <tr><td class="mono">1</td><td>малая секунда</td><td class="mono">C–C♯</td><td>тема «Челюстей»</td></tr>
-      <tr><td class="mono">2</td><td>большая секунда</td><td class="mono">C–D</td><td>«Happy Birthday», первые две ноты</td></tr>
-      <tr><td class="mono">3</td><td>малая терция</td><td class="mono">C–E♭</td><td>минорная окраска</td></tr>
-      <tr><td class="mono">4</td><td>большая терция</td><td class="mono">C–E</td><td>мажорная окраска</td></tr>
-      <tr><td class="mono">5</td><td>чистая кварта</td><td class="mono">C–F</td><td>строй гитары между струнами</td></tr>
-      <tr><td class="mono">6</td><td>тритон</td><td class="mono">C–F♯</td><td>«блюзовая нота», напряжение</td></tr>
-      <tr><td class="mono">7</td><td>чистая квинта</td><td class="mono">C–G</td><td>пауэр-аккорд</td></tr>
-      <tr><td class="mono">8</td><td>малая секста</td><td class="mono">C–A♭</td><td>—</td></tr>
-      <tr><td class="mono">9</td><td>большая секста</td><td class="mono">C–A</td><td>«My Way», начало</td></tr>
-      <tr><td class="mono">10</td><td>малая септима</td><td class="mono">C–B♭</td><td>доминантсептаккорд, блюз</td></tr>
-      <tr><td class="mono">11</td><td>большая септима</td><td class="mono">C–B</td><td>maj7, «мягкий джаз»</td></tr>
-      <tr><td class="mono">12</td><td>октава</td><td class="mono">C–C</td><td>—</td></tr>
-    </table>
-  </div>
+  <details class="ref-item">
+    <summary>Формулы всех аккордов</summary>
+    <div class="ref-body"><div class="tbl-wrap"><table id="chordRef"></table></div></div>
+  </details>
 
-  <h3 style="margin:8px 0 10px">Формулы аккордов</h3>
-  <div class="tbl-wrap" style="margin-bottom:26px">
-    <table id="chordRef"><tr><th>Обозначение</th><th>Название</th><th>Ступени</th><th>Полутоны от тоники</th><th>От До</th></tr></table>
-  </div>
+  <details class="ref-item">
+    <summary>Формулы всех гамм</summary>
+    <div class="ref-body"><div class="tbl-wrap"><table id="scaleRef"></table></div></div>
+  </details>
 
-  <h3 style="margin:8px 0 10px">Аппликатуры гамм</h3>
-  <div class="tbl-wrap" style="margin-bottom:14px">
-    <table id="fingRef"><tr><th>Тональность</th><th>Правая рука</th><th>Левая рука</th></tr></table>
-  </div>
-  <p class="hint">Для остальных тональностей действует правило, а не таблица: <b>большой палец никогда не встаёт на чёрную клавишу</b>, а третий и четвёртый пальцы «выстраиваются» по группам чёрных. Разбирайся с каждой новой тональностью через это правило — так аппликатура запоминается навсегда, а не зазубривается.</p>
+  <details class="ref-item">
+    <summary>Аппликатуры гамм на клавишах</summary>
+    <div class="ref-body">
+      <div class="tbl-wrap"><table id="fingRef"></table></div>
+      <p class="hint">Для остальных тональностей работает правило, а не таблица: <b>большой палец никогда не встаёт на чёрную клавишу</b>, третий и четвёртый выстраиваются по группам чёрных. Выводи аппликатуру каждый раз через это правило — так она запоминается, а не зазубривается.</p>
+    </div>
+  </details>
+
+  <details class="ref-item">
+    <summary>Как этим пользоваться</summary>
+    <div class="ref-body" style="gap:9px">
+      <p class="hint"><b>Тоника и режим</b> — верхние два ряда. Дальше каталог: плитки показывают всё, что есть, а не прячут за выпадающим списком.</p>
+      <p class="hint"><b>Клавиатура</b> — три октавы, средняя до помечена оранжевой точкой. Играть можно мышью и с компьютерной клавиатуры: <code>z s x d c v g b h n j m</code> — нижняя октава, <code>q 2 w 3 e r 5 t 6 y 7 u</code> — верхняя.</p>
+      <p class="hint"><b>Гриф</b> — в режиме «Аккорды» список позиций даёт конкретные аппликатуры: формы CAGED и рассчитанные войсинги на тройках и четвёрках струн. В «Гаммах» — боксы от ступеней на 6-й струне. В «Арпеджио» — все ноты аккорда по всему грифу.</p>
+      <p class="hint"><b>Закрепить</b> — складывает текущую позицию в строку закладок под каталогом. Это и есть список того, что ты сейчас зубришь. Хранится в браузере.</p>
+      <p class="hint"><b>Цифры на точках</b> — ступени в полутонах от тоники. Они одинаковы на клавишах и на грифе: это единственный способ видеть, что оба инструмента играют одно и то же.</p>
+    </div>
+  </details>
 </section>
 
 <footer>
-  <div>Настройки грифа и темы хранятся в этом браузере (localStorage) — на другом устройстве всё начнётся с умолчаний.</div>
-  <div>Тренажёр звучит через Web Audio — наушники дадут более честный тон, чем динамик ноутбука.</div>
+  <div>Формы аккордов на грифе проверяются расчётом: берутся реальные ноты под пальцами и сверяются с формулой. Если строй форму не держит, она не предлагается.</div>
+  <div>Закладки, строй и тема хранятся в этом браузере.</div>
 </footer>
 
 </div>
 
 <script>
-/* ================= данные ================= */
-const LAT=["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
-const RU=["До","До♯","Ре","Ре♯","Ми","Фа","Фа♯","Соль","Соль♯","Ля","Ля♯","Си"];
-const LOW=48,HIGH=84;              // C3..C6 (SPN); вторая «до» = C4 = 60 = middle C
-const BLACK=[1,3,6,8,10];
-const isBlack=m=>BLACK.includes(((m%12)+12)%12);
+/* ===================== ноты и написание ===================== */
+const LAT=["C","C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"];
+const RU =["До","До♯","Ре","Ре♯","Ми","Фа","Фа♯","Соль","Соль♯","Ля","Ля♯","Си"];
+const PREF=["C","D♭","D","E♭","E","F","F♯","G","A♭","A","B♭","B"];
+const LETTERS=["C","D","E","F","G","A","B"], LETTER_PC=[0,2,4,5,7,9,11];
+const DEG_PC={1:0,2:2,3:4,4:5,5:7,6:9,7:11,9:14,11:17,13:21};
+const pcOf=m=>((m%12)+12)%12;
+const accOf=d=>d===0?"":d>0?"♯".repeat(Math.min(d,2)):"♭".repeat(Math.min(-d,2));
 
-const SCALES={
-  major:{n:"Мажорная (натуральная)",s:[0,2,4,5,7,9,11],d:["1","2","3","4","5","6","7"],note:"Тон · тон · полутон · тон · тон · тон · полутон"},
-  natminor:{n:"Минорная натуральная",s:[0,2,3,5,7,8,10],d:["1","2","♭3","4","5","♭6","♭7"],note:"Тон · полутон · тон · тон · полутон · тон · тон"},
-  harmminor:{n:"Минорная гармоническая",s:[0,2,3,5,7,8,11],d:["1","2","♭3","4","5","♭6","7"],note:"Натуральный минор с повышенной VII — отсюда «восточный» шаг в полтора тона"},
-  melminor:{n:"Минорная мелодическая (вверх)",s:[0,2,3,5,7,9,11],d:["1","2","♭3","4","5","6","7"],note:"Вверх — так, вниз обычно возвращают натуральный минор"},
-  majpent:{n:"Пентатоника мажорная",s:[0,2,4,7,9],d:["1","2","3","5","6"],note:"Мажорная гамма без IV и VII — нечему фальшивить"},
-  minpent:{n:"Пентатоника минорная",s:[0,3,5,7,10],d:["1","♭3","4","5","♭7"],note:"Твоя гитарная «коробочка», нота в ноту"},
-  blues:{n:"Блюзовая",s:[0,3,5,6,7,10],d:["1","♭3","4","♭5","5","♭7"],blue:[6],note:"Минорная пентатоника + ♭5 — та самая «блюзовая нота»"},
-  dorian:{n:"Дорийский лад",s:[0,2,3,5,7,9,10],d:["1","2","♭3","4","5","6","♭7"],note:"Минор со светлой VI — Santana, фанк, соул"},
-  mixo:{n:"Миксолидийский лад",s:[0,2,4,5,7,9,10],d:["1","2","3","4","5","6","♭7"],note:"Мажор с ♭VII — рок и доминантовые аккорды"},
-  chromatic:{n:"Хроматическая",s:[0,1,2,3,4,5,6,7,8,9,10,11],d:["","","","","","","","","","","",""],note:"Все 12 полутонов подряд"}
-};
-
-const CHORDS={
-  maj  :{sym:"",     n:"Мажорное трезвучие",     iv:[0,4,7],       deg:"1 · 3 · 5"},
-  min  :{sym:"m",    n:"Минорное трезвучие",     iv:[0,3,7],       deg:"1 · ♭3 · 5"},
-  dim  :{sym:"dim",  n:"Уменьшённое трезвучие",  iv:[0,3,6],       deg:"1 · ♭3 · ♭5"},
-  aug  :{sym:"aug",  n:"Увеличенное трезвучие",  iv:[0,4,8],       deg:"1 · 3 · ♯5"},
-  sus2 :{sym:"sus2", n:"Сус-два",                iv:[0,2,7],       deg:"1 · 2 · 5"},
-  sus4 :{sym:"sus4", n:"Сус-четыре",             iv:[0,5,7],       deg:"1 · 4 · 5"},
-  six  :{sym:"6",    n:"Мажорный секстаккорд",   iv:[0,4,7,9],     deg:"1 · 3 · 5 · 6"},
-  min6 :{sym:"m6",   n:"Минорный с секстой",     iv:[0,3,7,9],     deg:"1 · ♭3 · 5 · 6"},
-  maj7 :{sym:"maj7", n:"Большой мажорный септ",  iv:[0,4,7,11],    deg:"1 · 3 · 5 · 7"},
-  dom7 :{sym:"7",    n:"Доминантсептаккорд",     iv:[0,4,7,10],    deg:"1 · 3 · 5 · ♭7"},
-  min7 :{sym:"m7",   n:"Малый минорный септ",    iv:[0,3,7,10],    deg:"1 · ♭3 · 5 · ♭7"},
-  m7b5 :{sym:"m7♭5", n:"Полууменьшённый",        iv:[0,3,6,10],    deg:"1 · ♭3 · ♭5 · ♭7"},
-  dim7 :{sym:"dim7", n:"Уменьшённый септаккорд", iv:[0,3,6,9],     deg:"1 · ♭3 · ♭5 · ♭♭7"},
-  add9 :{sym:"add9", n:"Мажор с ноной",          iv:[0,4,7,14],    deg:"1 · 3 · 5 · 9"},
-  nine :{sym:"9",    n:"Нонаккорд",              iv:[0,4,7,10,14], deg:"1 · 3 · 5 · ♭7 · 9"}
-};
-
-/* аппликатуры, в которых я уверен; для остальных — правило, не выдуманная таблица */
-const FING={
-  "0_major":{rh:"1 2 3 1 2 3 4 5",lh:"5 4 3 2 1 3 2 1",label:"До мажор"},
-  "7_major":{rh:"1 2 3 1 2 3 4 5",lh:"5 4 3 2 1 3 2 1",label:"Соль мажор"},
-  "2_major":{rh:"1 2 3 1 2 3 4 5",lh:"5 4 3 2 1 3 2 1",label:"Ре мажор"},
-  "9_major":{rh:"1 2 3 1 2 3 4 5",lh:"5 4 3 2 1 3 2 1",label:"Ля мажор"},
-  "4_major":{rh:"1 2 3 1 2 3 4 5",lh:"5 4 3 2 1 3 2 1",label:"Ми мажор"},
-  "11_major":{rh:"1 2 3 1 2 3 4 5",lh:"4 3 2 1 4 3 2 1",label:"Си мажор"},
-  "5_major":{rh:"1 2 3 4 1 2 3 4",lh:"5 4 3 2 1 3 2 1",label:"Фа мажор"},
-  "9_natminor":{rh:"1 2 3 1 2 3 4 5",lh:"5 4 3 2 1 3 2 1",label:"Ля минор"},
-  "4_natminor":{rh:"1 2 3 1 2 3 4 5",lh:"5 4 3 2 1 3 2 1",label:"Ми минор"},
-  "2_natminor":{rh:"1 2 3 1 2 3 4 5",lh:"5 4 3 2 1 3 2 1",label:"Ре минор"}
-};
-
-const COF=[
-  {pc:0,maj:"C",min:"Am",sig:"—"},{pc:7,maj:"G",min:"Em",sig:"1♯"},{pc:2,maj:"D",min:"Bm",sig:"2♯"},
-  {pc:9,maj:"A",min:"F♯m",sig:"3♯"},{pc:4,maj:"E",min:"C♯m",sig:"4♯"},{pc:11,maj:"B",min:"G♯m",sig:"5♯"},
-  {pc:6,maj:"G♭",min:"E♭m",sig:"6♭"},{pc:1,maj:"D♭",min:"B♭m",sig:"5♭"},{pc:8,maj:"A♭",min:"Fm",sig:"4♭"},
-  {pc:3,maj:"E♭",min:"Cm",sig:"3♭"},{pc:10,maj:"B♭",min:"Gm",sig:"2♭"},{pc:5,maj:"F",min:"Dm",sig:"1♭"}
-];
-
-/* ================= звук ================= */
-let ac=null;
-function ctx(){
-  if(!ac){try{ac=new (window.AudioContext||window.webkitAudioContext)()}catch(e){return null}}
-  if(ac.state==="suspended")ac.resume();
-  return ac;
+/* имя ноты по букве ступени: тоника + номер ступени + реальный полутон */
+function spell(rootPc,degNum,semi){
+  const rn=PREF[rootPc], li=LETTERS.indexOf(rn[0]);
+  const racc=rn.length>1?(rn[1]==="♯"?1:-1):0;
+  const idx=(li+(degNum-1))%7;
+  const natural=pcOf(LETTER_PC[idx]+0);
+  const target=pcOf(rootPc+semi);
+  let d=((target-natural+18)%12)-6;
+  if(d<-2||d>2) return LAT[target];
+  return LETTERS[idx]+accOf(d);
 }
+/* подпись ступени: ♭3, ♯5, 7 … */
+function degLabel(degNum,semi){
+  const nat=DEG_PC[degNum]; if(nat===undefined)return String(degNum);
+  let d=semi-nat; while(d>6)d-=12; while(d<-6)d+=12;
+  return accOf(d)+degNum;
+}
+
+/* ===================== гаммы ===================== */
+const SCALES={
+  major    :{g:"Основные",n:"Мажорная (ионийский)",sh:"Мажорная",s:[0,2,4,5,7,9,11],dn:[1,2,3,4,5,6,7],note:"Тон · тон · полутон · тон · тон · тон · полутон"},
+  natminor :{g:"Основные",n:"Минорная натуральная (эолийский)",sh:"Минорная натуральная",s:[0,2,3,5,7,8,10],dn:[1,2,3,4,5,6,7],note:"Параллельна мажору на малую терцию выше: те же ноты, другая тоника"},
+  harmminor:{g:"Основные",n:"Минорная гармоническая",sh:"Гармонический минор",s:[0,2,3,5,7,8,11],dn:[1,2,3,4,5,6,7],note:"Натуральный минор с повышенной VII — отсюда шаг в полтора тона между ♭6 и 7"},
+  melminor :{g:"Основные",n:"Минорная мелодическая",sh:"Мелодический минор",s:[0,2,3,5,7,9,11],dn:[1,2,3,4,5,6,7],note:"Вверх так, вниз классика возвращает натуральный минор; в джазе играют одинаково"},
+  dorian   :{g:"Лады",n:"Дорийский",sh:"Дорийский",s:[0,2,3,5,7,9,10],dn:[1,2,3,4,5,6,7],note:"Минор со светлой VI — Santana, фанк, соул"},
+  phrygian :{g:"Лады",n:"Фригийский",sh:"Фригийский",s:[0,1,3,5,7,8,10],dn:[1,2,3,4,5,6,7],note:"Минор с ♭II — испанская и металлическая окраска"},
+  lydian   :{g:"Лады",n:"Лидийский",sh:"Лидийский",s:[0,2,4,6,7,9,11],dn:[1,2,3,4,5,6,7],note:"Мажор с ♯IV — звук киношного простора"},
+  mixo     :{g:"Лады",n:"Миксолидийский",sh:"Миксолидийский",s:[0,2,4,5,7,9,10],dn:[1,2,3,4,5,6,7],note:"Мажор с ♭VII — рок и всё, что играется поверх доминанты"},
+  locrian  :{g:"Лады",n:"Локрийский",sh:"Локрийский",s:[0,1,3,5,6,8,10],dn:[1,2,3,4,5,6,7],note:"Единственный лад с ♭V: тоника неустойчива, живёт над m7♭5"},
+  majpent  :{g:"Пентатоники и блюз",n:"Пентатоника мажорная",sh:"Мажорная пентатоника",s:[0,2,4,7,9],dn:[1,2,3,5,6],note:"Мажорная гамма без IV и VII — нечему фальшивить"},
+  minpent  :{g:"Пентатоники и блюз",n:"Пентатоника минорная",sh:"Минорная пентатоника",s:[0,3,5,7,10],dn:[1,3,4,5,7],note:"Гитарная «коробочка», нота в ноту"},
+  blues    :{g:"Пентатоники и блюз",n:"Блюзовая",sh:"Блюзовая",s:[0,3,5,6,7,10],dn:[1,3,4,5,5,7],blue:[6],note:"Минорная пентатоника плюс ♭5 — та самая блюзовая нота, проходящая"},
+  phrygdom :{g:"Экзотика и симметрия",n:"Фригийская доминанта",sh:"Фригийская доминанта",s:[0,1,4,5,7,8,10],dn:[1,2,3,4,5,6,7],note:"Пятая ступень гармонического минора: фламенко и клезмер"},
+  hungarian:{g:"Экзотика и симметрия",n:"Венгерский минор",sh:"Венгерский минор",s:[0,2,3,6,7,8,11],dn:[1,2,3,4,5,6,7],note:"Гармонический минор с ♯IV — два полуторатоновых шага"},
+  wholetone:{g:"Экзотика и симметрия",n:"Целотонная",sh:"Целотонная",s:[0,2,4,6,8,10],dn:[1,2,3,4,5,7],note:"Шесть целых тонов подряд. Симметрична: тоники как таковой нет"},
+  dimhw    :{g:"Экзотика и симметрия",n:"Уменьшённая (полутон-тон)",sh:"Уменьшённая ½–1",s:[0,1,3,4,6,7,9,10],dn:[1,2,2,3,4,5,6,7],note:"Над доминантой с альтерациями: даёт ♭9, ♯9, ♯11, 13"},
+  dimwh    :{g:"Экзотика и симметрия",n:"Уменьшённая (тон-полутон)",sh:"Уменьшённая 1–½",s:[0,2,3,5,6,8,9,11],dn:[1,2,3,4,5,6,6,7],note:"Над уменьшённым септаккордом"},
+  bebopdom :{g:"Экзотика и симметрия",n:"Бибоп-доминанта",sh:"Бибоп-доминанта",s:[0,2,4,5,7,9,10,11],dn:[1,2,3,4,5,6,7,7],note:"Миксолидийский плюс проходящая большая септима — восемь нот ровно на такт"},
+  chromatic:{g:"Экзотика и симметрия",n:"Хроматическая",sh:"Хроматическая",s:[0,1,2,3,4,5,6,7,8,9,10,11],dn:null,note:"Все двенадцать полутонов подряд"}
+};
+
+/* ===================== аккорды ===================== */
+const CHORDS={
+  five    :{g:"Трезвучия",sym:"5",      n:"Пауэр-аккорд",                 iv:[0,7],         dn:[1,5]},
+  maj     :{g:"Трезвучия",sym:"",       n:"Мажорное трезвучие",           iv:[0,4,7],       dn:[1,3,5]},
+  min     :{g:"Трезвучия",sym:"m",      n:"Минорное трезвучие",           iv:[0,3,7],       dn:[1,3,5]},
+  dim     :{g:"Трезвучия",sym:"dim",    n:"Уменьшённое трезвучие",        iv:[0,3,6],       dn:[1,3,5]},
+  aug     :{g:"Трезвучия",sym:"aug",    n:"Увеличенное трезвучие",        iv:[0,4,8],       dn:[1,3,5]},
+  sus2    :{g:"Трезвучия",sym:"sus2",   n:"Сус-два",                      iv:[0,2,7],       dn:[1,2,5]},
+  sus4    :{g:"Трезвучия",sym:"sus4",   n:"Сус-четыре",                   iv:[0,5,7],       dn:[1,4,5]},
+  six     :{g:"Секстовые",sym:"6",      n:"Мажорный с секстой",           iv:[0,4,7,9],     dn:[1,3,5,6]},
+  min6    :{g:"Секстовые",sym:"m6",     n:"Минорный с секстой",           iv:[0,3,7,9],     dn:[1,3,5,6]},
+  six9    :{g:"Секстовые",sym:"6/9",    n:"Шесть-девять",                 iv:[0,4,7,9,14],  dn:[1,3,5,6,9]},
+  maj7    :{g:"Септаккорды",sym:"maj7", n:"Большой мажорный септаккорд",  iv:[0,4,7,11],    dn:[1,3,5,7]},
+  dom7    :{g:"Септаккорды",sym:"7",    n:"Доминантсептаккорд",           iv:[0,4,7,10],    dn:[1,3,5,7]},
+  min7    :{g:"Септаккорды",sym:"m7",   n:"Малый минорный септаккорд",    iv:[0,3,7,10],    dn:[1,3,5,7]},
+  mmaj7   :{g:"Септаккорды",sym:"m(maj7)",n:"Минорный с большой септимой",iv:[0,3,7,11],    dn:[1,3,5,7]},
+  m7b5    :{g:"Септаккорды",sym:"m7♭5", n:"Полууменьшённый",              iv:[0,3,6,10],    dn:[1,3,5,7]},
+  dim7    :{g:"Септаккорды",sym:"dim7", n:"Уменьшённый септаккорд",       iv:[0,3,6,9],     dn:[1,3,5,7]},
+  sev7sus4:{g:"Септаккорды",sym:"7sus4",n:"Доминанта с квартой",          iv:[0,5,7,10],    dn:[1,4,5,7]},
+  add9    :{g:"Добавленные",sym:"add9", n:"Мажор с ноной",                iv:[0,4,7,14],    dn:[1,3,5,9]},
+  add11   :{g:"Добавленные",sym:"add11",n:"Мажор с ундецимой",            iv:[0,4,7,17],    dn:[1,3,5,11]},
+  nine    :{g:"Расширенные",sym:"9",    n:"Нонаккорд",                    iv:[0,4,7,10,14], dn:[1,3,5,7,9]},
+  maj9    :{g:"Расширенные",sym:"maj9", n:"Большой нонаккорд",            iv:[0,4,7,11,14], dn:[1,3,5,7,9]},
+  min9    :{g:"Расширенные",sym:"m9",   n:"Минорный нонаккорд",           iv:[0,3,7,10,14], dn:[1,3,5,7,9]},
+  eleven  :{g:"Расширенные",sym:"11",   n:"Ундецимаккорд",                iv:[0,7,10,14,17],dn:[1,5,7,9,11]},
+  thirteen:{g:"Расширенные",sym:"13",   n:"Терцдецимаккорд",              iv:[0,4,10,14,21],dn:[1,3,7,9,13]},
+  sevb9   :{g:"Альтерированные",sym:"7♭9", n:"Доминанта с пониженной ноной",     iv:[0,4,7,10,13],dn:[1,3,5,7,9]},
+  sevs9   :{g:"Альтерированные",sym:"7♯9", n:"Доминанта с повышенной ноной",     iv:[0,4,7,10,15],dn:[1,3,5,7,9]},
+  sevs11  :{g:"Альтерированные",sym:"7♯11",n:"Доминанта с повышенной ундецимой", iv:[0,4,7,10,18],dn:[1,3,5,7,11]},
+  sevb5   :{g:"Альтерированные",sym:"7♭5", n:"Доминанта с пониженной квинтой",   iv:[0,4,6,10],   dn:[1,3,5,7]},
+  sevs5   :{g:"Альтерированные",sym:"7♯5", n:"Доминанта с повышенной квинтой",   iv:[0,4,8,10],   dn:[1,3,5,7]}
+};
+
+/* ===================== формы CAGED (проверены расчётом) ===================== */
+const FORMS={
+  five    :[["E",0,[0,2,null,null,null,null]],["A",1,[null,0,2,null,null,null]],["D",2,[null,null,0,2,null,null]]],
+  maj     :[["E",0,[0,2,2,1,0,0]],["A",1,[null,0,2,2,2,0]],["D",2,[null,null,0,2,3,2]],
+            ["C",1,[null,0,-1,-3,-2,-3]],["G",0,[0,-1,-3,-3,-3,0]]],
+  min     :[["Em",0,[0,2,2,0,0,0]],["Am",1,[null,0,2,2,1,0]],["Dm",2,[null,null,0,2,3,1]]],
+  dom7    :[["E7",0,[0,2,0,1,0,0]],["A7",1,[null,0,2,0,2,0]],["D7",2,[null,null,0,2,1,2]]],
+  min7    :[["Em7",0,[0,2,0,0,0,0]],["Am7",1,[null,0,2,0,1,0]],["Dm7",2,[null,null,0,2,1,1]]],
+  maj7    :[["Emaj7",0,[0,null,1,1,0,null]],["Amaj7",1,[null,0,2,1,2,0]],["Dmaj7",2,[null,null,0,2,2,2]]],
+  mmaj7   :[["Em(maj7)",0,[0,null,1,0,0,null]],["Am(maj7)",1,[null,0,2,1,1,0]]],
+  six     :[["E6",0,[0,2,2,1,2,0]],["A6",1,[null,0,2,2,2,2]]],
+  min6    :[["Em6",0,[0,2,2,0,2,0]],["Am6",1,[null,0,2,2,1,2]]],
+  sus4    :[["Esus4",0,[0,2,2,2,0,0]],["Asus4",1,[null,0,2,2,3,0]]],
+  sus2    :[["Asus2",1,[null,0,2,2,0,0]],["Dsus2",2,[null,null,0,2,3,0]]],
+  sev7sus4:[["E7sus4",0,[0,2,0,2,0,0]],["A7sus4",1,[null,0,2,0,3,0]]],
+  nine    :[["E9",0,[0,2,0,1,0,2]],["A9",1,[null,0,2,4,2,3]]],
+  m7b5    :[["6-я струна",0,[0,null,0,0,-1,null]],["5-я струна",1,[null,0,1,0,1,null]]],
+  dim7    :[["5-я струна",1,[null,0,1,-1,1,null]]],
+  aug     :[["5-я струна",1,[null,0,3,2,2,1]]]
+};
+
+const TUNINGS={
+  std   :{n:"Стандартный · E A D G B E", s:[64,59,55,50,45,40]},
+  dropd :{n:"Drop D · D A D G B E",      s:[64,59,55,50,45,38]},
+  eb    :{n:"Полтона вниз · E♭",         s:[63,58,54,49,44,39]},
+  dadgad:{n:"DADGAD",                    s:[62,57,55,50,45,38]}
+};
+
+/* аппликатуры гамм на клавишах — только те, в которых нет сомнений */
+const FING={
+  "0_major":["1 2 3 1 2 3 4 5","5 4 3 2 1 3 2 1","До мажор"],
+  "7_major":["1 2 3 1 2 3 4 5","5 4 3 2 1 3 2 1","Соль мажор"],
+  "2_major":["1 2 3 1 2 3 4 5","5 4 3 2 1 3 2 1","Ре мажор"],
+  "9_major":["1 2 3 1 2 3 4 5","5 4 3 2 1 3 2 1","Ля мажор"],
+  "4_major":["1 2 3 1 2 3 4 5","5 4 3 2 1 3 2 1","Ми мажор"],
+  "11_major":["1 2 3 1 2 3 4 5","4 3 2 1 4 3 2 1","Си мажор"],
+  "5_major":["1 2 3 4 1 2 3 4","5 4 3 2 1 3 2 1","Фа мажор"],
+  "9_natminor":["1 2 3 1 2 3 4 5","5 4 3 2 1 3 2 1","Ля минор"],
+  "4_natminor":["1 2 3 1 2 3 4 5","5 4 3 2 1 3 2 1","Ми минор"],
+  "2_natminor":["1 2 3 1 2 3 4 5","5 4 3 2 1 3 2 1","Ре минор"]
+};
+
+/* ступени тональности */
+const DIA={
+  major:{tri:[[0,"maj","I"],[2,"min","ii"],[4,"min","iii"],[5,"maj","IV"],[7,"maj","V"],[9,"min","vi"],[11,"dim","vii°"]],
+         sev:[[0,"maj7","Imaj7"],[2,"min7","iim7"],[4,"min7","iiim7"],[5,"maj7","IVmaj7"],[7,"dom7","V7"],[9,"min7","vim7"],[11,"m7b5","viim7♭5"]]},
+  natminor:{tri:[[0,"min","i"],[2,"dim","ii°"],[3,"maj","III"],[5,"min","iv"],[7,"min","v"],[8,"maj","VI"],[10,"maj","VII"]],
+         sev:[[0,"min7","im7"],[2,"m7b5","iim7♭5"],[3,"maj7","IIImaj7"],[5,"min7","ivm7"],[7,"min7","vm7"],[8,"maj7","VImaj7"],[10,"dom7","VII7"]]}
+};
+const MAJ_SIG={0:"без знаков",7:"1♯",2:"2♯",9:"3♯",4:"4♯",11:"5♯",6:"6♯",1:"5♭",8:"4♭",3:"3♭",10:"2♭",5:"1♭"};
+
+const COF=[{pc:0,maj:"C",min:"Am",sig:"—"},{pc:7,maj:"G",min:"Em",sig:"1♯"},{pc:2,maj:"D",min:"Bm",sig:"2♯"},
+ {pc:9,maj:"A",min:"F♯m",sig:"3♯"},{pc:4,maj:"E",min:"C♯m",sig:"4♯"},{pc:11,maj:"B",min:"G♯m",sig:"5♯"},
+ {pc:6,maj:"G♭",min:"E♭m",sig:"6♭"},{pc:1,maj:"D♭",min:"B♭m",sig:"5♭"},{pc:8,maj:"A♭",min:"Fm",sig:"4♭"},
+ {pc:3,maj:"E♭",min:"Cm",sig:"3♭"},{pc:10,maj:"B♭",min:"Gm",sig:"2♭"},{pc:5,maj:"F",min:"Dm",sig:"1♭"}];
+</script>
+
+<script>
+/* ===================== звук ===================== */
+let ac=null;
+function ctx(){ if(!ac){try{ac=new (window.AudioContext||window.webkitAudioContext)()}catch(e){return null}}
+  if(ac.state==="suspended")ac.resume(); return ac; }
 const hz=m=>440*Math.pow(2,(m-69)/12);
 function tone(m,at,dur,vol,timbre){
   const a=ctx(); if(!a)return;
   const t=at||a.currentTime, g=a.createGain(), f=a.createBiquadFilter();
-  f.type="lowpass"; f.frequency.setValueAtTime(timbre==="bass"?900:3200,t); f.Q.value=.6;
+  const pluck=timbre==="pluck";
+  f.type="lowpass"; f.frequency.setValueAtTime(pluck?2600:3200,t);
+  if(pluck)f.frequency.exponentialRampToValueAtTime(700,t+.5);
+  f.Q.value=.7;
   const v=vol==null?.20:vol, d=dur==null?1.3:dur;
   g.gain.setValueAtTime(0,t);
-  g.gain.linearRampToValueAtTime(v,t+.012);
-  g.gain.exponentialRampToValueAtTime(v*.30,t+.28);
+  g.gain.linearRampToValueAtTime(v,t+(pluck?.004:.012));
+  g.gain.exponentialRampToValueAtTime(v*(pluck?.14:.30),t+(pluck?.18:.28));
   g.gain.exponentialRampToValueAtTime(.0001,t+d);
   const o1=a.createOscillator(),o2=a.createOscillator();
-  o1.type="triangle"; o1.frequency.value=hz(m);
-  o2.type="sine";     o2.frequency.value=hz(m-12);
-  const g2=a.createGain(); g2.gain.value=.4; o2.connect(g2); g2.connect(f);
+  o1.type=pluck?"sawtooth":"triangle"; o1.frequency.value=hz(m);
+  o2.type="sine"; o2.frequency.value=hz(m-12);
+  const g2=a.createGain(); g2.gain.value=pluck?.18:.4; o2.connect(g2); g2.connect(f);
   o1.connect(f); f.connect(g); g.connect(a.destination);
   o1.start(t); o2.start(t); o1.stop(t+d+.05); o2.stop(t+d+.05);
 }
@@ -522,426 +539,578 @@ function click(at,accent){
   o.connect(g); g.connect(a.destination); o.start(t); o.stop(t+.07);
 }
 
-/* ================= клавиатура ================= */
-const KW=42,KH=172,BW=26,BH=106;
-const kbEl=document.getElementById("kb");
-const keyEls={};
-(function buildKb(){
-  let wi=0, frag=document.createDocumentFragment();
-  const blacks=[];
+/* ===================== состояние ===================== */
+const LOW=48,HIGH=84;
+const isBlack=m=>[1,3,6,8,10].includes(pcOf(m));
+let root=0, mode="scale", scaleKey="major", chordKey="maj", inv=0;
+let keyMinor=false, keySeventh=false, keyDeg=null;
+let fbTun="std", fbNames=false, fbLefty=false, fbSel="", fbSig=null;
+let pins=[];
+try{ const s=localStorage.getItem("tri.state"); if(s){const o=JSON.parse(s);
+  fbTun=o.fbTun||fbTun; fbNames=!!o.fbNames; fbLefty=!!o.fbLefty; pins=o.pins||[]; } }catch(e){}
+function save(){ try{ localStorage.setItem("tri.state",JSON.stringify({fbTun,fbNames,fbLefty,pins})) }catch(e){} }
+
+function eff(){
+  if(mode==="key"){
+    const sk=keyMinor?"natminor":"major";
+    if(keyDeg===null) return {kind:"scale",root,key:sk};
+    const d=DIA[sk][keySeventh?"sev":"tri"][keyDeg];
+    return {kind:"chord",root:(root+d[0])%12,key:d[1]};
+  }
+  if(mode==="scale") return {kind:"scale",root,key:scaleKey};
+  return {kind:mode==="arp"?"arp":"chord",root,key:chordKey};
+}
+function rows(){ const e=eff();
+  if(e.kind==="scale"){ const sc=SCALES[e.key];
+    return sc.s.map((v,i)=>({semi:v,pc:(e.root+v)%12,
+      deg: sc.dn?degLabel(sc.dn[i],v):(v===0?"1":String(v)),
+      name: sc.dn?spell(e.root,sc.dn[i],v):PREF[(e.root+v)%12],
+      kind: v===0?"root":(sc.blue&&sc.blue.includes(v)?"blue":"tone")}));
+  }
+  const ch=CHORDS[e.key];
+  return ch.iv.map((v,i)=>({semi:v,pc:(e.root+v)%12,deg:degLabel(ch.dn[i],v),
+    name:spell(e.root,ch.dn[i],v), kind: v===0?"root":"tone"}));
+}
+function pcMap(){ const m={}; rows().forEach(r=>{ if(!m[r.pc]) m[r.pc]={deg:r.deg,kind:r.kind} }); return m; }
+function title(){ const e=eff();
+  return e.kind==="scale" ? `${PREF[e.root]} — ${SCALES[e.key].n.toLowerCase()}`
+                          : `${PREF[e.root]}${CHORDS[e.key].sym}`; }
+
+/* ===================== клавиатура ===================== */
+const KW=40,BW=25,KH=160,BH=99;
+const kbEl=document.getElementById("kb"), keyEls={};
+(function(){ let wi=0; const frag=document.createDocumentFragment(), blacks=[];
   for(let m=LOW;m<=HIGH;m++){
-    const pc=m%12, el=document.createElement("div");
-    el.className="key "+(isBlack(m)?"b":"w");
-    el.dataset.midi=m; el.tabIndex=-1;
-    el.innerHTML='<span class="deg"></span><span class="lbl"></span>';
+    const el=document.createElement("div");
+    el.className="key "+(isBlack(m)?"b":"w"); el.dataset.midi=m; el.tabIndex=-1;
+    el.innerHTML='<span class="deg2"></span><span class="lbl"></span>';
     if(isBlack(m)){ el.style.left=(wi*KW-BW/2)+"px"; el.style.width=BW+"px"; blacks.push(el); }
-    else{ el.style.left=(wi*KW)+"px"; el.style.width=KW+"px"; if(m===60)el.classList.add("mc"); wi++; frag.appendChild(el); }
+    else { el.style.left=(wi*KW)+"px"; el.style.width=KW+"px"; if(m===60)el.classList.add("mc"); wi++; frag.appendChild(el); }
     keyEls[m]=el;
   }
   blacks.forEach(b=>frag.appendChild(b));
-  kbEl.style.width=(wi*KW)+"px";
-  kbEl.appendChild(frag);
+  kbEl.style.width=(wi*KW)+"px"; kbEl.appendChild(frag);
 })();
-
-function press(m){
-  const el=keyEls[m]; if(!el)return;
-  tone(m); el.classList.add("press");
-  setTimeout(()=>el.classList.remove("press"),140);
-}
-kbEl.addEventListener("pointerdown",e=>{
-  const k=e.target.closest(".key"); if(!k)return; e.preventDefault(); press(+k.dataset.midi);
-});
-const KMAP={z:60,s:61,x:62,d:63,c:64,v:65,g:66,b:67,h:68,n:69,j:70,m:71,
-            q:72,"2":73,w:74,"3":75,e:76,r:77,"5":78,t:79,"6":80,y:81,"7":82,u:83};
+function pressKey(m,timbre){ const el=keyEls[m]; if(!el)return;
+  tone(m,null,1.3,.2,timbre); el.classList.add("press"); setTimeout(()=>el.classList.remove("press"),140); }
+kbEl.addEventListener("pointerdown",e=>{ const k=e.target.closest(".key"); if(!k)return; e.preventDefault(); pressKey(+k.dataset.midi); });
+const KMAP={z:60,s:61,x:62,d:63,c:64,v:65,g:66,b:67,h:68,n:69,j:70,m:71,q:72,"2":73,w:74,"3":75,e:76,r:77,"5":78,t:79,"6":80,y:81,"7":82,u:83};
 const held={};
-window.addEventListener("keydown",e=>{
-  if(e.metaKey||e.ctrlKey||e.altKey)return;
-  const tag=(e.target.tagName||"").toLowerCase();
-  if(tag==="input"||tag==="select"||tag==="textarea")return;
-  const m=KMAP[e.key.toLowerCase()];
-  if(m&&!held[m]){held[m]=1;press(m);}
-});
-window.addEventListener("keyup",e=>{const m=KMAP[e.key.toLowerCase()];if(m)delete held[m];});
+window.addEventListener("keydown",e=>{ if(e.metaKey||e.ctrlKey||e.altKey)return;
+  const tag=(e.target.tagName||"").toLowerCase(); if(tag==="input"||tag==="select"||tag==="textarea")return;
+  const m=KMAP[e.key.toLowerCase()]; if(m&&!held[m]){held[m]=1;pressKey(m);} });
+window.addEventListener("keyup",e=>{ const m=KMAP[e.key.toLowerCase()]; if(m)delete held[m]; });
 
-function clearHl(){
+function paintKeys(){
+  const map=pcMap(), showAll=false;
   for(const m in keyEls){
-    const el=keyEls[m];
+    const el=keyEls[m], pc=pcOf(+m), hit=map[pc];
     el.classList.remove("on-tone","on-root","on-blue");
-    el.querySelector(".deg").textContent="";
+    el.querySelector(".deg2").textContent = hit?hit.deg:"";
+    el.querySelector(".lbl").innerHTML = hit ? "" : (isBlack(+m)?"":LAT[pc]);
+    if(hit) el.classList.add(hit.kind==="root"?"on-root":hit.kind==="blue"?"on-blue":"on-tone");
   }
 }
-function labelKeys(show){
-  for(const m in keyEls){
-    const el=keyEls[m], pc=m%12;
-    el.querySelector(".lbl").innerHTML = show ? (isBlack(m)?LAT[pc]:LAT[pc]+"<br>"+RU[pc]) : "";
-  }
+function playSeq(notes,gap,timbre){ const a=ctx(); if(!a)return;
+  const g=gap==null?.24:gap, t0=a.currentTime+.05;
+  notes.forEach((m,i)=>{ tone(m,t0+i*g,g*2.4,.19,timbre);
+    setTimeout(()=>{const el=keyEls[m]; if(el){el.classList.add("press");setTimeout(()=>el.classList.remove("press"),g*700)}},(t0-a.currentTime+i*g)*1000); });
 }
-/* подсветить набор классов ступеней: map pc -> {deg, kind} */
-function highlight(map){
-  clearHl(); curMap=map; if(typeof drawFB==="function"){fbFillPos();drawFB();}
-  for(const m in keyEls){
-    const pc=m%12, hit=map[pc]; if(!hit)continue;
-    const el=keyEls[m];
-    el.classList.add(hit.kind==="root"?"on-root":hit.kind==="blue"?"on-blue":"on-tone");
-    el.querySelector(".deg").textContent=hit.deg||"";
-  }
+function voicedMidi(){ const e=eff(), ch=CHORDS[e.key];
+  let base=60+e.root;
+  let notes=ch.iv.map((v,i)=>base+v+(i<inv?12:0)).sort((a,b)=>a-b);
+  while(Math.max(...notes)>HIGH) notes=notes.map(m=>m-12);
+  while(Math.min(...notes)<LOW)  notes=notes.map(m=>m+12);
+  return notes.filter(m=>m>=LOW&&m<=HIGH);
 }
-function playSeq(notes,gap,dur){
-  const a=ctx(); if(!a)return;
-  const g=gap==null?.26:gap, t0=a.currentTime+.05;
-  notes.forEach((m,i)=>{
-    tone(m,t0+i*g,dur==null?g*2.2:dur,.20);
-    setTimeout(()=>{const el=keyEls[m];if(el){el.classList.add("press");setTimeout(()=>el.classList.remove("press"),g*700)}},(t0-a.currentTime+i*g)*1000);
+function scaleMidi(){ const e=eff(), sc=SCALES[e.key];
+  let base=60+e.root; if(base+12>HIGH)base-=12;
+  const up=sc.s.map(v=>base+v).concat([base+12]);
+  return up.concat(up.slice(0,-1).reverse());
+}
+function arpMidi(){ const e=eff(), ch=CHORDS[e.key];
+  let base=48+e.root; const out=[];
+  for(let o=0;o<3;o++) ch.iv.forEach(v=>{const m=base+v+o*12; if(m<=HIGH)out.push(m)});
+  return [...new Set(out)].sort((a,b)=>a-b);
+}
+</script>
+
+<script>
+/* ===================== гриф ===================== */
+const FRETS=15, PADL=62, FW=50, GAP=26, PADT=24, PADB=26;
+const fbEl=document.getElementById("fb"), fbPosSel=document.getElementById("fbPos");
+const lowHigh=()=>TUNINGS[fbTun].s.slice().reverse();      // [6-я … 1-я]
+const FBW=PADL+FRETS*FW+18, FBH=PADT+5*GAP+PADB;
+const mx=x=>fbLefty?FBW-x:x;
+const rowOf=i=>fbLefty?i:5-i;                              // индекс low→high → строка сверху
+function fx(fret){ return mx(fret===0?PADL-24:PADL+(fret-.5)*FW); }
+const fy=r=>PADT+r*GAP;
+
+/* --- формы CAGED --- */
+function chordForms(){
+  const e=eff(); if(e.kind!=="chord")return [];
+  const list=FORMS[e.key]; if(!list)return [];
+  const open=lowHigh(), want=[...new Set(CHORDS[e.key].iv.map(v=>(e.root+v)%12))].sort((a,b)=>a-b).join(",");
+  const out=[];
+  list.forEach(([label,anchor,off])=>{
+    const base=((e.root-open[anchor])%12+12)%12;
+    [base,base+12].forEach(rf=>{
+      const dots=[], pcs=new Set(); let ok=true, lowM=1e9, lowPc=-1;
+      for(let i=0;i<6;i++){ const o=off[i]; if(o===null||o===undefined)continue;
+        const fr=rf+o; if(fr<0||fr>FRETS){ok=false;break}
+        const m=open[i]+fr, pc=pcOf(m); dots.push({i,fr,m,pc}); pcs.add(pc);
+        if(m<lowM){lowM=m;lowPc=pc} }
+      if(!ok||dots.length<2)return;
+      if([...pcs].sort((a,b)=>a-b).join(",")!==want)return;
+      if(lowPc!==e.root)return;
+      const fr=dots.map(d=>d.fr), lo=Math.min(...fr);
+      // баррэ — только когда корень на опорной струне и ещё минимум одна струна лежат
+      // на самом нижнем ладу формы; иначе это растяжка, а не приём баррэ
+      const isBarre = off[anchor]===0 && off.filter(o=>o===0).length>=2 && rf===lo && rf>0;
+      out.push({type:"form",label,anchor,rootFret:rf,dots,
+        span:[lo,Math.max(...fr)],
+        muted:[0,1,2,3,4,5].filter(i=>off[i]===null||off[i]===undefined),
+        barre:isBarre?rf:null});
+    });
   });
+  return out;
 }
-
-/* ================= панель управления ================= */
-let mode="notes", root=0, scaleKey="major", chordKey="maj", inv=0, oct=60;
-
-/* ================= гитарный гриф ================= */
-const TUNINGS={
-  std   :{n:"Стандартный · E A D G B E", s:[64,59,55,50,45,40]},
-  dropd :{n:"Drop D · D A D G B E",      s:[64,59,55,50,45,38]},
-  eb    :{n:"Полтона вниз · E♭",         s:[63,58,54,49,44,39]},
-  dadgad:{n:"DADGAD",                    s:[62,57,55,50,45,38]}
-};
-const FRETS=15, FB_PADL=62, FB_FW=50, FB_GAP=26, FB_PADT=24, FB_PADB=26, FB_WIN=4;
-let fbTun="std", fbPos=-1, fbNames=false, curMap={};
-const fbEl=document.getElementById("fb");
-
-function fbAnchors(){
-  const t=TUNINGS[fbTun].s, out=new Set();
-  [t[5],t[4]].forEach(open=>{for(let f=0;f<=12;f++) if(((open+f)%12)===root) out.add(f);});
-  return [...out].sort((a,b)=>a-b);
+/* --- рассчитанные войсинги на наборах соседних струн --- */
+function voicings(){
+  const e=eff(); if(e.kind!=="chord")return [];
+  const ch=CHORDS[e.key], uniq=[...new Set(ch.iv.map(v=>v%12))];
+  if(uniq.length<3)return [];
+  const variants=[[uniq,""]];
+  if(uniq.length>=5){ const nf=uniq.filter(v=>v!==7); if(nf.length>=3) variants.push([nf," · без квинты"]); }
+  const out=[];
+  variants.forEach(([set,suffix])=>out.push(...voicingsFor(set,suffix)));
+  return out.sort((a,b)=>a.span[0]-b.span[0]);
+}
+function voicingsFor(uniq,suffix){
+  const e=eff();
+  const n=uniq.length; if(n<3||n>5)return [];
+  const k=Math.min(inv,n-1);
+  const ord=uniq.slice(k).concat(uniq.slice(0,k)).map(v=>(e.root+v)%12);
+  const open=lowHigh(), out=[], seen=new Set();
+  for(let s=0;s+n<=6;s++){
+    let base=0, found=0;
+    while(base<=FRETS&&found<2){
+      const dots=[]; let prev=-1, ok=true, mn=99, mx2=-1;
+      for(let j=0;j<n;j++){
+        const si=s+j, op=open[si]; let f=-1;
+        for(let t=base;t<=FRETS;t++){ const m=op+t; if(pcOf(m)===ord[j]&&m>prev){f=t;break} }
+        if(f<0){ok=false;break}
+        const m=op+f; dots.push({i:si,fr:f,m,pc:ord[j]}); prev=m;
+        if(f<mn)mn=f; if(f>mx2)mx2=f;
+      }
+      if(!ok){base++;continue}
+      if(mx2-mn>4){base=mn+1;continue}
+      const sig=dots.map(d=>d.i+":"+d.fr).join(",");
+      if(!seen.has(sig)){ seen.add(sig); found++;
+        out.push({type:"voicing",dots,span:[mn,mx2],set:[s,s+n-1],suffix,
+          muted:[0,1,2,3,4,5].filter(i=>i<s||i>s+n-1), inv:k}); }
+      base=mn+1;
+    }
+  }
+  return out;
+}
+/* --- боксы гаммы --- */
+function scaleBoxes(){
+  const e=eff(); if(e.kind!=="scale"||e.key==="chromatic")return [];
+  const sc=SCALES[e.key], low=lowHigh()[0], pcs=sc.s.map(v=>(e.root+v)%12);
+  const W=sc.s.length<=6?3:4, a=[];
+  for(let f=0;f<=12;f++) if(pcs.includes(pcOf(low+f))) a.push(f);
+  if(!a.length)return [];
+  const ri=a.findIndex(f=>pcOf(low+f)===e.root), N=sc.s.length;
+  return a.map((f,i)=>({type:"box",from:f,to:Math.min(f+W,FRETS),
+    num: ri<0?(i%N)+1:((i-ri)%N+N)%N+1}));
+}
+function fbItems(){ const e=eff();
+  if(e.kind==="chord"){
+    const all=chordForms().concat(voicings());
+    return all.sort((a,b)=> a.span[0]-b.span[0]
+      || (a.span[1]-a.span[0])-(b.span[1]-b.span[0])
+      || (a.type==="form"?-1:1) - (b.type==="form"?-1:1)
+      || b.dots.length-a.dots.length);
+  }
+  if(e.kind==="scale") return scaleBoxes();
+  return [];
+}
+function frets(a,b){ return a===b ? `${a} лад` : `лады ${a}–${b}` }
+function itemLabel(p){
+  if(p.type==="form"){
+    const nm=/^[A-G]/.test(p.label)?p.label+"-форма":"корень на "+p.label;
+    return `${frets(p.span[0],p.span[1])} · ${nm}${p.barre!=null?", баррэ":p.span[0]===0?", открытая":""}`;
+  }
+  if(p.type==="voicing"){
+    const iv=p.inv===0?"":` · ${p.inv}-е обр.`;
+    return `${frets(p.span[0],p.span[1])} · струны ${6-p.set[0]}–${6-p.set[1]}${iv}${p.suffix||""}`;
+  }
+  return `${frets(p.from,p.to)} · бокс ${p.num}`;
 }
 function fbFillPos(){
-  const sel=document.getElementById("fbPos"), anchors=fbAnchors();
-  if(!anchors.includes(fbPos)) fbPos=-1;
-  sel.innerHTML='<option value="-1">весь гриф</option>'+
-    anchors.map(f=>`<option value="${f}"${f===fbPos?" selected":""}>лады ${f}–${Math.min(f+FB_WIN,FRETS)}</option>`).join("");
+  const items=fbItems(), e=eff();
+  let opts='<option value="all">весь гриф</option>';
+  items.forEach((p,i)=>{opts+=`<option value="i${i}">${itemLabel(p)}</option>`});
+  fbPosSel.setAttribute("aria-label", e.kind==="chord"?"Аппликатура":"Позиция");
+  const sig=[mode,e.kind,e.root,e.key,inv,fbTun].join("|");
+  if(items.length){
+    if(sig!==fbSig && fbSel!=="all")
+      fbSel="i"+(e.kind==="scale"?Math.max(0,items.findIndex(b=>b.num===1)):0);
+    else if(fbSel!=="all" && !items[+fbSel.slice(1)]) fbSel="i0";
+  }
+  fbSig=sig;
+  fbPosSel.innerHTML=opts;
+  fbPosSel.value=items.length?fbSel:"all";
+  fbPosSel.disabled=!items.length;
 }
-function fbX(fret){ return fret===0 ? FB_PADL-24 : FB_PADL+(fret-.5)*FB_FW; }
-function fbY(i){ return FB_PADT+i*FB_GAP; }
-
 function drawFB(){
-  const T=TUNINGS[fbTun].s;
-  const W=FB_PADL+FRETS*FB_FW+18, H=FB_PADT+5*FB_GAP+FB_PADB;
-  const empty=!Object.keys(curMap).length;
-  let o=`<rect class="board" x="${FB_PADL}" y="${FB_PADT-11}" width="${FRETS*FB_FW}" height="${5*FB_GAP+22}" rx="2"/>`;
-  [3,5,7,9,15].forEach(f=>{o+=`<circle class="inlay" cx="${FB_PADL+(f-.5)*FB_FW}" cy="${fbY(2.5)}" r="5"/>`});
-  o+=`<circle class="inlay" cx="${FB_PADL+11.5*FB_FW}" cy="${fbY(1.5)}" r="5"/><circle class="inlay" cx="${FB_PADL+11.5*FB_FW}" cy="${fbY(3.5)}" r="5"/>`;
-  for(let f=1;f<=FRETS;f++) o+=`<line class="fret" x1="${FB_PADL+f*FB_FW}" y1="${FB_PADT-11}" x2="${FB_PADL+f*FB_FW}" y2="${FB_PADT+5*FB_GAP+11}"/>`;
-  o+=`<line class="nut" x1="${FB_PADL}" y1="${FB_PADT-11}" x2="${FB_PADL}" y2="${FB_PADT+5*FB_GAP+11}"/>`;
-  T.forEach((open,i)=>{
-    o+=`<line class="str" x1="${FB_PADL}" y1="${fbY(i)}" x2="${FB_PADL+FRETS*FB_FW}" y2="${fbY(i)}" stroke-width="${(0.8+i*0.28).toFixed(2)}"/>`;
-    o+=`<text class="sname" x="4" y="${fbY(i)+3.5}">${LAT[open%12]}</text>`;
-  });
-  [0,3,5,7,9,12,15].forEach(f=>{
-    o+=`<text class="fnum" x="${f===0?FB_PADL-24:FB_PADL+(f-.5)*FB_FW}" y="${H-8}" text-anchor="middle">${f}</text>`;
-  });
-  T.forEach((open,i)=>{
-    for(let f=0;f<=FRETS;f++){
-      const midi=open+f, pc=midi%12, hit=curMap[pc];
-      if(!empty && !hit) continue;
-      const kind = hit ? (hit.kind==="root"?"root":hit.kind==="blue"?"blue":"tone") : "off";
-      const dim = fbPos>=0 && (f<fbPos || f>fbPos+FB_WIN);
-      const txt = (fbNames||!hit) ? LAT[pc] : (hit.deg||LAT[pc]);
-      o+=`<g class="cell${dim?" dim":""}" data-midi="${midi}"><circle class="dot ${kind}" cx="${fbX(f)}" cy="${fbY(i)}" r="${hit?10.5:8}"/>`+
-         `<text class="lb ${kind}" x="${fbX(f)}" y="${fbY(i)+3.2}">${txt}</text></g>`;
-    }
-  });
-  fbEl.setAttribute("viewBox",`0 0 ${W} ${H}`);
-  fbEl.setAttribute("width",W); fbEl.setAttribute("height",H);
+  const e=eff(), open=lowHigh(), map=pcMap();
+  const items=fbItems(), pick=(fbSel&&fbSel!=="all")?items[+fbSel.slice(1)]:null;
+  const shape=(pick&&pick.type!=="box")?pick:null, box=(pick&&pick.type==="box")?pick:null;
+  let o=`<rect class="board" x="${mx(PADL+FRETS*FW)<mx(PADL)?mx(PADL+FRETS*FW):mx(PADL)}" y="${PADT-11}" width="${FRETS*FW}" height="${5*GAP+22}" rx="2"/>`;
+  [3,5,7,9,15].forEach(f=>{o+=`<circle class="inlay" cx="${mx(PADL+(f-.5)*FW)}" cy="${fy(2.5)}" r="5"/>`});
+  o+=`<circle class="inlay" cx="${mx(PADL+11.5*FW)}" cy="${fy(1.5)}" r="5"/><circle class="inlay" cx="${mx(PADL+11.5*FW)}" cy="${fy(3.5)}" r="5"/>`;
+  for(let f=1;f<=FRETS;f++){const x=mx(PADL+f*FW);o+=`<line class="fret" x1="${x}" y1="${PADT-11}" x2="${x}" y2="${PADT+5*GAP+11}"/>`}
+  const nx=mx(PADL); o+=`<line class="nut" x1="${nx}" y1="${PADT-11}" x2="${nx}" y2="${PADT+5*GAP+11}"/>`;
+  open.forEach((op,i)=>{ const r=rowOf(i), x1=mx(PADL), x2=mx(PADL+FRETS*FW);
+    o+=`<line class="str" x1="${x1}" y1="${fy(r)}" x2="${x2}" y2="${fy(r)}" stroke-width="${(0.8+(5-r)*0.28).toFixed(2)}"/>`;
+    o+=`<text class="sname" x="${fbLefty?FBW-16:4}" y="${fy(r)+3.5}">${LAT[pcOf(op)]}</text>`; });
+  [0,3,5,7,9,12,15].forEach(f=>{o+=`<text class="fnum" x="${fx(f)}" y="${FBH-8}" text-anchor="middle">${f}</text>`});
+
+  if(shape){
+    if(shape.barre!=null){ const us=shape.dots.map(d=>rowOf(d.i)), r1=Math.min(...us), r2=Math.max(...us);
+      o+=`<rect class="barre" x="${fx(shape.barre)-9}" y="${fy(r1)-9}" width="18" height="${(r2-r1)*GAP+18}" rx="9"/>`; }
+    shape.muted.forEach(i=>{o+=`<text class="muted" x="${mx(PADL-24)}" y="${fy(rowOf(i))+4}" text-anchor="middle">×</text>`});
+    shape.dots.forEach(d=>{ const hit=map[d.pc]||{deg:"",kind:"tone"};
+      const txt=fbNames?PREF[d.pc]:hit.deg;
+      const kind=d.pc===e.root?"root":"tone";
+      o+=`<g class="cell" data-midi="${d.m}"><circle class="dot ${kind}" cx="${fx(d.fr)}" cy="${fy(rowOf(d.i))}" r="11"/>`+
+         `<text class="lb ${kind}" x="${fx(d.fr)}" y="${fy(rowOf(d.i))+3.2}">${txt}</text></g>`; });
+  }else{
+    const empty=!Object.keys(map).length;
+    open.forEach((op,i)=>{ for(let f=0;f<=FRETS;f++){
+      const m=op+f, pc=pcOf(m), hit=map[pc];
+      if(!empty&&!hit)continue;
+      const kind=hit?(hit.kind==="root"?"root":hit.kind==="blue"?"blue":"tone"):"off";
+      const dim=box&&(f<box.from||f>box.to);
+      const txt=(fbNames||!hit)?PREF[pc]:hit.deg;
+      o+=`<g class="cell${dim?" dim":""}" data-midi="${m}"><circle class="dot ${kind}" cx="${fx(f)}" cy="${fy(rowOf(i))}" r="${hit?10.5:8}"/>`+
+         `<text class="lb ${kind}" x="${fx(f)}" y="${fy(rowOf(i))+3.2}">${txt}</text></g>`; } });
+  }
+  fbEl.setAttribute("viewBox",`0 0 ${FBW} ${FBH}`); fbEl.setAttribute("width",FBW); fbEl.setAttribute("height",FBH);
   fbEl.innerHTML=o;
 
+  document.getElementById("fbEyebrow").textContent =
+    e.kind==="chord"?"Гитарный гриф — тот же аккорд":e.kind==="arp"?"Гитарный гриф — арпеджио":"Гитарный гриф — та же гамма";
+  document.getElementById("fbPlay").hidden=!shape;
   const lg=document.getElementById("fbLegend");
-  if(empty){
-    lg.innerHTML="Выбери вкладку <b>Гаммы</b> или <b>Аккорды</b> — гриф и клавиатура подсветятся одновременно. Нажми на точку: нота прозвучит и подсветится на клавишах.";
+  if(shape&&shape.type==="form"){
+    const nm=/^[A-G]/.test(shape.label)?shape.label+"-форма":"форма с корнем на "+shape.label;
+    lg.innerHTML=`<b>${title()} — ${nm}</b>, ${frets(shape.span[0],shape.span[1])}, корень на ${6-shape.anchor}-й струне. × — струна не звучит. `+
+      `Цифры на точках — ступени, те же, что на клавишах.`;
+  }else if(shape){
+    lg.innerHTML=`<b>Войсинг на струнах ${6-shape.set[0]}–${6-shape.set[1]}</b>, ${frets(shape.span[0],shape.span[1])}, `+
+      `${shape.inv===0?"основной вид":shape.inv+"-е обращение"} — в басу ${PREF[shape.dots[0].pc]}. `+
+      `Это не заученная форма, а расчёт: ноты аккорда разложены по соседним струнам в пределах четырёх ладов${shape.suffix?", квинта выброшена — на гитаре её почти всегда опускают":""}.`;
+  }else if(box){
+    lg.innerHTML=`<b>Бокс ${box.num}</b>, ${frets(box.from,box.to)}. Боксы отсчитываются от ступеней гаммы на 6-й струне: `+
+      `бокс 1 начинается с тоники. Остальной гриф приглушён.`;
+  }else if(e.kind==="arp"){
+    lg.innerHTML=`Все ноты аккорда по всему грифу — это и есть арпеджио. Ищи соседние ступени на разных струнах, а не беги по одной.`;
+  }else if(e.kind==="chord"){
+    lg.innerHTML=`Все места, где лежат ноты аккорда. Выбери аппликатуру в списке — останется одна.`;
   }else{
-    const anchors=fbAnchors();
-    lg.innerHTML = fbPos>=0
-      ? `Окно <b>лады ${fbPos}–${Math.min(fbPos+FB_WIN,FRETS)}</b> — пять ладов вокруг тоники на 6-й или 5-й струне. Это не канонический CAGED-бокс, а честное окно: в нём лежат все ноты гаммы, доступные без смены позиции.`
-      : `Тоника встречается на 6-й и 5-й струнах на ладах ${anchors.join(", ")} — отсюда и позиции в списке. Цифра на точке — ступень (расстояние от тоники в полутонах), ровно как на клавишах.`;
+    lg.innerHTML=`Весь гриф. Выбери бокс в списке, чтобы остаться в одной позиции.`;
   }
 }
-function flashPiano(midi){
-  let m=midi; while(m<LOW)m+=12; while(m>HIGH)m-=12;
-  const el=keyEls[m]; if(el){el.classList.add("press");setTimeout(()=>el.classList.remove("press"),200);}
-}
-fbEl.addEventListener("pointerdown",e=>{
-  const g=e.target.closest(".cell"); if(!g)return;
-  e.preventDefault();
-  const midi=+g.dataset.midi;
-  tone(midi,null,1.1,.17);
-  g.classList.add("flash"); setTimeout(()=>g.classList.remove("flash"),180);
-  flashPiano(midi);
-});
-(function fbInit(){
-  const ts=document.getElementById("fbTun");
-  ts.innerHTML=Object.entries(TUNINGS).map(([k,v])=>`<option value="${k}">${v.n}</option>`).join("");
-  ts.onchange=e=>{fbTun=e.target.value;fbFillPos();drawFB()};
-  document.getElementById("fbPos").onchange=e=>{fbPos=+e.target.value;drawFB()};
-  document.getElementById("fbNames").onchange=e=>{fbNames=e.target.checked;drawFB()};
-  const hide=document.getElementById("fbHide"), scroll=document.getElementById("fbScroll"), lg=document.getElementById("fbLegend");
-  let shown=true;
-  try{ if(localStorage.getItem("triOktavy.fb")==="0") shown=false; }catch(e){}
-  const apply=()=>{scroll.hidden=!shown;lg.hidden=!shown;hide.textContent=shown?"Скрыть":"Показать"};
-  hide.onclick=()=>{shown=!shown;apply();try{localStorage.setItem("triOktavy.fb",shown?"1":"0")}catch(e){}};
-  apply(); fbFillPos(); drawFB();
-})();
-
-const ctrls=document.getElementById("ctrls"), readout=document.getElementById("readout");
-const noteOpts=()=>LAT.map((n,i)=>`<option value="${i}"${i===root?" selected":""}>${n} · ${RU[i]}</option>`).join("");
-
-function render(){
-  if(mode==="notes"){
-    ctrls.innerHTML=`<div class="field"><label>Подписи</label><select id="lblSel"><option value="1">показывать</option><option value="0">скрыть</option></select></div>
-      <button class="act ghost" id="playChrom">Хроматика от средней до</button>`;
-    labelKeys(true); clearHl(); curMap={}; drawFB();
-    document.getElementById("lblSel").onchange=e=>labelKeys(e.target.value==="1");
-    document.getElementById("playChrom").onclick=()=>playSeq(Array.from({length:13},(_,i)=>60+i),.17);
-    readout.innerHTML=`<p class="hint"><b>Ориентиры.</b> «До» — белая клавиша слева от группы из <b>двух</b> чёрных. «Фа» — слева от группы из <b>трёх</b>. Больше на клавиатуре запоминать нечего: остальное отсчитывается от них.</p>
-      <p class="hint">Оранжевая точка — средняя до (C4). На твоём PSS-F30 это вторая «до» слева; в мануале Yamaha она подписана как C3.</p>`;
-    return;
-  }
-  if(mode==="scale"){
-    ctrls.innerHTML=`<div class="field"><label>Тоника</label><select id="rootSel">${noteOpts()}</select></div>
-      <div class="field"><label>Гамма</label><select id="scaleSel">${Object.entries(SCALES).map(([k,v])=>`<option value="${k}"${k===scaleKey?" selected":""}>${v.n}</option>`).join("")}</select></div>
-      <button class="act" id="playScale">Сыграть вверх-вниз</button>`;
-    labelKeys(false);
-    const sc=SCALES[scaleKey], map={};
-    sc.s.forEach((iv,i)=>{
-      const pc=(root+iv)%12;
-      map[pc]={deg:sc.d[i]||"",kind: iv===0?"root":(sc.blue&&sc.blue.includes(iv)?"blue":"tone")};
-    });
-    highlight(map);
-    const f=FING[root+"_"+scaleKey];
-    readout.innerHTML=`
-      <div class="formula">
-        <span class="pill hi">${LAT[root]} · ${RU[root]}</span>
-        ${sc.s.map((iv,i)=>`<span class="pill">${sc.d[i]||"·"} ${LAT[(root+iv)%12]}</span>`).join("")}
-      </div>
-      <p class="hint">${sc.note}. Шаги в полутонах: <span class="mono">${sc.s.map((v,i)=>(i? v-sc.s[i-1]:null)).filter(x=>x!==null).concat([12-sc.s[sc.s.length-1]]).join(" ")}</span></p>
-      ${f?`<div class="fingering"><span class="who">Правая</span><span class="nums">${f.rh}</span><span class="who">Левая</span><span class="nums">${f.lh}</span></div>`
-         :`<p class="hint"><b>Аппликатуры для этой гаммы здесь нет — и это намеренно.</b> Выводи её правилом: большой палец никогда не встаёт на чёрную клавишу, а 3-й и 4-й пальцы попадают на группы чёрных. Так аппликатура запомнится, а не зазубрится.</p>`}`;
-    document.getElementById("rootSel").onchange=e=>{root=+e.target.value;render()};
-    document.getElementById("scaleSel").onchange=e=>{scaleKey=e.target.value;render()};
-    document.getElementById("playScale").onclick=()=>{
-      const base=60+root>71?48+root:60+root;
-      const up=sc.s.map(iv=>base+iv).concat([base+12]);
-      playSeq(up.concat(up.slice(0,-1).reverse()),.24);
-    };
-    return;
-  }
-  if(mode==="chord"){
-    ctrls.innerHTML=`<div class="field"><label>Тоника</label><select id="rootSel">${noteOpts()}</select></div>
-      <div class="field"><label>Аккорд</label><select id="chSel">${Object.entries(CHORDS).map(([k,v])=>`<option value="${k}"${k===chordKey?" selected":""}>${v.n}${v.sym?" — "+v.sym:""}</option>`).join("")}</select></div>
-      <div class="field"><label>Обращение</label><select id="invSel"></select></div>
-      <button class="act" id="playCh">Сыграть</button>
-      <button class="act ghost" id="playArp">Арпеджио</button>`;
-    labelKeys(false);
-    const ch=CHORDS[chordKey];
-    if(inv>=ch.iv.length)inv=0;
-    const invSel=document.getElementById("invSel");
-    invSel.innerHTML=ch.iv.map((_,i)=>`<option value="${i}"${i===inv?" selected":""}>${["основной вид","1-е обращение","2-е обращение","3-е обращение","4-е обращение"][i]}</option>`).join("");
-    const voiced=ch.iv.map((iv,i)=> (60+root+iv) + (i<inv?12:0)).sort((a,b)=>a-b);
-    const map={};
-    ch.iv.forEach(iv=>{const pc=(root+iv)%12; map[pc]={deg:iv===0?"1":String(iv),kind:iv===0?"root":"tone"};});
-    highlight(map);
-    readout.innerHTML=`
-      <div class="formula">
-        <span class="pill hi">${LAT[root]}${ch.sym}</span>
-        <span class="pill">${ch.deg}</span>
-        <span class="pill">полутоны: ${ch.iv.join(" · ")}</span>
-        <span class="pill">ноты: ${ch.iv.map(iv=>LAT[(root+iv)%12]).join(" – ")}</span>
-      </div>
-      <p class="hint">Цифра на клавише — расстояние от тоники в полутонах. Именно это число, а не форма руки, определяет аккорд. Мажор всегда 4+3, минор всегда 3+4 — в любой тональности.</p>
-      <p class="hint">На трёх октавах и без педали <b>шелл-войсинг</b> (только 1, 3 и 7 для септаккордов) звучит чище полного аккорда: меньше грязи в нижнем регистре.</p>`;
-    document.getElementById("rootSel").onchange=e=>{root=+e.target.value;render()};
-    document.getElementById("chSel").onchange=e=>{chordKey=e.target.value;inv=0;render()};
-    invSel.onchange=e=>{inv=+e.target.value;render()};
-    document.getElementById("playCh").onclick=()=>{voiced.forEach(m=>tone(m,null,1.8,.15));voiced.forEach(m=>{const el=keyEls[m];if(el){el.classList.add("press");setTimeout(()=>el.classList.remove("press"),300)}});};
-    document.getElementById("playArp").onclick=()=>playSeq(voiced.concat([voiced[0]+12]),.20);
-    return;
-  }
-  if(mode==="interval"){
-    ctrls.innerHTML=`<div class="field"><label>От ноты</label><select id="rootSel">${noteOpts()}</select></div>
-      <div class="field"><label>Интервал</label><select id="ivSel">${IVN.map((n,i)=>`<option value="${i}"${i===ivPick?" selected":""}>${i} — ${n}</option>`).join("")}</select></div>
-      <button class="act" id="playIv">Сыграть по очереди</button>
-      <button class="act ghost" id="playIvT">Сыграть вместе</button>`;
-    labelKeys(false);
-    const base=60+root, top=base+ivPick;
-    const map={}; map[base%12]={deg:"1",kind:"root"}; map[top%12]={deg:String(ivPick),kind:ivPick===6?"blue":"tone"};
-    highlight(map);
-    readout.innerHTML=`<div class="formula">
-        <span class="pill hi">${LAT[root]} → ${LAT[top%12]}</span>
-        <span class="pill">${ivPick} полутон${ivPick%10===1&&ivPick!==11?"":"ов"}</span>
-        <span class="pill">${IVN[ivPick]}</span>
-        <span class="pill">на гитаре: ${ivPick} лад${ivPick%10===1&&ivPick!==11?"":"ов"} по струне</span>
-      </div>
-      <p class="hint">Считай <b>все</b> клавиши, включая чёрные. Это единственная арифметика, которая нужна, чтобы строить любую гамму и любой аккорд без справочника.</p>`;
-    document.getElementById("rootSel").onchange=e=>{root=+e.target.value;render()};
-    document.getElementById("ivSel").onchange=e=>{ivPick=+e.target.value;render()};
-    document.getElementById("playIv").onclick=()=>playSeq([base,top],.42);
-    document.getElementById("playIvT").onclick=()=>{tone(base,null,1.8,.16);tone(top,null,1.8,.16);};
-  }
-}
-const IVN=["прима","малая секунда","большая секунда","малая терция","большая терция","чистая кварта","тритон","чистая квинта","малая секста","большая секста","малая септима","большая септима","октава"];
-let ivPick=7;
-document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{
-  document.querySelectorAll(".tab").forEach(x=>x.setAttribute("aria-selected","false"));
-  b.setAttribute("aria-selected","true"); mode=b.dataset.mode; render();
-});
-render();
-
-/* ================= планировщик (метроном + блюз) ================= */
-function makeScheduler(onBeat){
-  let timer=null,next=0,beat=0,spb=.5;
-  return {
-    start(bpm){
-      const a=ctx(); if(!a)return;
-      spb=60/bpm; beat=0; next=a.currentTime+.08;
-      timer=setInterval(()=>{
-        const a2=ctx(); if(!a2)return;
-        while(next < a2.currentTime+.15){ onBeat(beat,next); beat++; next+=spb; }
-      },25);
-    },
-    stop(){clearInterval(timer);timer=null},
-    running(){return !!timer}
-  };
-}
-
-/* метроном */
-const mDots=document.getElementById("mDots"), mBtn=document.getElementById("mBtn");
-let mSigN=4;
-function drawDots(){mDots.innerHTML=Array.from({length:mSigN},()=>"<i></i>").join("")}
-drawDots();
-const metro=makeScheduler((b,t)=>{
-  const pos=b%mSigN; click(t,pos===0);
-  const delay=Math.max(0,(t-(ac?ac.currentTime:0))*1000);
-  setTimeout(()=>{const dots=mDots.children;for(let i=0;i<dots.length;i++)dots[i].classList.toggle("hit",i===pos)},delay);
-});
-document.getElementById("mSig").onchange=e=>{mSigN=+e.target.value;drawDots()};
-mBtn.onclick=()=>{
-  if(metro.running()){metro.stop();mBtn.textContent="Пуск";[...mDots.children].forEach(d=>d.classList.remove("hit"));}
-  else{metro.start(+document.getElementById("mBpm").value||72);mBtn.textContent="Стоп";}
-};
-
-/* блюз */
-const BLUES=[0,0,0,0,5,5,0,0,7,5,0,7]; // полутоны от тоники: I I I I IV IV I I V IV I V
-const bKeySel=document.getElementById("bKey"), bBars=document.getElementById("bBars"), bBtn=document.getElementById("bBtn");
-bKeySel.innerHTML=LAT.map((n,i)=>`<option value="${i}"${i===0?" selected":""}>${n}7 · ${RU[i]}</option>`).join("");
-function drawBars(cur){
-  bBars.innerHTML=BLUES.map((iv,i)=>{
-    const pc=(+bKeySel.value+iv)%12;
-    return `<span class="bar${i===cur?" now":""}">${LAT[pc]}7</span>`;
-  }).join("");
-}
-drawBars(-1);
-bKeySel.onchange=()=>drawBars(-1);
-const blues=makeScheduler((b,t)=>{
-  const bar=Math.floor(b/4)%12, beat=b%4;
-  const rootPc=(+bKeySel.value+BLUES[bar])%12;
-  let bassRoot=36+rootPc; if(bassRoot<36)bassRoot+=12;
-  // шафл-бас 1 3 5 6
-  const walk=[0,4,7,9][beat];
-  tone(bassRoot+walk,t,.42,.18,"bass");
-  if(beat===0||beat===2){
-    const sh=[0,4,10].map(iv=>60+rootPc+iv);
-    sh.forEach(m=>tone(m,t+(beat===2?.16:0),.55,.075));
-  }
-  const delay=Math.max(0,(t-(ac?ac.currentTime:0))*1000);
-  if(beat===0)setTimeout(()=>drawBars(bar),delay);
-});
-bBtn.onclick=()=>{
-  if(blues.running()){blues.stop();bBtn.textContent="Играть";drawBars(-1);}
-  else{blues.start(+document.getElementById("bBpm").value||88);bBtn.textContent="Стоп";}
-};
-
-/* слух */
-const EAR=[1,2,3,4,5,6,7,8,9,10,12];
-let earIv=null, earBase=60, earOk=0, earAll=0;
-const eOpts=document.getElementById("eOpts"), eScore=document.getElementById("eScore");
-function newEar(){
-  earIv=EAR[Math.floor(Math.random()*EAR.length)];
-  earBase=57+Math.floor(Math.random()*8);
-  eOpts.innerHTML=EAR.map(i=>`<button data-iv="${i}">${IVN[i]}</button>`).join("");
-  playSeq([earBase,earBase+earIv],.5);
-}
-eOpts.addEventListener("click",e=>{
-  const b=e.target.closest("button[data-iv]"); if(!b||earIv===null)return;
-  const guess=+b.dataset.iv;
-  if(eOpts.dataset.answered==="1")return;
-  eOpts.dataset.answered="1"; earAll++;
-  if(guess===earIv){b.classList.add("ok");earOk++;}
-  else{b.classList.add("no");[...eOpts.children].find(x=>+x.dataset.iv===earIv).classList.add("ok");}
-  eScore.textContent=earOk+" / "+earAll;
-});
-document.getElementById("eNew").onclick=()=>{eOpts.dataset.answered="0";newEar()};
-document.getElementById("eRep").onclick=()=>{if(earIv!==null)playSeq([earBase,earBase+earIv],.5)};
-eOpts.innerHTML=EAR.map(i=>`<button data-iv="${i}" disabled style="opacity:.45">${IVN[i]}</button>`).join("");
-
-/* ================= квинтовый круг ================= */
-(function cof(){
-  const svg=document.getElementById("cofSvg"), cx=160, cy=160, R=140, r1=98, r2=58;
-  let out="";
-  const pt=(a,r)=>[cx+r*Math.sin(a),cy-r*Math.cos(a)];
-  COF.forEach((t,i)=>{
-    const a0=(i-0.5)*Math.PI/6, a1=(i+0.5)*Math.PI/6, am=i*Math.PI/6;
-    const [x0,y0]=pt(a0,R),[x1,y1]=pt(a1,R),[x2,y2]=pt(a1,r2),[x3,y3]=pt(a0,r2);
-    const [mx,my]=pt(am,(R+r1)/2), [nx,ny]=pt(am,(r1+r2)/2), [sx,sy]=pt(am,R-12);
-    out+=`<g class="seg" data-pc="${t.pc}">
-      <path class="segbg" d="M${x0.toFixed(1)},${y0.toFixed(1)} A${R},${R} 0 0,1 ${x1.toFixed(1)},${y1.toFixed(1)} L${x2.toFixed(1)},${y2.toFixed(1)} A${r2},${r2} 0 0,0 ${x3.toFixed(1)},${y3.toFixed(1)} Z" fill="var(--surface)" stroke="var(--line)" stroke-width="1"/>
-      <text class="maj" x="${mx.toFixed(1)}" y="${(my+3).toFixed(1)}" text-anchor="middle">${t.maj}</text>
-      <text class="min" x="${nx.toFixed(1)}" y="${(ny+3).toFixed(1)}" text-anchor="middle">${t.min}</text>
-      <text class="sig" x="${sx.toFixed(1)}" y="${(sy+3).toFixed(1)}" text-anchor="middle">${t.sig}</text>
-    </g>`;
-  });
-  out+=`<circle cx="${cx}" cy="${cy}" r="${r1}" fill="none" stroke="var(--line)" stroke-width="1"/>`;
-  out+=`<text x="${cx}" y="${cy-4}" text-anchor="middle" class="min" style="font-size:9px">мажор снаружи</text>`;
-  out+=`<text x="${cx}" y="${cy+9}" text-anchor="middle" class="min" style="font-size:9px">минор внутри</text>`;
-  svg.innerHTML=out;
-  svg.addEventListener("click",e=>{
-    const g=e.target.closest(".seg"); if(!g)return;
-    root=+g.dataset.pc;
-    if(mode!=="scale"){mode="scale";document.querySelectorAll(".tab").forEach(x=>x.setAttribute("aria-selected",x.dataset.mode==="scale"?"true":"false"));}
-    render();
-    document.getElementById("trainer").scrollIntoView({behavior:"smooth",block:"start"});
-  });
-})();
-
-/* ================= справочные таблицы ================= */
-(function refTables(){
-  const ct=document.getElementById("chordRef");
-  Object.values(CHORDS).forEach(c=>{
-    const tr=document.createElement("tr");
-    tr.innerHTML=`<td class="mono">C${c.sym}</td><td>${c.n}</td><td class="mono">${c.deg}</td><td class="mono">${c.iv.join(" · ")}</td><td class="mono">${c.iv.map(iv=>LAT[iv%12]).join(" – ")}</td>`;
-    ct.appendChild(tr);
-  });
-  const ft=document.getElementById("fingRef");
-  Object.values(FING).forEach(f=>{
-    const tr=document.createElement("tr");
-    tr.innerHTML=`<td>${f.label}</td><td class="mono">${f.rh}</td><td class="mono">${f.lh}</td>`;
-    ft.appendChild(tr);
-  });
-})();
-/* ================= тема ================= */
-(function themeToggle(){
-  const b=document.getElementById("themeBtn"); if(!b)return;
-  const LS="triOktavy.theme";
-  let cur=null; try{cur=localStorage.getItem(LS)}catch(e){}
-  const apply=v=>{
-    if(v) document.documentElement.setAttribute("data-theme",v);
-    else  document.documentElement.removeAttribute("data-theme");
-    b.textContent = v==="dark" ? "Тёмная" : v==="light" ? "Светлая" : "Как в системе";
-  };
-  apply(cur);
-  b.onclick=()=>{
-    cur = cur==="light" ? "dark" : cur==="dark" ? null : "light";
-    try{ cur ? localStorage.setItem(LS,cur) : localStorage.removeItem(LS) }catch(e){}
-    apply(cur);
-  };
-})();
+function flashPiano(midi){ let m=midi; while(m<LOW)m+=12; while(m>HIGH)m-=12;
+  const el=keyEls[m]; if(el){el.classList.add("press");setTimeout(()=>el.classList.remove("press"),200)} }
+fbEl.addEventListener("pointerdown",ev=>{ const g=ev.target.closest(".cell"); if(!g)return; ev.preventDefault();
+  const midi=+g.dataset.midi; tone(midi,null,1.4,.17,"pluck");
+  g.classList.add("flash"); setTimeout(()=>g.classList.remove("flash"),180); flashPiano(midi); });
 </script>
+
+<script>
+/* ===================== каталог ===================== */
+const catEl=document.getElementById("catalog"), readEl=document.getElementById("readout");
+let filter="";
+function groupsOf(src){ const g={}; for(const k in src){(g[src[k].g]=g[src[k].g]||[]).push(k)} return g; }
+function matches(k,src){ if(!filter)return true;
+  const o=src[k]; return (o.n+" "+(o.sh||"")+" "+(o.sym||"")+" "+k).toLowerCase().includes(filter); }
+
+function renderCatalog(){
+  if(mode==="key"){ catEl.innerHTML=keyface(); wireKeyface(); return; }
+  const src = mode==="scale"?SCALES:CHORDS, cur = mode==="scale"?scaleKey:chordKey;
+  const g=groupsOf(src);
+  const formulaOf=k=>{ const o=src[k];
+    if(mode!=="scale") return o.iv.map((v,i)=>degLabel(o.dn[i],v)).join(" ");
+    return k==="chromatic" ? "все 12 полутонов" : o.s.map((v,i)=>o.dn?degLabel(o.dn[i],v):v).join(" "); };
+  let h="";
+  for(const name in g){
+    h+=`<div class="cat-row"><span class="cat-label">${name}</span><div class="tiles">`;
+    g[name].forEach(k=>{
+      const o=src[k], on=k===cur;
+      const lab = mode==="scale" ? o.sh : (PREF[root]+o.sym||PREF[root]);
+      h+=`<button class="tile${matches(k,src)?"":" dimmed"}" data-k="${k}" aria-pressed="${on}" `+
+         `title="${o.n} · ${formulaOf(k)}">${lab}</button>`;
+    });
+    h+=`</div></div>`;
+  }
+  h+=`<div class="cat-now"><b>${src[cur].n}</b> · ${formulaOf(cur)}</div>`;
+  h+=`<div class="keyrow" style="padding-top:8px">`;
+  if(mode==="chord"){
+    const n=[...new Set(CHORDS[chordKey].iv.map(v=>v%12))].length;
+    h+=`<label class="fb-chk" for="invSel">обращение</label><select id="invSel">`+
+       Array.from({length:n},(_,i)=>`<option value="${i}"${i===inv?" selected":""}>${i===0?"основной вид":i+"-е"}</option>`).join("")+
+       `</select>`;
+  }
+  h+=`<button class="act" id="playBtn">Сыграть</button>`;
+  if(mode==="chord") h+=`<button class="act ghost" id="playArp">Арпеджио</button>`;
+  h+=`</div>`;
+  catEl.innerHTML=h;
+  catEl.querySelectorAll(".tile").forEach(b=>b.onclick=()=>{
+    if(mode==="scale")scaleKey=b.dataset.k; else {chordKey=b.dataset.k; inv=0;}
+    update();
+  });
+  const iv=document.getElementById("invSel"); if(iv) iv.onchange=e=>{inv=+e.target.value;update()};
+  document.getElementById("playBtn").onclick=playCurrent;
+  const pa=document.getElementById("playArp"); if(pa) pa.onclick=()=>playSeq(arpMidi(),.17);
+}
+function keyface(){
+  const sk=keyMinor?"natminor":"major", list=DIA[sk][keySeventh?"sev":"tri"];
+  const sigPc=keyMinor?(root+3)%12:root;
+  const sc=SCALES[sk];
+  const notes=sc.s.map((v,i)=>spell(root,sc.dn[i],v)).join(" · ");
+  let h=`<div class="keyface">
+    <div class="keyrow">
+      <button class="mode" id="kMaj" aria-selected="${!keyMinor}">мажор</button>
+      <button class="mode" id="kMin" aria-selected="${keyMinor}">минор</button>
+      <span style="width:12px"></span>
+      <button class="mode" id="kTri" aria-selected="${!keySeventh}">трезвучия</button>
+      <button class="mode" id="kSev" aria-selected="${keySeventh}">септаккорды</button>
+    </div>
+    <div class="keyrow">
+      <button class="deg" data-d="s" aria-pressed="${keyDeg===null}"><b>гамма</b><small>${keyMinor?"минор":"мажор"}</small></button>`;
+  list.forEach((d,i)=>{
+    const r=(root+d[0])%12, ch=CHORDS[d[1]];
+    h+=`<button class="deg" data-d="${i}" aria-pressed="${keyDeg===i}"><b>${PREF[r]}${ch.sym}</b><small>${d[2]}</small></button>`;
+  });
+  h+=`</div>
+    <div class="keymeta">
+      <span class="pill hi">${PREF[root]} ${keyMinor?"минор":"мажор"}</span>
+      <span class="pill">знаки: ${MAJ_SIG[sigPc]}</span>
+      <span class="pill">параллель: ${keyMinor?PREF[(root+3)%12]+" мажор":PREF[(root+9)%12]+" минор"}</span>
+      <span class="pill">${notes}</span>
+    </div>
+    <div class="keyrow"><button class="act" id="playBtn">Сыграть</button>
+      <span class="hint" style="font-size:12.5px">Семь аккордов — всё, что строится на ступенях этой тональности. Нажми любой: клавиатура и гриф покажут его, тональность останется на экране.</span></div>
+  </div>`;
+  return h;
+}
+function wireKeyface(){
+  document.getElementById("kMaj").onclick=()=>{keyMinor=false;keyDeg=null;update()};
+  document.getElementById("kMin").onclick=()=>{keyMinor=true;keyDeg=null;update()};
+  document.getElementById("kTri").onclick=()=>{keySeventh=false;update()};
+  document.getElementById("kSev").onclick=()=>{keySeventh=true;update()};
+  catEl.querySelectorAll(".deg").forEach(b=>b.onclick=()=>{
+    keyDeg = b.dataset.d==="s" ? null : +b.dataset.d; update(); });
+  document.getElementById("playBtn").onclick=playCurrent;
+}
+function playCurrent(){ const e=eff();
+  if(e.kind==="scale") playSeq(scaleMidi(),.23);
+  else if(e.kind==="arp") playSeq(arpMidi(),.17);
+  else { const v=voicedMidi(); v.forEach(m=>tone(m,null,1.9,.14));
+    v.forEach(m=>{const el=keyEls[m]; if(el){el.classList.add("press");setTimeout(()=>el.classList.remove("press"),320)}}); }
+}
+
+/* ===================== вывод ===================== */
+function renderReadout(){
+  const e=eff(), rs=rows();
+  let h=`<div class="formula"><span class="pill hi">${title()}</span>`;
+  rs.forEach(r=>{h+=`<span class="pill deg"><b>${r.deg}</b> ${r.name}</span>`});
+  h+=`</div>`;
+  if(e.kind==="scale"){
+    const sc=SCALES[e.key];
+    const steps=sc.s.map((v,i)=>i?v-sc.s[i-1]:null).filter(x=>x!==null).concat([12-sc.s[sc.s.length-1]]);
+    h+=`<p class="hint">${sc.note}. Шаги в полутонах: <span class="mono">${steps.join(" ")}</span></p>`;
+    const f=FING[e.root+"_"+e.key];
+    h+= f ? `<div class="fingering"><span class="who">Правая</span><span class="nums">${f[0]}</span><span class="who">Левая</span><span class="nums">${f[1]}</span></div>`
+          : `<p class="hint">Аппликатуры на клавишах для этой гаммы нет — и это намеренно. Выводи её правилом: большой палец не встаёт на чёрную клавишу, третий и четвёртый выстраиваются по группам чёрных.</p>`;
+  }else{
+    const ch=CHORDS[e.key];
+    h+=`<p class="hint">${ch.n}. Полутоны от тоники: <span class="mono">${ch.iv.join(" · ")}</span>. `+
+       `Именно эти числа, а не форма руки, определяют аккорд — в любой тональности и на любом инструменте.</p>`;
+    if(e.kind==="chord"&&inv>0)
+      h+=`<p class="hint">Обращение ${inv}: в басу ${rs[inv%rs.length].name}. На клавишах нижняя нота переехала наверх, на грифе список аппликатур пересчитан под этот бас.</p>`;
+    if(ch.iv.length>=5)
+      h+=`<p class="hint">На гитаре такие аккорды целиком берут редко: обычно играют 1, 3, ♭7 и верхнюю надстройку, выбрасывая квинту. В списке аппликатур ищи войсинги на четырёх струнах.</p>`;
+  }
+  readEl.innerHTML=h;
+}
+
+/* ===================== закладки ===================== */
+const pinsEl=document.getElementById("pins");
+function pinKey(p){ return [p.m,p.r,p.k,p.i||0].join("|") }
+function curPin(){ const e=eff();
+  return {m:e.kind==="arp"?"arp":(e.kind==="scale"?"scale":"chord"),r:e.root,k:e.key,i:e.kind==="chord"?inv:0} }
+function renderPins(){
+  if(!pins.length){ pinsEl.innerHTML=`<span class="lbl">закладок нет</span><span class="hint" style="font-size:12px">жми «Закрепить», чтобы собрать список того, что зубришь сейчас</span>`; return; }
+  let h=`<span class="lbl">зубрю</span>`;
+  pins.forEach((p,i)=>{
+    const nm = p.m==="scale" ? `${PREF[p.r]} ${SCALES[p.k].n.toLowerCase()}`
+             : `${PREF[p.r]}${CHORDS[p.k].sym}${p.i?" / "+p.i:""}${p.m==="arp"?" арп.":""}`;
+    h+=`<span class="pin" data-i="${i}">${nm}<x data-del="${i}">×</x></span>`;
+  });
+  pinsEl.innerHTML=h;
+  pinsEl.querySelectorAll(".pin").forEach(el=>el.onclick=ev=>{
+    const d=ev.target.closest("[data-del]");
+    if(d){ pins.splice(+d.dataset.del,1); save(); renderPins(); return; }
+    const p=pins[+el.dataset.i];
+    mode=p.m; root=p.r; inv=p.i||0; keyDeg=null;
+    if(p.m==="scale")scaleKey=p.k; else chordKey=p.k;
+    update();
+  });
+}
+document.getElementById("pinBtn").onclick=()=>{
+  const p=curPin(); if(pins.some(x=>pinKey(x)===pinKey(p)))return;
+  pins.unshift(p); if(pins.length>24)pins.pop(); save(); renderPins();
+};
+
+/* ===================== поиск ===================== */
+const qEl=document.getElementById("q"), qhit=document.getElementById("qhit");
+const NOTE_RE=/^([a-gA-G])\s*([#♯b♭]?)\s*(.*)$/;
+function parseQuery(s){
+  const t=s.trim(); if(!t)return null;
+  const m=t.match(NOTE_RE);
+  if(m){
+    const base={c:0,d:2,e:4,f:5,g:7,a:9,b:11}[m[1].toLowerCase()];
+    const acc=m[2]==="#"||m[2]==="♯"?1:(m[2]==="b"||m[2]==="♭")?-1:0;
+    const r=pcOf(base+acc), rest=m[3].replace(/\s+/g,"").toLowerCase();
+    if(!rest) return {root:r,mode:"chord",key:"maj"};
+    const alias={"m":"min","-":"min","min":"min","minor":"min","maj":"maj","major":"maj",
+      "m7":"min7","min7":"min7","-7":"min7","maj7":"maj7","M7":"maj7","Δ":"maj7","7":"dom7","dom7":"dom7",
+      "m(maj7)":"mmaj7","mmaj7":"mmaj7","dim":"dim","°":"dim","dim7":"dim7","°7":"dim7",
+      "m7b5":"m7b5","m7♭5":"m7b5","ø":"m7b5","aug":"aug","+":"aug","5":"five","6":"six","m6":"min6","6/9":"six9",
+      "sus2":"sus2","sus4":"sus4","sus":"sus4","7sus4":"sev7sus4","add9":"add9","add11":"add11",
+      "9":"nine","maj9":"maj9","m9":"min9","11":"eleven","13":"thirteen",
+      "7b9":"sevb9","7♭9":"sevb9","7#9":"sevs9","7♯9":"sevs9","7#11":"sevs11","7♯11":"sevs11",
+      "7b5":"sevb5","7♭5":"sevb5","7#5":"sevs5","7♯5":"sevs5"};
+    const k=alias[rest]||alias[m[3].replace(/\s+/g,"")];
+    if(k) return {root:r,mode:"chord",key:k};
+    const sc=Object.keys(SCALES).find(x=>SCALES[x].n.toLowerCase().includes(rest));
+    if(sc) return {root:r,mode:"scale",key:sc};
+    return {root:r,mode:null};
+  }
+  const low=t.toLowerCase();
+  const sc=Object.keys(SCALES).find(x=>SCALES[x].n.toLowerCase().includes(low));
+  if(sc) return {mode:"scale",key:sc};
+  const ch=Object.keys(CHORDS).find(x=>CHORDS[x].n.toLowerCase().includes(low));
+  if(ch) return {mode:"chord",key:ch};
+  return null;
+}
+qEl.addEventListener("input",()=>{
+  filter=qEl.value.trim().toLowerCase();
+  const p=parseQuery(qEl.value);
+  if(p){
+    if(p.root!==undefined)root=p.root;
+    if(p.mode){ mode=p.mode; keyDeg=null; if(p.mode==="scale")scaleKey=p.key; else {chordKey=p.key;} }
+    qhit.textContent="→ "+title();
+  }else qhit.textContent=qEl.value?"не нашёл":"";
+  update();
+});
+
+/* ===================== метроном ===================== */
+let mTimer=null,mNext=0,mBeat=0;
+const mDots=document.getElementById("mDots"), mBtn=document.getElementById("mBtn");
+mDots.innerHTML="<i></i><i></i><i></i><i></i>";
+mBtn.onclick=()=>{
+  if(mTimer){ clearInterval(mTimer); mTimer=null; mBtn.textContent="Пуск"; [...mDots.children].forEach(d=>d.classList.remove("hit")); return; }
+  const a=ctx(); if(!a)return;
+  const bpm=+document.getElementById("mBpm").value||72, spb=60/bpm;
+  mBeat=0; mNext=a.currentTime+.08; mBtn.textContent="Стоп";
+  mTimer=setInterval(()=>{ const a2=ctx(); if(!a2)return;
+    while(mNext<a2.currentTime+.15){ const pos=mBeat%4; click(mNext,pos===0);
+      const delay=Math.max(0,(mNext-a2.currentTime)*1000);
+      setTimeout(()=>{const d=mDots.children;for(let i=0;i<d.length;i++)d[i].classList.toggle("hit",i===pos)},delay);
+      mBeat++; mNext+=spb; } },25);
+};
+
+/* ===================== квинтовый круг ===================== */
+(function(){ const svg=document.getElementById("cofSvg"), cx=160, cy=160, R=140, r1=98, r2=58;
+  const pt=(a,r)=>[cx+r*Math.sin(a),cy-r*Math.cos(a)]; let o="";
+  COF.forEach((t,i)=>{ const a0=(i-.5)*Math.PI/6,a1=(i+.5)*Math.PI/6,am=i*Math.PI/6;
+    const [x0,y0]=pt(a0,R),[x1,y1]=pt(a1,R),[x2,y2]=pt(a1,r2),[x3,y3]=pt(a0,r2);
+    const [mx1,my1]=pt(am,(R+r1)/2),[nx,ny]=pt(am,(r1+r2)/2),[sx,sy]=pt(am,R-12);
+    o+=`<g class="seg" data-pc="${t.pc}"><path class="segbg" d="M${x0.toFixed(1)},${y0.toFixed(1)} A${R},${R} 0 0,1 ${x1.toFixed(1)},${y1.toFixed(1)} L${x2.toFixed(1)},${y2.toFixed(1)} A${r2},${r2} 0 0,0 ${x3.toFixed(1)},${y3.toFixed(1)} Z" fill="var(--surface)" stroke="var(--line)" stroke-width="1"/>
+      <text class="maj" x="${mx1.toFixed(1)}" y="${(my1+3).toFixed(1)}" text-anchor="middle">${t.maj}</text>
+      <text class="min" x="${nx.toFixed(1)}" y="${(ny+3).toFixed(1)}" text-anchor="middle">${t.min}</text>
+      <text class="sig" x="${sx.toFixed(1)}" y="${(sy+3).toFixed(1)}" text-anchor="middle">${t.sig}</text></g>`; });
+  o+=`<circle cx="${cx}" cy="${cy}" r="${r1}" fill="none" stroke="var(--line)" stroke-width="1"/>
+      <text x="${cx}" y="${cy-4}" text-anchor="middle" class="min" style="font-size:9px">мажор снаружи</text>
+      <text x="${cx}" y="${cy+9}" text-anchor="middle" class="min" style="font-size:9px">минор внутри</text>`;
+  svg.innerHTML=o;
+  svg.addEventListener("click",ev=>{ const g=ev.target.closest(".seg"); if(!g)return;
+    root=+g.dataset.pc; mode="key"; keyMinor=false; keyDeg=null; update();
+    document.querySelector(".picker").scrollIntoView({behavior:"smooth",block:"start"}); });
+})();
+
+/* ===================== справочные таблицы ===================== */
+(function(){
+  let h=`<tr><th>Обозначение</th><th>Название</th><th>Ступени</th><th>Полутоны</th><th>От До</th></tr>`;
+  for(const k in CHORDS){ const c=CHORDS[k];
+    h+=`<tr><td class="mono">C${c.sym}</td><td>${c.n}</td><td class="mono">${c.iv.map((v,i)=>degLabel(c.dn[i],v)).join(" ")}</td>`+
+       `<td class="mono">${c.iv.join(" ")}</td><td class="mono">${c.iv.map((v,i)=>spell(0,c.dn[i],v)).join(" ")}</td></tr>`; }
+  document.getElementById("chordRef").innerHTML=h;
+  let s=`<tr><th>Гамма</th><th>Ступени</th><th>Полутоны</th><th>От До</th></tr>`;
+  for(const k in SCALES){ const o=SCALES[k];
+    s+=`<tr><td>${o.n}</td><td class="mono">${o.s.map((v,i)=>o.dn?degLabel(o.dn[i],v):v).join(" ")}</td>`+
+       `<td class="mono">${o.s.join(" ")}</td><td class="mono">${o.s.map((v,i)=>o.dn?spell(0,o.dn[i],v):PREF[v]).join(" ")}</td></tr>`; }
+  document.getElementById("scaleRef").innerHTML=s;
+  let f=`<tr><th>Тональность</th><th>Правая рука</th><th>Левая рука</th></tr>`;
+  for(const k in FING){ const v=FING[k]; f+=`<tr><td>${v[2]}</td><td class="mono">${v[0]}</td><td class="mono">${v[1]}</td></tr>`; }
+  document.getElementById("fingRef").innerHTML=f;
+})();
+
+/* ===================== тема ===================== */
+(function(){ const b=document.getElementById("themeBtn"), LS="tri.theme";
+  let cur=null; try{cur=localStorage.getItem(LS)}catch(e){}
+  const apply=v=>{ if(v)document.documentElement.setAttribute("data-theme",v); else document.documentElement.removeAttribute("data-theme");
+    b.textContent=v==="dark"?"Тёмная":v==="light"?"Светлая":"Как в системе"; };
+  apply(cur);
+  b.onclick=()=>{ cur=cur==="light"?"dark":cur==="dark"?null:"light";
+    try{cur?localStorage.setItem(LS,cur):localStorage.removeItem(LS)}catch(e){} apply(cur); };
+})();
+
+/* ===================== сборка ===================== */
+const tonicsEl=document.getElementById("tonics");
+tonicsEl.innerHTML=PREF.map((n,i)=>`<button class="tonic${isBlack(i)?" blk":""}" data-pc="${i}" aria-pressed="${i===root}">${n}</button>`).join("");
+tonicsEl.onclick=ev=>{ const b=ev.target.closest(".tonic"); if(!b)return; root=+b.dataset.pc; update(); };
+document.querySelectorAll(".mode").forEach(b=>{ if(!b.dataset.m)return;
+  b.onclick=()=>{ mode=b.dataset.m; keyDeg=null; update(); }; });
+const fbTunSel=document.getElementById("fbTun");
+fbTunSel.innerHTML=Object.entries(TUNINGS).map(([k,v])=>`<option value="${k}"${k===fbTun?" selected":""}>${v.n}</option>`).join("");
+fbTunSel.onchange=e=>{fbTun=e.target.value;save();update()};
+fbPosSel.onchange=e=>{fbSel=e.target.value;drawFB()};
+const nmEl=document.getElementById("fbNames"); nmEl.checked=fbNames;
+nmEl.onchange=e=>{fbNames=e.target.checked;save();drawFB()};
+const lfEl=document.getElementById("fbLefty"); lfEl.checked=fbLefty;
+lfEl.onchange=e=>{fbLefty=e.target.checked;save();drawFB()};
+document.getElementById("fbPlay").onclick=()=>{
+  const items=fbItems(), p=(fbSel&&fbSel!=="all")?items[+fbSel.slice(1)]:null;
+  if(!p||!p.dots)return;
+  playSeqGuitar(p.dots.slice().sort((a,b)=>a.m-b.m).map(d=>d.m));
+};
+function playSeqGuitar(ms){ const a=ctx(); if(!a)return; const t0=a.currentTime+.05;
+  ms.forEach((m,i)=>tone(m,t0+i*.07,2.2,.14,"pluck")); }
+
+function update(){
+  document.querySelectorAll(".mode[data-m]").forEach(b=>b.setAttribute("aria-selected",b.dataset.m===mode));
+  tonicsEl.querySelectorAll(".tonic").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.pc===root));
+  renderCatalog(); paintKeys(); fbFillPos(); drawFB(); renderReadout();
+}
+renderPins(); update();
+</script>
+
 </body>
 </html>
